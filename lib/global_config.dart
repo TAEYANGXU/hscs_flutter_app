@@ -16,5 +16,15 @@ class GlobalConfig {
   static String appVersion = '1.0.1';
 
   /// 版本密钥
-  static String versionSecret = 'f2e1b111228af0486c3987af764bea96';
+  static String versionSecret = 'f9d39537-a9fc-4099-ac88-b2c3105cc81d';
+
+  /// 项目id
+  static String appProject = '82';
+
+  /// api 环境  true:正式  false: 测试
+  static bool  API_ENVIRONMENT = true;
+
+  /// api 地址
+  static String baseUrl = API_ENVIRONMENT ? 'https://api.jinoufe.com' : "";
+  static String baseUrl2 = API_ENVIRONMENT ? 'https://socapi.jinoufe.com' : "";
 }
