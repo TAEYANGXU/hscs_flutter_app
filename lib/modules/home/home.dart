@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/api/dio_manager.dart';
+import 'model/home_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,21 +20,17 @@ class HomePageState extends State<HomePage> {
    Future getData() async {
     var model = await DioManagerUtils.get("/v3/home/index2");
     var data = model.data;
-    return model;
+    var HomeDataModel = HomeData.fromJson(model.data!);
+    var vipH5Url =  HomeDataModel.vipH5Url;
+    print("vipH5Url = $vipH5Url");
+    // return model;
   }
 
   @override
   Widget build(BuildContext context){
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text("首页"),
-          backgroundColor: AppColors.theme,
-          centerTitle: true,
-        ),
-        body: new Center(
-          child: new Text("首页"),
-        ),
+    return Scaffold(
+      body: Center(
+        child: Text("首页"),
       ),
     );
   }

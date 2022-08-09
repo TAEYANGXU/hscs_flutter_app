@@ -27,6 +27,8 @@ class RequestInterceptor extends Interceptor {
       options.headers['DEVICETOKEN'] = await Device.getDeviceId();
       options.headers['buildCode'] = "10";
     }
+    var  headers =  options.headers;
+    print("headers = $headers");
     return super.onRequest(options, handler);
   }
 

@@ -91,6 +91,7 @@ class DioManager {
       options: requestOptions,
       cancelToken: cancelToken ?? _cancelToken,
     );
+    print("response.data = $response.data");
     return response;
   }
 
@@ -188,14 +189,6 @@ class DioManager {
   void cancelRequests({required CancelToken token}) {
     _cancelToken.cancel("cancelled");
   }
-
-// Future<BaseEntity> requestGet(String url, params) async {
-//   var response = await _dio.get(url,queryParameters: params?);
-//   var data = response.toString();
-//   final bool isCompute = data.length > 10 * 1024;
-//   final Map<String, dynamic> _map = isCompute ? await compute(parseData, data) : parseData(data);
-//   return BaseEntity.fromJson(_map);
-// }
 }
 
 class DioManagerUtils {
@@ -260,8 +253,9 @@ class DioManagerUtils {
     );
     var responseData = response.toString();
     final bool isCompute = responseData.length > 10 * 1024;
-    final Map<String, dynamic> map =
-    isCompute ? await compute(parseData, responseData) : parseData(responseData);
+    final Map<String, dynamic> map = isCompute
+        ? await compute(parseData, responseData)
+        : parseData(responseData);
     var model = BaseEntity.fromJson(map);
     return model;
   }
@@ -282,8 +276,9 @@ class DioManagerUtils {
     );
     var responseData = response.toString();
     final bool isCompute = responseData.length > 10 * 1024;
-    final Map<String, dynamic> map =
-    isCompute ? await compute(parseData, responseData) : parseData(responseData);
+    final Map<String, dynamic> map = isCompute
+        ? await compute(parseData, responseData)
+        : parseData(responseData);
     var model = BaseEntity.fromJson(map);
     return model;
   }
@@ -304,8 +299,9 @@ class DioManagerUtils {
     );
     var responseData = response.toString();
     final bool isCompute = responseData.length > 10 * 1024;
-    final Map<String, dynamic> map =
-    isCompute ? await compute(parseData, responseData) : parseData(responseData);
+    final Map<String, dynamic> map = isCompute
+        ? await compute(parseData, responseData)
+        : parseData(responseData);
     var model = BaseEntity.fromJson(map);
     return model;
   }

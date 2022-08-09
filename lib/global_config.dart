@@ -13,7 +13,7 @@ class GlobalConfig {
   static int designWidth = 375;
 
   /// APP版本
-  static String appVersion = '1.0.1';
+  static String appVersion = '2.7.0';
 
   /// 版本密钥
   static String versionSecret = 'f9d39537-a9fc-4099-ac88-b2c3105cc81d';
@@ -26,5 +26,6 @@ class GlobalConfig {
 
   /// api 地址
   static String baseUrl = API_ENVIRONMENT ? 'https://api.jinoufe.com' : "";
+
   static String baseUrl2 = API_ENVIRONMENT ? 'https://socapi.jinoufe.com' : "";
 }

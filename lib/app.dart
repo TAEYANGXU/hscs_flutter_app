@@ -4,6 +4,7 @@ import 'package:hscs_flutter_app/modules/main/main.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'global_config.dart';
 import 'package:hscs_flutter_app/api/dio_manager.dart';
+import 'routers.dart';
 
 class HSApp extends StatefulWidget {
   // const HSApp({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class HSAppState extends State<HSApp>
   @override
   void initState(){
     DioManagerUtils.init(baseUrl: GlobalConfig.baseUrl2);
+    Routers.initRouter();
     super.initState();
   }
 

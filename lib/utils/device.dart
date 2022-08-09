@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:device_info/device_info.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 import 'package:uuid/uuid.dart';
 
 class Device {
@@ -7,7 +8,7 @@ class Device {
 
   static get isIOS => Platform.isIOS;
 
-  static get version => '2.7.0';
+  static get version => GlobalConfig.appVersion;
 
   static get pl => isIOS ? 'iOS' : "ANDROID";
 
