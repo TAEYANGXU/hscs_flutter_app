@@ -25,7 +25,7 @@ class GlobalConfig {
   static bool  API_ENVIRONMENT = true;
 
   /// api 地址
-  static String baseUrl = API_ENVIRONMENT ? 'https://api.jinoufe.com' : "";
+  static String baseUrl = API_ENVIRONMENT ? 'https://api.jinoufe.com' : "http://api-test.huashengfe.cn";
 
-  static String baseUrl2 = API_ENVIRONMENT ? 'https://socapi.jinoufe.com' : "";
+  static String baseUrl2 = API_ENVIRONMENT ? 'https://socapi.jinoufe.com' : "http://social-api-test.huashengfe.cn";
 }

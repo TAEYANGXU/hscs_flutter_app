@@ -47,7 +47,7 @@ dependencies:
   uuid: ^3.0.6
   connectivity_plus: ^2.3.6
   package_info: ^2.0.2
-
+  charts_flutter: ^0.12.0
   json_annotation: ^4.6.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -77,14 +77,9 @@ flutter:
   uses-material-design: true
   assets:
 #    - lib/assets/image/
-    - lib/assets/image/tab/tab_home_normal.png
-    - lib/assets/image/tab/tab_home_select.png
-    - lib/assets/image/tab/tab_live_normal.png
-    - lib/assets/image/tab/tab_live_select.png
-    - lib/assets/image/tab/tab_vip_normal.png
-    - lib/assets/image/tab/tab_vip_select.png
-    - lib/assets/image/tab/tab_mine_normal.png
-    - lib/assets/image/tab/tab_mine_select.png
+    - lib/assets/image/
+    - lib/assets/image/tab/
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
