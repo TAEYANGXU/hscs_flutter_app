@@ -91,6 +91,7 @@ class DioManager {
       options: requestOptions,
       cancelToken: cancelToken ?? _cancelToken,
     );
+    print("path = $path");
     print("response.data = $response.data");
     return response;
   }
@@ -234,6 +235,33 @@ class DioManagerUtils {
     final Map<String, dynamic> map =
         isCompute ? await compute(parseData, data) : parseData(data);
     var model = BaseEntity.fromJson(map);
+    return model;
+  }
+
+  static Future<BaseEntity<T>> getT<T>(
+      String path, {
+        Map<String, dynamic>? params,
+        Options? options,
+        CancelToken? cancelToken,
+        bool refresh = false,
+        bool noCache = !CACHE_ENABLE,
+        String? cacheKey,
+        bool cacheDisk = false,
+      }) async {
+    var response = await DioManager().get(
+      path,
+      params: params,
+      options: options,
+      cancelToken: cancelToken,
+      refresh: refresh,
+      noCache: noCache,
+      cacheKey: cacheKey,
+    );
+    var data = response.toString();
+    final bool isCompute = data.length > 10 * 1024;
+    final Map<String, dynamic> map =
+    isCompute ? await compute(parseData, data) : parseData(data);
+    var model = BaseEntity<T>.fromJson(map);
     return model;
   }
 

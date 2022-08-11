@@ -4,3 +4,4 @@ export 'top_focus.dart';
 export 'marquee.dart';
 export 'master.dart';
 export 'article.dart';
+export 'bottom_ad.dart';

@@ -74,7 +74,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
     List<Widget> list = [];
     for (var i = 0; i < assetRadio!.length; i++) {
       var text =
-          '${assetRadio![i].assetName!}${assetRadio![i].radio}%';
+          '${assetRadio[i].assetName}${assetRadio[i].radio}%';
       list.add(Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +83,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
             width: Adapt.px(8),
             height: Adapt.px(8),
             decoration: BoxDecoration(
-                color: HexColor(assetRadio![i].color!),
+                color: HexColor(assetRadio[i].color!),
                 borderRadius: BorderRadius.all(Radius.circular(5))),
           ),
           SizedBox(
@@ -126,22 +126,26 @@ class _HomeMarketViewState extends State<HomeMarketView> {
       mainAxisAlignment: MainAxisAlignment.center,
       // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          height: Adapt.px(100),
-          width: Adapt.px(100),
-          child: charts.PieChart(
-            seriesList,
-            animate: true,
-            defaultRenderer: new charts.ArcRendererConfig(
-                arcWidth: (10).toInt(),
-                arcRendererDecorators: [
-                  charts.ArcLabelDecorator(
-                    labelPosition: charts.ArcLabelPosition.outside,
-                    insideLabelStyleSpec: charts.TextStyleSpec(
-                        fontSize: 8, color: charts.Color.white),
-                  )
-                ]),
-          ),
+        Stack(
+          children: [
+            Container(
+              height: Adapt.px(100),
+              width: Adapt.px(100),
+              child: charts.PieChart(
+                seriesList,
+                animate: true,
+                defaultRenderer: new charts.ArcRendererConfig(
+                    arcWidth: (10).toInt(),
+                    arcRendererDecorators: [
+                      charts.ArcLabelDecorator(
+                        labelPosition: charts.ArcLabelPosition.outside,
+                        insideLabelStyleSpec: charts.TextStyleSpec(
+                            fontSize: 8, color: charts.Color.white),
+                      )
+                    ]),
+              ),
+            ),
+          ],
         ),
         Container(
           child: Column(
@@ -195,9 +199,25 @@ class _HomeMarketViewState extends State<HomeMarketView> {
               children: tags(fund.tagArr!),
             ),
           ),
-          Container(
-            // padding: EdgeInsets.only(top: Adapt.px(0)),
-            child: fund.type == 1 ? textInfo(fund) : pieChart(fund),
+          Stack(
+            children: [
+              Container(
+                // padding: EdgeInsets.only(top: Adapt.px(0)),
+                child: fund.type == 1 ? textInfo(fund) : pieChart(fund),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: Adapt.px(30),left: Adapt.px(120)),
+                height: Adapt.px(40),
+                width: Adapt.px(50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("资产",style: TextStyle(fontSize: TextSize.small),),
+                    Text("配置",style: TextStyle(fontSize: TextSize.small)),
+                  ],
+                ),
+              )
+            ],
           ),
           lookButton(),
         ],
@@ -209,7 +229,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
     return Container(
       // color: Colors.yellow,
       padding: EdgeInsets.only(
-          top: Adapt.px(10), left: Adapt.px(5), right: Adapt.px(5)),
+          top: Adapt.px(5), left: Adapt.px(5), right: Adapt.px(5)),
       height: Adapt.px(240),
       child: Swiper(
         scrollDirection: Axis.horizontal,
@@ -218,7 +238,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
         },
         itemCount: widget.fundList!.length,
         autoplay: true,
-        autoplayDelay: 8000,
+        autoplayDelay: 80000000,
         // pagination: _buildPlugin(),
         onTap: (index) {
           print(" 点击 " + index.toString());

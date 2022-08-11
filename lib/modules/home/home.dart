@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hscs_flutter_app/api/dio_manager.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'model/index.dart';
 import 'view/index.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'service.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -12,9 +13,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
-  HomeData?  homeData;
-  FundData?  fundData;
-  HeadLineData? headLineData;
+  final viewModel = HomeViewModel();
 
   @override
   void initState() {
@@ -23,56 +22,66 @@ class HomePageState extends State<HomePage> {
     getHomeData();
     getFundData();
     getHeadlineTop();
+    getBottomAD();
   }
 
    Future getHomeData() async {
-    var model = await DioManagerUtils.get("/v3/home/index2");
-    var data = model.data;
-    homeData = HomeData.fromJson(data!);
-    var vipH5Url =  homeData!.vipH5Url;
-    debugPrint("vipH5Url = $vipH5Url");
+    await viewModel.getHomeData();
     setState(() {});
   }
 
   Future getFundData() async {
-    var model = await DioManagerUtils.get("/v3/fund/fund-list");
-    var data = model.data;
-    fundData = FundData.fromJson(data!);
-    var h5Url =  fundData!.h5Url;
-    debugPrint("h5Url = $h5Url");
-    setState(() {});
+    await viewModel.getFundData();
+    setState(() { });
   }
 
   Future getHeadlineTop() async {
-    var model = await DioManagerUtils.get("/v3/headline/top");
-    var data = model.data;
-    headLineData = HeadLineData.fromJson(data!);
-    var updatedAt =  headLineData!.updatedAt;
-    debugPrint("updatedAt = $updatedAt");
+    await viewModel.getHeadlineTop();
     setState(() {});
   }
+
+  Future getBottomAD() async {
+    await viewModel.getBottomAD();
+    setState(() {});
+  }
+
+  Widget bottomView(AdvertListData? listData) {
+      if(listData != null ){
+          return HomeBottomView(advertData: listData,);
+      }else{
+        return Container();
+      }
+  }
+
+  Future  _onRefresh() async {
+      getHomeData();
+  }
+
   @override
   Widget build(BuildContext context){
-    if(homeData == null){
+    if(viewModel.homeData == null){
       return Scaffold();
     }
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.all(0),
-          child: Column(
-            children: [
-              HomeTopFocusView(infos: homeData!.topFocus!.infos),
-              HomeSudokuView(iconList: homeData!.iconList),
-              HomeMarqueeView(text: "8月8日上午，第二艘国产大型邮轮（H1509船）在中国船舶集团有限公司旗下上海外高桥造船有限公司（下称“外高桥造船”）开工建造。",),
-              HomeMarketView(fundList: fundData!.fundList,),
-              HomeMasterView(chiefComment: homeData!.chiefComment,askTeacher: homeData!.askTeacher,),
-              HomeHeadlineView(list: headLineData!.list,),
-              
-              SizedBox(height: Adapt.px(30),)
-            ],
+        child: EasyRefresh(
+          onRefresh: _onRefresh,
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              children: [
+                HomeTopFocusView(infos: viewModel.homeData!.topFocus!.infos),
+                HomeSudokuView(iconList: viewModel.homeData!.iconList),
+                HomeMarqueeView(text: "8月8日上午，第二艘国产大型邮轮（H1509船）在中国船舶集团有限公司旗下上海外高桥造船有限公司（下称“外高桥造船”）开工建造。",),
+                HomeMarketView(fundList: viewModel.fundData!.fundList,),
+                HomeMasterView(chiefComment: viewModel.homeData!.chiefComment,askTeacher: viewModel.homeData!.askTeacher,),
+                HomeHeadlineView(list: viewModel.headLineData!.list,),
+                bottomView(viewModel.listData!),
+                SizedBox(height: Adapt.px(30),)
+              ],
+            ),
           ),
         ),
       ),
