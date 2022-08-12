@@ -82,6 +82,7 @@ flutter:
     - lib/assets/image/
     - lib/assets/image/tab/
     - lib/assets/image/mine/
+    - lib/assets/image/login/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

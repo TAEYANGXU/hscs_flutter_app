@@ -21,10 +21,10 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
     return list;
   }
 
-  Widget buildItem(BuildContext context,int index){
+  Widget buildItem(BuildContext context, int index) {
     var icon = widget.iconList![index];
     return GestureDetector(
-        onTap: (){
+        onTap: () {
           debugPrint("index = $index");
         },
         child: Container(
@@ -38,8 +38,11 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
               SizedBox(
                 height: 10,
               ),
-              Text(icon.name!, textAlign: TextAlign.center,
-                style: TextStyle(color: AppColors.text,fontSize: TextSize.main),
+              Text(
+                icon.name!,
+                textAlign: TextAlign.center,
+                style:
+                    TextStyle(color: AppColors.text, fontSize: TextSize.main),
               ),
             ],
           ),

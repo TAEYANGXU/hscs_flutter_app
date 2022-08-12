@@ -95,7 +95,8 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(widget.chiefComment!.certificateNo!, textAlign: TextAlign.center)
+                        Text(widget.chiefComment!.certificateNo!,
+                            textAlign: TextAlign.center)
                       ],
                     ),
                   )
@@ -126,8 +127,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                 width: Adapt.px(100),
                 height: Adapt.px(130),
                 child: CacheImage(
-                  imageUrl:
-                      widget.chiefComment!.posterImg!,
+                  imageUrl: widget.chiefComment!.posterImg!,
                   width: Adapt.px(100),
                   height: Adapt.px(130),
                 ),
@@ -162,7 +162,9 @@ class _HomeMasterViewState extends State<HomeMasterView> {
           width: Adapt.px(80),
           child: Column(
             children: [
-              SizedBox(height: Adapt.px(15),),
+              SizedBox(
+                height: Adapt.px(15),
+              ),
               Container(
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
@@ -192,8 +194,10 @@ class _HomeMasterViewState extends State<HomeMasterView> {
     List<Widget> list = [];
     for (var i = 0; i < widget.askTeacher!.teacherList!.length; i++) {
       var icon = widget.askTeacher!.teacherList![i];
-      if(i != widget.askTeacher!.teacherList!.length -1){
-        list.add(SizedBox(width: Adapt.px(15),));
+      if (i != widget.askTeacher!.teacherList!.length - 1) {
+        list.add(SizedBox(
+          width: Adapt.px(15),
+        ));
       }
       list.add(buildItem(context, i));
     }

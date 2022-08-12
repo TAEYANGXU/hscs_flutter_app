@@ -37,11 +37,22 @@ class _MineOtherViewState extends State<MineOtherView> {
                   children: [
                     Container(
                       padding: EdgeInsets.only(left: Adapt.px(20)),
-                      child: localImage(list[index].icon,width: Adapt.px(16),height: Adapt.px(16),fit: BoxFit.contain),
+                      child: localImage(list[index].icon,
+                          width: Adapt.px(16),
+                          height: Adapt.px(16),
+                          fit: BoxFit.contain),
                     ),
-                    SizedBox(width: Adapt.px(10),),
-                    Text(list[index].name,style: TextStyle(fontSize: TextSize.main1,color: AppColors.text),),
-                    SizedBox(width: Adapt.px(230),),
+                    SizedBox(
+                      width: Adapt.px(10),
+                    ),
+                    Text(
+                      list[index].name,
+                      style: TextStyle(
+                          fontSize: TextSize.main1, color: AppColors.text),
+                    ),
+                    SizedBox(
+                      width: Adapt.px(230),
+                    ),
                     loadLocalImage("mine/mine_arrown_right",
                         width: Adapt.px(9), height: Adapt.px(16))
                   ],
@@ -49,7 +60,7 @@ class _MineOtherViewState extends State<MineOtherView> {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(left: Adapt.px(40),top: Adapt.px(39)),
+              margin: EdgeInsets.only(left: Adapt.px(40), top: Adapt.px(39)),
               width: Adapt.screenW() - Adapt.px(60),
               height: Adapt.px(2),
               color: AppColors.space,
@@ -86,7 +97,6 @@ class _MineOtherViewState extends State<MineOtherView> {
               padding: EdgeInsets.zero,
             ),
           ),
-
         ],
       ),
     );

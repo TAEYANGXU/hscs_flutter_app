@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/modules/home/router.dart';
 import 'package:hscs_flutter_app/modules/main/router.dart';
+import 'package:hscs_flutter_app/modules/login/router.dart';
 
 abstract class IRouter {
   void initRouter(FluroRouter router);
@@ -20,7 +21,7 @@ class Routers {
         });
     _routers.add(MainRouter());
     _routers.add(HomeRouter());
-
+    _routers.add(LoginRouter());
     _routers.forEach((r) => r.initRouter(route));
   }
 

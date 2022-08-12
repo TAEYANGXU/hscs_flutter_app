@@ -9,7 +9,6 @@ class MineActivityView extends StatefulWidget {
 }
 
 class _MineActivityViewState extends State<MineActivityView> {
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

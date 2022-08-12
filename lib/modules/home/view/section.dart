@@ -3,7 +3,6 @@ import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 
 class HomeSectionView extends StatelessWidget {
-
   HomeSectionView({Key? key, this.title = "", this.router = ""})
       : super(key: key);
 

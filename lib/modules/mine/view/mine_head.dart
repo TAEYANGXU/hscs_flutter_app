@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
+import 'package:hscs_flutter_app/routers.dart';
+import 'package:hscs_flutter_app/modules/login/router.dart';
 
 const List<String> titleList = ["我的资产", "我的消息", "卡券包", "购买记录"];
 const List<String> iconList = [
@@ -91,13 +93,17 @@ class _MineHeadViewState extends State<MineHeadView> {
                     top: Adapt.px(110)),
                 child: Row(
                   children: [
-                    Container(
+                    GestureDetector(
+                      onTap: (){
+                        Routers.push(context, LoginRouter.login);
+                      },
+                      child: Container(
                       width: Adapt.px(65),
                       height: Adapt.px(65),
                       padding: EdgeInsets.only(left: Adapt.px(10)),
                       child: loadLocalImage("mine/mine_default_avtar",
                           width: Adapt.px(65), height: Adapt.px(65)),
-                    ),
+                    ),),
                     SizedBox(
                       width: Adapt.px(10),
                     ),

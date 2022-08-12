@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 
-
 class HomeMarqueeView extends StatefulWidget {
   HomeMarqueeView({Key? key, this.text}) : super(key: key);
   String? text;
@@ -22,26 +21,26 @@ class _HomeMarqueeViewState extends State<HomeMarqueeView> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(width: Adapt.px(10),),
-          loadLocalImage("marquee",width: Adapt.px(12),height: Adapt.px(12)),
+          SizedBox(
+            width: Adapt.px(10),
+          ),
+          loadLocalImage("marquee", width: Adapt.px(12), height: Adapt.px(12)),
           Expanded(
             // color: HexColor("#FAF2E1"),
             child: MarqueeView(
-              child:
-              Text(
-                widget.text!,
-                style: TextStyle(color: HexColor("#FAAE07"),fontSize: TextSize.small),
-                maxLines: 1,
-                overflow: TextOverflow.fade,
-              )
-            ),
+                child: Text(
+              widget.text!,
+              style: TextStyle(
+                  color: HexColor("#FAAE07"), fontSize: TextSize.small),
+              maxLines: 1,
+              overflow: TextOverflow.fade,
+            )),
           )
         ],
       ),
     );
   }
 }
-
 
 class MarqueeView extends StatefulWidget {
   final Duration pauseDuration, forwardDuration;
