@@ -103,7 +103,7 @@ class _MarqueeViewState extends State<MarqueeView>
 
   void scroll() async {
     while (_validFlag) {
-      debugPrint('Track_MarqueeView_scroll');
+      // debugPrint('Track_MarqueeView_scroll');
       await Future.delayed(widget.pauseDuration);
       if (_boxWidth <= 0) {
         continue;

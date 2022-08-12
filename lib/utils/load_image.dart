@@ -14,3 +14,15 @@ Image loadLocalImage(String name, {String ext = '.png', Color color = AppColors.
     // color: color,
   );
 }
+
+Image localImage(String name, {String ext = '.png', Color color = AppColors.theme, double width = 0.0, double height = 0.0,BoxFit fit = BoxFit.contain}) {
+  return Image.asset(
+    'lib/assets/image/$name$ext',
+    width: width,
+    height: height,
+    excludeFromSemantics: true,
+    gaplessPlayback: true,
+    fit: fit,
+    // color: color,
+  );
+}

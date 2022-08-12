@@ -6,7 +6,7 @@ class HomeViewModel
   HomeData?  homeData;
   FundData?  fundData;
   HeadLineData? headLineData;
-  AdvertListData? listData;
+  late AdvertListData listData;
 
   Future<HomeData> getHomeData() async {
     var model = await DioManagerUtils.getT<HomeData>("/v3/home/index2");

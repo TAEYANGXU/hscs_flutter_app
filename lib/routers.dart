@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/modules/home/router.dart';
+import 'package:hscs_flutter_app/modules/main/router.dart';
 
 abstract class IRouter {
   void initRouter(FluroRouter router);
@@ -17,6 +18,7 @@ class Routers {
           ///没有找到路由
           return;
         });
+    _routers.add(MainRouter());
     _routers.add(HomeRouter());
 
     _routers.forEach((r) => r.initRouter(route));

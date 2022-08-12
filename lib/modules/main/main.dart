@@ -48,7 +48,7 @@ class MainPageState extends State<MainPage>
 
   @override
   Widget build(BuildContext context){
-    // Adapt.init(context);
+    Adapt.init(context);
     return Scaffold(
       backgroundColor: AppColors.theme,
       body: allPages[tabIndex],

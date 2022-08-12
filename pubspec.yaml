@@ -50,6 +50,7 @@ dependencies:
   charts_flutter: ^0.12.0
   json_annotation: ^4.6.0
   flutter_easyrefresh: ^2.2.2
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -80,6 +81,7 @@ flutter:
 #    - lib/assets/image/
     - lib/assets/image/
     - lib/assets/image/tab/
+    - lib/assets/image/mine/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

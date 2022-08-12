@@ -45,7 +45,7 @@ class HomePageState extends State<HomePage> {
     setState(() {});
   }
 
-  Widget bottomView(AdvertListData? listData) {
+  Widget bottomView(AdvertListData listData) {
       if(listData != null ){
           return HomeBottomView(advertData: listData,);
       }else{
@@ -78,7 +78,7 @@ class HomePageState extends State<HomePage> {
                 HomeMarketView(fundList: viewModel.fundData!.fundList,),
                 HomeMasterView(chiefComment: viewModel.homeData!.chiefComment,askTeacher: viewModel.homeData!.askTeacher,),
                 HomeHeadlineView(list: viewModel.headLineData!.list,),
-                bottomView(viewModel.listData!),
+                bottomView(viewModel.listData),
                 SizedBox(height: Adapt.px(30),)
               ],
             ),

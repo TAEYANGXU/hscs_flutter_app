@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/color.dart';
 import 'package:hscs_flutter_app/modules/main/main.dart';
-import 'package:hscs_flutter_app/utils/index.dart';
 import 'global_config.dart';
 import 'package:hscs_flutter_app/api/dio_manager.dart';
 import 'routers.dart';
+import 'modules/main/router.dart';
+import 'package:hscs_flutter_app/utils/index.dart';
 
 class HSApp extends StatefulWidget {
   // const HSApp({Key? key}) : super(key: key);
@@ -27,18 +28,21 @@ class HSAppState extends State<HSApp>
     return MaterialApp(
       title: '哈哈',
       theme: ThemeData(primaryColor: AppColors.theme),
-      home:HSHoneApp(),
+      routes: {
+        MainRouter.init:(context) => HSInitPage(),
+      },
+      initialRoute: MainRouter.init,
     );
   }
 }
 
-class HSHoneApp extends StatefulWidget {
+class HSInitPage extends StatefulWidget {
   // const HSApp({Key? key}) : super(key: key);
   @override
-  HSHoneState  createState() => HSHoneState();
+  HSInitPageState  createState() => HSInitPageState();
 }
 
-class HSHoneState extends State<HSHoneApp>
+class HSInitPageState extends State<HSInitPage>
 {
 
   @override
