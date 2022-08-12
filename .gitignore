@@ -145,3 +145,17 @@ build/ios/framework/Debug/iphoneos/Flutter.framework/Headers/FlutterPluginAppLif
 build/ios/framework/Debug/iphoneos/Flutter.framework/Headers/FlutterTexture.h
 build/ios/framework/Debug/iphoneos/Flutter.framework/Headers/FlutterViewController.h
 build/ios/framework/Debug/iphoneos/Flutter.framework/Modules/module.modulemap
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/.filecache
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/app.dill
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/debug_ios_bundle_flutter_assets.stamp
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/debug_universal_framework.stamp
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/debug_unpack_ios.stamp
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/flutter_assets.d
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/gen_dart_plugin_registrant.stamp
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/gen_localizations.stamp
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/kernel_snapshot.d
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/kernel_snapshot.stamp
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/outputs.json
+.dart_tool/flutter_build/61b865ac4dc3f9997572ff64b1db67da/App.framework/App
+.dart_tool/flutter_build/a588cb53cad3dae8036a55b835cf03a8/outputs.json
+.idea/hscs_flutter_app.iml
