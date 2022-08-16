@@ -4,20 +4,24 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 
 class CacheImage extends StatelessWidget{
-  const CacheImage({Key? key,required this.imageUrl,this.width,this.height}) : super(key: key);
-  final String imageUrl;
+  const CacheImage({Key? key,required this.imageUrl,this.width,this.height,this.fit = BoxFit.cover}) : super(key: key);
+  final String? imageUrl;
   final double? width;
   final double? height;
-
+  final BoxFit? fit;
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      width: width ?? double.infinity,
-      height: height ?? double.infinity,
-      placeholder: (_, __) => LoadingIcon(),
-      fit: BoxFit.cover,
-    );
+    try {
+      return CachedNetworkImage(
+        imageUrl: imageUrl ?? "",
+        width: width ?? double.infinity,
+        height: height ?? double.infinity,
+        placeholder: (_, __) => LoadingIcon(),
+        fit: fit,
+      );
+    }catch(e){
+      return Container();
+    }
   }
 }
 

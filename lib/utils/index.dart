@@ -3,3 +3,4 @@ export 'adapt.dart';
 export 'md5.dart';
 export 'device.dart';
 export 'cache_data.dart';
+export 'check.dart';

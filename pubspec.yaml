@@ -31,6 +31,7 @@ dependencies:
     sdk: flutter
 
   fluro: 2.0.0
+  provider: ^6.0.3
 #  webview_flutter: 1.0.7
   cached_network_image: ^3.2.1
   url_launcher: ^6.1.5
@@ -50,7 +51,8 @@ dependencies:
   charts_flutter: ^0.12.0
   json_annotation: ^4.6.0
   flutter_easyrefresh: ^2.2.2
-
+  pin_code_fields: ^7.4.0
+  flutter_easyloading: ^3.0.5
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

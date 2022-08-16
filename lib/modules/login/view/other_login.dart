@@ -53,15 +53,12 @@ class LoginOtherView extends StatelessWidget {
 
 class LoginProtocolView extends StatefulWidget {
 
-  LoginProtocolView({Key? key}) : super(key: key);
-
+  LoginProtocolView({Key? key,this.selected}) : super(key: key);
+  bool? selected;
   _LoginProtocolViewState createState() => _LoginProtocolViewState();
 }
 
 class _LoginProtocolViewState extends State<LoginProtocolView> {
-
-  bool selected = true;
-  // String checkImg = selected ? "login/login_agree_2" : "login/login_agree_1";
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +75,10 @@ class _LoginProtocolViewState extends State<LoginProtocolView> {
             // height: Adapt.px(60),
             // color: Colors.red,
             child: MaterialButton(onPressed: (){
-              selected = !selected;
+              widget.selected = !widget.selected!;
               setState(() {});
             },
-              child: localImage(selected ? "login/login_agree_2" : "login/login_agree_1",width: Adapt.px(18),height: Adapt.px(18),fit: BoxFit.fill),
+              child: localImage(widget.selected! ? "login/login_agree_2" : "login/login_agree_1",width: Adapt.px(18),height: Adapt.px(18),fit: BoxFit.fill),
             ),
           ),
           Container(

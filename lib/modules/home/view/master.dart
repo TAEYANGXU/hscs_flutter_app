@@ -46,7 +46,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                     padding:
                         EdgeInsets.only(top: Adapt.px(10), left: Adapt.px(12)),
                     child: Text(
-                      widget.chiefComment!.realName!,
+                      widget.chiefComment?.realName ?? "",
                       style: TextStyle(
                           fontSize: TextSize.s17,
                           fontWeight: FontWeight.bold,
@@ -141,6 +141,12 @@ class _HomeMasterViewState extends State<HomeMasterView> {
 
   Widget buildItem(BuildContext context, int index) {
     var teacher = widget.askTeacher!.teacherList![index];
+    print("teacher = ${teacher.avatar}");
+    var name = teacher.realName;
+    if(name != null && name.length > 5){
+      name = name.substring(0, 4);
+    }
+    // var name = teacher.realName!.length > 5 ? teacher.realName!.substring(0, 4).toString() : teacher!.realName;
     return GestureDetector(
         onTap: () {
           debugPrint("index = $index");
@@ -170,8 +176,9 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Adapt.px(18)),
                 ),
-                child: CacheImage(
-                  imageUrl: teacher.avatar!,
+                child: teacher.avatar!.trim().isEmpty ? loadLocalImage("mine/mine_default_avatar",width: Adapt.px(36),height: Adapt.px(36)) :
+                CacheImage(
+                  imageUrl: teacher.avatar ?? "",
                   width: Adapt.px(36),
                   height: Adapt.px(36),
                 ),
@@ -180,7 +187,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                 height: 5,
               ),
               Text(
-                teacher.nickName!,
+                name!,
                 textAlign: TextAlign.center,
                 style:
                     TextStyle(color: AppColors.text, fontSize: TextSize.main),
@@ -205,6 +212,9 @@ class _HomeMasterViewState extends State<HomeMasterView> {
   }
 
   Widget masterList() {
+    if(widget.askTeacher == null){
+      return Container();
+    }
     return Container(
         margin: EdgeInsets.only(top: Adapt.px(15)),
         height: Adapt.px(90),

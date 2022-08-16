@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/global_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 ///请求拦截器
 class RequestInterceptor extends Interceptor {
   @override
   Future onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    options.contentType = "application/x-www-form-urlencoded";
+    // options.contentType = "application/json";
     var time = (DateTime.now().millisecondsSinceEpoch / 1000).round();
     options.headers['TIMESTAMP'] = time;
     options.headers['CurTime'] = time;
@@ -26,6 +27,12 @@ class RequestInterceptor extends Interceptor {
       options.headers['CHANNEL'] = "jius0001";
       options.headers['DEVICETOKEN'] = await Device.getDeviceId();
       options.headers['buildCode'] = "10";
+    }
+
+    var prefs = await SharedPreferences.getInstance();
+    var token = prefs.get(GlobalConfig.kToken).toString().trim();
+    if(token.isNotEmpty){
+      options.headers['token'] = token;
     }
     var  headers =  options.headers;
     print("headers = $headers");

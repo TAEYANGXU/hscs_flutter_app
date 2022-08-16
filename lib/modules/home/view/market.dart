@@ -211,10 +211,10 @@ class _HomeMarketViewState extends State<HomeMarketView> {
                 width: Adapt.px(50),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: fund.type != 1 ? [
                     Text("资产",style: TextStyle(fontSize: TextSize.small),),
                     Text("配置",style: TextStyle(fontSize: TextSize.small)),
-                  ],
+                  ] : [],
                 ),
               )
             ],

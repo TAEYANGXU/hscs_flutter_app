@@ -2,7 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 
-class LoginHeadView extends StatelessWidget {
+
+class LoginHeadView extends StatefulWidget {
+
+  LoginHeadView({Key? key,this.title = "",this.content = ""}) : super(key:key);
+
+  @required String title;
+  @required String content;
+
+  @override
+  _LoginHeadViewState createState() => _LoginHeadViewState();
+}
+
+class _LoginHeadViewState extends State<LoginHeadView> {
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -33,7 +46,7 @@ class LoginHeadView extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: Adapt.px(20)),
             child: Text(
-              "手机动态密码登录",
+              widget.title,
               style: TextStyle(
                   fontSize: TextSize.s22, fontWeight: FontWeight.bold),
             ),
@@ -43,7 +56,7 @@ class LoginHeadView extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(left: Adapt.px(20)),
-            child: Text("未注册的手机号验证后将自动创建新账号",
+            child: Text(widget.content,
                 style: TextStyle(
                     fontSize: TextSize.main1, fontWeight: FontWeight.normal)),
           )

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/extension/gradient_button.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+typedef ComplteCallBack = Function(String string);
 
 class LoginMobileView extends StatefulWidget {
-  LoginMobileView({Key? key, this.mobileController}) : super(key: key);
+  LoginMobileView({Key? key, this.mobileController,this.onCall}) : super(key: key);
   TextEditingController? mobileController;
-
+  @required ComplteCallBack? onCall;
   _LoginMobileViewState createState() => _LoginMobileViewState();
 }
 
@@ -76,6 +79,15 @@ class _LoginMobileViewState extends State<LoginMobileView> {
             child: GradientButton(
               onPressed: () {
                 print("text = ${widget.mobileController?.text}");
+                var text = ' ${widget.mobileController?.text}'.trim();
+                // print("isPhoneLegal = ${isPhoneLegal(text)}");
+                // if(!isPhoneLegal(text)){
+                //   Fluttertoast.showToast(msg: "请输入准确的手机号码！",);
+                //   return;
+                // }
+                if(widget.onCall != null){
+                  widget.onCall!(text);
+                }
               },
               colors: [HexColor("#FFAB1A"), HexColor("#FB6700")],
               child: Text(

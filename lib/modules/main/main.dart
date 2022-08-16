@@ -7,7 +7,7 @@ import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 
 class MainPage extends StatefulWidget {
-  // const MainPage({Key? key}) : super(key: key);
+  MainPage({Key? key}) : super(key: key);
   @override
   MainPageState  createState() => MainPageState();
 }
