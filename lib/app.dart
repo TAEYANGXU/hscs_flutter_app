@@ -64,6 +64,7 @@ class HSInitPageState extends State<HSInitPage>
 
   void getUserInfo() async {
     var prefs = await SharedPreferences.getInstance();
+    // prefs.remove(GlobalConfig.kUserInfo);
     var userInfo = prefs.get(GlobalConfig.kUserInfo).toString();
     print("userInfo=${userInfo}");
     var userInfoMap = Convert.jsonDecode(userInfo);

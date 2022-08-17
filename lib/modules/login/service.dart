@@ -32,10 +32,12 @@ class LoginViewModel {
   }
 
   ///退出登录
-  Future loginOut(String mobile,String code) async {
+  Future loginOut() async {
     var model = await DioManagerUserUtils.get("/v2/user/logout");
     if(model.code == 200){
       Fluttertoast.showToast(msg: "退出登录成功");
+      return true;
     }
+    return false;
   }
 }

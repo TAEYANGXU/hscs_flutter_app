@@ -21,14 +21,14 @@ class GlobalConfig {
   /// 项目id
   static String appProject = '82';
 
-  /// api 环境  true:正式  false: 测试
-  static bool  API_ENVIRONMENT = false;
-
   ///用户信息
   static String kUserInfo = 'userInfo';
 
   ///token
   static String kToken = 'token';
+
+  /// api 环境  true:正式  false: 测试
+  static bool  API_ENVIRONMENT = true;
 
   /// api 地址
   static String baseUrl = API_ENVIRONMENT ? 'https://api.jinoufe.com' : "http://api-test.huashengfe.cn";

@@ -10,7 +10,13 @@ class MainRouter extends IRouter
   static const String main = '/main';
   @override
   void initRouter(FluroRouter router){
-    router.define(main, handler: Handler(handlerFunc: (_,__) => HSInitPage()));
-    router.define(init, handler: Handler(handlerFunc: (_,__) => HSInitPage()));
+    router.define(init, handler: Handler(handlerFunc: (_,__) => MainPage()));
+    router.define(main,
+        handler: Handler(handlerFunc: (_, Map<String, dynamic> params) {
+          var tabIndex =  params['tabIndex'][0];
+          return MainPage(
+            tabIndex: tabIndex,
+          );
+        }));
   }
 }

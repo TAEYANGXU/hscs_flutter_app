@@ -1,6 +1,7 @@
 
 import 'package:hscs_flutter_app/modules/home/model/index.dart';
 import 'package:hscs_flutter_app/modules/mine/model/user.dart';
+import 'package:hscs_flutter_app/modules/live/model/index.dart';
 /// https://czero1995.github.io/json-to-model/
 class BaseEntity<T> {
   int? code;
@@ -34,6 +35,9 @@ class JsonConvert<T> {
         break;
       case UserModel:
         return UserModel.fromJson(json);
+        break;
+      case RoomInfo:
+        return RoomInfo.fromJson(json);
         break;
       // case List<AdvertListData>:
       //   return AdvertData.fromJson(json);

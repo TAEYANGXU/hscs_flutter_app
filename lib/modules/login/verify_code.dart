@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hscs_flutter_app/style/index.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'view/index.dart';
 import 'service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hscs_flutter_app/routers.dart';
-import 'package:hscs_flutter_app/modules/mine/router.dart';
+import 'package:hscs_flutter_app/modules/main/router.dart';
 
 class LoginVeriftyCodePage extends StatefulWidget {
   LoginVeriftyCodePage({Key? key, this.mobile = ""}) : super(key: key);
@@ -52,7 +51,7 @@ class _LoginVeriftyCodePageState extends State<LoginVeriftyCodePage> {
     await loginViewModel.login(widget.mobile, code,context);
     setState(() {
       EasyLoading.dismiss();
-      Routers.push(context, MineRouter.mine);
+      Routers.push(context, MainRouter.main, params: {"tabIndex":"3"});
     });
   }
 

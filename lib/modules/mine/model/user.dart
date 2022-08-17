@@ -4,8 +4,12 @@ class UserInfo extends ChangeNotifier {
 
   UserModel? _info;
   UserModel? get info => _info ?? null;
-  void setInfo(Map<String,dynamic> info){
-    _info = UserModel.fromJson(info);
+  void setInfo(Map<String,dynamic>? info){
+    if(info != null){
+      _info = UserModel.fromJson(info);
+    }else{
+      _info = null;
+    }
     notifyListeners();
   }
 }

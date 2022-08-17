@@ -3,6 +3,8 @@ import 'view/index.dart';
 import 'package:flutter/services.dart';
 import 'service.dart';
 import 'package:hscs_flutter_app/modules/home/model/index.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 
 class MinePage extends StatefulWidget {
   @override
@@ -11,16 +13,27 @@ class MinePage extends StatefulWidget {
 
 class MinePageState extends State<MinePage> {
 
-  final viewModel = HomeViewModel();
+  final viewModel = MineViewModel();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getDA();
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      statusBarBrightness: Brightness.light,
-    ));
+    getUserInfo();
+    // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    //   statusBarColor: Colors.white,
+    //   statusBarBrightness: Brightness.light,
+    // ));
+  }
+  
+  getUserInfo() async {
+    var prefs = await SharedPreferences.getInstance();
+    var token = prefs.get(GlobalConfig.kToken).toString();
+    setState(() {
+      if(token != null){
+        viewModel.userInfo(context);
+      }
+    });
   }
 
   Future getDA() async {

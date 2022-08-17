@@ -39,8 +39,6 @@ class _HomeMasterViewState extends State<HomeMasterView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     padding:
@@ -70,7 +68,6 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                 ],
               ),
               Row(
-                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     margin:
@@ -141,12 +138,10 @@ class _HomeMasterViewState extends State<HomeMasterView> {
 
   Widget buildItem(BuildContext context, int index) {
     var teacher = widget.askTeacher!.teacherList![index];
-    print("teacher = ${teacher.avatar}");
     var name = teacher.realName;
     if(name != null && name.length > 5){
       name = name.substring(0, 4);
     }
-    // var name = teacher.realName!.length > 5 ? teacher.realName!.substring(0, 4).toString() : teacher!.realName;
     return GestureDetector(
         onTap: () {
           debugPrint("index = $index");

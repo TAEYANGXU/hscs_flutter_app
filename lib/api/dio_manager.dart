@@ -91,8 +91,9 @@ class DioManager {
       options: requestOptions,
       cancelToken: cancelToken ?? _cancelToken,
     );
+    print("params = $params");
     print("path = $path");
-    print("response.data = $response.data");
+    print("response.data = $response");
     return response;
   }
 
@@ -110,11 +111,14 @@ class DioManager {
     }
     var response = await dio.post(
       path,
-      data: data,
+      data: params != null ? FormData.fromMap(params) : params,
       queryParameters: params,
       options: requestOptions,
       cancelToken: cancelToken ?? _cancelToken,
     );
+    print("params = $params");
+    print("path = $path");
+    print("response.data = $response");
     return response;
   }
 

@@ -15,8 +15,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void complteAction(String number){
     print("number =$number");
-    Routers.push(context, '${LoginRouter.loginVerity}?mobile=${number}');
-    // Routers.push(context, LoginRouter.loginVerity);
+    Routers.push(context, LoginRouter.loginVerity,params: {"mobile":number});
   }
 
   final TextEditingController mobileController = TextEditingController();

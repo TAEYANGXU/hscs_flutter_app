@@ -7,7 +7,8 @@ import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  MainPage({Key? key,this.tabIndex = "0"}) : super(key: key);
+  String? tabIndex;
   @override
   MainPageState  createState() => MainPageState();
 }
@@ -15,7 +16,6 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage>
 {
   late PageController  _pageController;
-  int tabIndex = 0;
   List<Map<String, dynamic>> tabList = [
     {'index':0,'name':"",'icon':AppIcons.tabHome,'activeIcon':AppIcons.tabHomeSelect},
     {'index':1,'name':"",'icon':AppIcons.tabLive,'activeIcon':AppIcons.tabLiveSelect},
@@ -36,13 +36,13 @@ class MainPageState extends State<MainPage>
   }
 
   TextStyle textStyle(int index){
-    return index == tabIndex ? AppTextStyle.moreTinyTheme : AppTextStyle.moreTiny;
+    return index == int.parse(widget.tabIndex!) ? AppTextStyle.moreTinyTheme : AppTextStyle.moreTiny;
   }
 
   void onTap(int index){
     setState(() {
       print("index22：$index");
-      tabIndex = index;
+      widget.tabIndex = '${index}';
     });
   }
 
@@ -51,14 +51,14 @@ class MainPageState extends State<MainPage>
     Adapt.init(context);
     return Scaffold(
       backgroundColor: AppColors.theme,
-      body: allPages[tabIndex],
+      body: allPages[int.parse(widget.tabIndex!)],
       bottomNavigationBar:BottomNavigationBar(
           unselectedItemColor: AppColors.tabText,
           selectedItemColor: AppColors.tabTextSelect,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: TextSize.moreTiny,
           unselectedFontSize: TextSize.moreTiny,
-          currentIndex: tabIndex,
+          currentIndex: int.parse(widget.tabIndex!),
           items: [
             BottomNavigationBarItem(icon: AppIcons.tabHome,label: '首页',activeIcon: AppIcons.tabHomeSelect,),
             BottomNavigationBarItem(icon: AppIcons.tabLive,label: '直播',activeIcon: AppIcons.tabLiveSelect,),

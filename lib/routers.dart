@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/modules/home/router.dart';
 import 'package:hscs_flutter_app/modules/main/router.dart';
 import 'package:hscs_flutter_app/modules/login/router.dart';
+import 'package:hscs_flutter_app/modules/mine/router.dart';
 
 abstract class IRouter {
   void initRouter(FluroRouter router);
@@ -22,13 +23,30 @@ class Routers {
     _routers.add(MainRouter());
     _routers.add(HomeRouter());
     _routers.add(LoginRouter());
+    _routers.add(MineRouter());
     _routers.forEach((r) => r.initRouter(route));
   }
 
   static push(BuildContext _, path,
       {bool clearStack = false,
-      TransitionType transition = TransitionType.inFromRight}) {
+      Map<String, dynamic>? params,
+      TransitionType transition = TransitionType.inFromRight,RouteSettings? settings}) {
+    String query = "";
+    if (params != null) {
+      int index = 0;
+      for (var key in params.keys) {
+        var value = Uri.encodeComponent(params[key]);
+        if (index == 0) {
+          query = "?";
+        } else {
+          query = query + "\&";
+        }
+        query += "$key=$value";
+        index++;
+      }
+    }
+    path = path + query;
     Routers.route
-        .navigateTo(_, path, clearStack: clearStack, transition: transition);
+        .navigateTo(_, path, clearStack: clearStack, transition: transition,routeSettings: settings);
   }
 }
