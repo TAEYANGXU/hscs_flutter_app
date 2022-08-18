@@ -1,3 +1,39 @@
+
+class LiveData {
+  List<LiveList>? list;
+  String? roomId;
+  String? roomName;
+  String? wsRoom;
+  String? checkCode;
+
+  LiveData({this.list, this.roomId, this.roomName, this.wsRoom, this.checkCode});
+
+  LiveData.fromJson(Map<String, dynamic> json) {
+    if (json['list'] != null) {
+      list = <LiveList>[];
+      json['list'].forEach((v) {
+        list!.add(LiveList.fromJson(v));
+      });
+    }
+    roomId = json['roomId'];
+    roomName = json['roomName'];
+    wsRoom = json['wsRoom'];
+    checkCode = json['checkCode'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    if (this.list != null) {
+      data['list'] = this.list!.map((v) => v.toJson()).toList();
+    }
+    data['roomId'] = this.roomId;
+    data['roomName'] = this.roomName;
+    data['wsRoom'] = this.wsRoom;
+    data['checkCode'] = this.checkCode;
+    return data;
+  }
+}
+
 class LiveList {
   int? msgType;
   int? feedId;
@@ -197,7 +233,8 @@ class ReplyUserInfo {
   String? replyComment;
 
   ReplyUserInfo(
-      {this.uid,
+      {
+        this.uid,
         this.nickname,
         this.avatar,
         this.userLevel,
@@ -214,7 +251,7 @@ class ReplyUserInfo {
         this.replyComment});
 
   ReplyUserInfo.fromJson(Map<String, dynamic> json) {
-    uid = json['uid'];
+    // uid = json['uid'];
     nickname = json['nickname'];
     avatar = json['avatar'];
     userLevel = json['userLevel'];
