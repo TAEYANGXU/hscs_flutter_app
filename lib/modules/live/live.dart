@@ -8,6 +8,8 @@ import 'dart:convert' as Convert;
 import 'model/index.dart';
 
 class LivePage extends StatefulWidget {
+  LivePage({Key? key}) : super(key: key);
+
   @override
   LivePageState createState() => LivePageState();
 }
@@ -15,6 +17,8 @@ class LivePage extends StatefulWidget {
 class LivePageState extends State<LivePage>
     with SingleTickerProviderStateMixin {
   LiveViewModel viewModel = LiveViewModel();
+  final ScrollController liveController = ScrollController();
+  final ScrollController chatController = ScrollController();
   TabController? tabController;
   IO.Socket? socket;
 
@@ -24,10 +28,12 @@ class LivePageState extends State<LivePage>
     tabController = TabController(length: 3, vsync: this);
     super.initState();
     getChatRoomInfo();
-    receiveLiveMessage();
+    Future.delayed(Duration(milliseconds: 3000), () {
+      receiveLiveMessage();
+    });
   }
 
-  void receiveLiveMessage() {
+  Future receiveLiveMessage() async {
     // 和服务器端建立连接  ws://47.104.228.200:8099  wss://chat3.jinoufe.com/socket.io
     this.socket = IO.io('wss://chat3.jinoufe.com', <String, dynamic>{
       'transports': ['websocket'],
@@ -37,7 +43,7 @@ class LivePageState extends State<LivePage>
     // 连接事件
     this.socket?.on('connect', (_) {
       print('connect..');
-      socket!.emit("joinRoom","diqiusocial:msgLive:10");
+      socket!.emit("joinRoom", "diqiusocial:msgLive:10");
     });
 
     // // 断开连接
@@ -50,25 +56,41 @@ class LivePageState extends State<LivePage>
       print("socket data = ${data}");
       Map<String, dynamic> map = Convert.jsonDecode(data);
       var socketData = SocketData.fromJson(map);
-
-      print("socketData.postData = ${socketData.postData}");
-
+      // print("socket postData = ${socketData.postData}");
       Map<String, dynamic> post = Convert.jsonDecode(socketData.postData);
-      var postData = PostData.fromJson(post);
-      if(postData.msgType == 9){
-        if(postData.data!.msgType == 1){
+      // print("socket post = ${post}");
+      var msgType = post["msgType"];
+      if (msgType == 9) {
+        print("消息1");
+        var postData = PostData.fromJson(post);
+        print("消息2");
+        if (postData.data!.msgType == 1) {
           print("直播消息");
+          if (mounted) {
+            setState(() {
+              //具体的操作
+              viewModel.liveList.add(postData.data!);
+            });
+            if (liveController.positions.isNotEmpty) {
+              liveController
+                  .jumpTo(liveController.position.maxScrollExtent + 80);
+            }
+          }
         }
-        if(postData.data!.msgType == 2){
+        if (postData.data!.msgType == 2) {
           print("互动消息");
+          if (mounted) {
+            setState(() {
+              //具体的操作
+              viewModel.chatList.add(postData.data!);
+            });
+            if (chatController.positions.isNotEmpty) {
+              chatController
+                  .jumpTo(chatController.position.maxScrollExtent + 80);
+            }
+          }
         }
       }
-      print("postData.data = ${postData.data!.ctime}");
-      setState(() {
-        // this.messageList.add(data);
-      });
-      // 改变滚动条的位置
-      // this._scrollController.jumpTo(_scrollController.position.maxScrollExtent+80);
     });
 
     ///需要回执
@@ -77,18 +99,15 @@ class LivePageState extends State<LivePage>
       setState(() {
         // this.messageList.add(data);
       });
-      // 改变滚动条的位置
-      // this._scrollController.jumpTo(_scrollController.position.maxScrollExtent+80);
     });
   }
-
-  //diqiusocial:msgLive:10
 
   getChatRoomInfo() async {
     await viewModel.requestChatRoomInfo();
     if (viewModel.room != null) {
       getChatRoomMergeMsg(viewModel.room!.roomId!, 1);
       requestChatRoomMergeChat(viewModel.room!.roomId!);
+      requestRecomendMsg(viewModel.room!.roomId!);
     }
     setState(() {});
   }
@@ -103,10 +122,16 @@ class LivePageState extends State<LivePage>
     setState(() {});
   }
 
+  requestRecomendMsg(int roomId) async {
+    await viewModel.requestRecomendMsg(roomId);
+    setState(() {});
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    // if(socket != null){ socket!.dispose(); }
   }
 
   @override
@@ -159,11 +184,20 @@ class LivePageState extends State<LivePage>
           viewModel.liveList.length > 0
               ? LiveListPage(
                   liveList: viewModel.liveList,
+                  liveController: liveController,
+                  topList: viewModel.topList,
                 )
               : Container(
                   color: Colors.white,
                 ),
-          Container(),
+          viewModel.chatList.length > 0
+              ? ChatListPage(
+                  chatList: viewModel.chatList,
+                  chatController: chatController,
+                )
+              : Container(
+                  color: Colors.white,
+                ),
           Container(),
         ],
         controller: tabController,

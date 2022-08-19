@@ -6,15 +6,15 @@ import '../cell/livelist.dart';
 
 class LiveListPage extends StatefulWidget{
 
-  LiveListPage({Key? key,this.liveList}) : super(key: key);
+  LiveListPage({Key? key,this.liveList,this.liveController,this.topList}) : super(key: key);
   List<LiveList>? liveList;
+  List<LiveMsg>? topList;
+  ScrollController? liveController = ScrollController();
   @override
   _LiveListPageState createState() => _LiveListPageState();
 }
 
 class _LiveListPageState extends State<LiveListPage> {
-
-  final ScrollController _controller = ScrollController();
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _LiveListPageState extends State<LiveListPage> {
         // if(_controller.offset == _controller.position.maxScrollExtent){
         //   return;
         // }
-        _controller.jumpTo(_controller.position.maxScrollExtent);
+        widget.liveController!.jumpTo(widget.liveController!.position.maxScrollExtent);
         // _controller.animateTo(_controller.position.maxScrollExtent, duration: const Duration(milliseconds: 20), curve: Curves.linear);
       }
     });
@@ -48,17 +48,80 @@ class _LiveListPageState extends State<LiveListPage> {
     return Container();
   }
 
+  Widget _topCellForRow(BuildContext context,int index){
+    var model = widget.topList![index];
+    return Container(
+      height: Adapt.px(30),
+      width: double.infinity,
+      color: index%2 == 0 ? Colors.yellow : Colors.blue,
+      child: Stack(
+        children: [
+          Container(
+            color: Colors.white,
+            height: Adapt.px(30),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: Adapt.px(15)),
+                  decoration: BoxDecoration(
+                      color: HexColor("#FFF5EF"),
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(width: Adapt.px(0.5),color: HexColor("#FC6200"))
+                  ),
+                  width: Adapt.px(32),
+                  height: Adapt.px(16),
+                  child: Center(child: Text("置顶",textAlign: TextAlign.center,style: TextStyle(color: HexColor("#FC6200"),fontSize: TextSize.small),),),
+                ),
+                SizedBox(width: Adapt.px(5),),
+                Container(
+                  width: Adapt.screenW() - Adapt.px(110),
+                  child: Center(
+                    child: Text(model.summary!,style: TextStyle(color: AppColors.gredText),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                  ),
+                ),
+                SizedBox(width: Adapt.px(20),),
+                Container(
+                  child: Text("查看",style: TextStyle(color: Colors.blue),),
+                )
+              ],
+            ),
+          ),
+          Container(
+            color: AppColors.line,
+            height: Adapt.px(1),
+            margin: EdgeInsets.only(left: Adapt.px(15),right: Adapt.px(15),top: Adapt.px(29)),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      width: double.infinity,
-      color: Colors.white,
-      child: ListView.builder(itemBuilder: _cellForRow,
-      controller: _controller,
-      itemCount: widget.liveList != null ?  widget.liveList!.length  + 1 : 0,
-      // physics: BouncingScrollPhysics(),
-      ),
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          color: Colors.white,
+          child: ListView.builder(itemBuilder: _cellForRow,
+            controller: widget.liveController,
+            itemCount: widget.liveList != null ?  widget.liveList!.length  + 1 : 0,
+            // physics: BouncingScrollPhysics(),
+          ),
+        ),
+        Container(
+          height: widget.topList != null ? widget.topList!.length * Adapt.px(30) : 0,
+          width: double.infinity,
+          color: Colors.white,
+          child:
+          ListView.builder(itemBuilder: _topCellForRow,
+            itemCount: widget.topList != null ? widget.topList!.length : 0,
+            physics: NeverScrollableScrollPhysics(),
+          ),
+        ),
+      ],
     );
   }
 }

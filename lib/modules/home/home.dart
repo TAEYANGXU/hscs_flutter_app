@@ -23,14 +23,12 @@ class HomePageState extends State<HomePage> {
     getFundData();
     getHeadlineTop();
     getBottomAD();
+    if (mounted) setState(() {});
   }
 
    Future getHomeData() async {
     await viewModel.getHomeData();
-    setState(() {
-      // EasyLoading.dismiss();
-
-    });
+    setState(() { });
     _controller.resetLoadState();
   }
 

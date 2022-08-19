@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class UserInfo extends ChangeNotifier {
 
@@ -59,7 +60,7 @@ class UserModel{
         this.unReadNum});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    uid = json['uid'];
+    uid = utf8.decode(base64Decode(json['uid']));
     avatar = json['avatar'];
     nickname = json['nickname'];
     mobile = json['mobile'];

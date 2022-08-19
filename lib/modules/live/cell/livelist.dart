@@ -82,7 +82,7 @@ class _LiveListCellState extends State<LiveListCell> {
                     children: [
                       Container(
                         // margin: EdgeInsets.only(right: Adapt.px(30)),
-                        width: Adapt.screenW() - Adapt.px(100),
+                        width: Adapt.screenW() - Adapt.px(120),
                         decoration: BoxDecoration(
                             color: HexColor("#F8E2C4"),
                             borderRadius: BorderRadius.circular(6)

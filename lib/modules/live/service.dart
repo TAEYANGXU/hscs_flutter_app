@@ -7,6 +7,7 @@ class LiveViewModel {
   RoomInfo? room;
   List<LiveList> liveList = [];
   List<LiveList> chatList = [];
+  List<LiveMsg> topList = [];
   String? wsRoom;
 
   ///直播室信息
@@ -24,6 +25,15 @@ class LiveViewModel {
     liveList = list.map((item) => LiveList.fromJson(item)).toList();
     print("wsRoom = ${wsRoom}");
     print("array = ${liveList.length}");
+  }
+
+  ///直播室置顶消息
+  Future requestRecomendMsg(int roomId) async{
+    var model = await DioManagerUtils.post("/v3/chat-room/recomend-msg",params: {"rid":roomId});
+    List list = model.data["list"];
+    topList = list.map((item) => LiveMsg.fromJson(item)).toList();
+    // print("code = ${model.code}");
+    // print("topList = ${topList.length}");
   }
 
   ///互动消息

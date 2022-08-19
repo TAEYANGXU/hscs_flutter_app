@@ -7,7 +7,6 @@ import 'package:hscs_flutter_app/api/dio_user_manager.dart';
 import 'routers.dart';
 import 'modules/main/router.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
-
 import 'package:hscs_flutter_app/modules/mine/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert' as Convert;

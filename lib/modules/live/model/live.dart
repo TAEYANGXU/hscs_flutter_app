@@ -263,7 +263,7 @@ class ReplyUserInfo {
     title = json['title'];
     realName = json['realName'];
     teacherId = json['teacherId'];
-    isChief = json['isChief'];
+    // isChief = json['isChief'];
     teacherType = json['teacherType'];
     replyComment = json['replyComment'];
   }
@@ -322,9 +322,9 @@ class LiveMsg {
         this.teacher});
 
   LiveMsg.fromJson(Map<String, dynamic> json) {
-    ctime = json['ctime'];
+    // ctime = json['ctime'];
     zmtime = json['zmtime'];
-    msgId = json['msgId'];
+    // msgId = json['msgId'];
     type = json['type'];
     onlyVip = json['onlyVip'];
     summary = json['summary'];

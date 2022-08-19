@@ -8,6 +8,7 @@ import 'dart:convert' as Convert;
 import 'package:provider/provider.dart';
 import 'package:hscs_flutter_app/global_config.dart';
 
+
 class LoginViewModel {
 
   BaseEntity?  verity;
