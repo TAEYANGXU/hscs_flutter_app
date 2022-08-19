@@ -95,10 +95,10 @@ class LivePageState extends State<LivePage>
 
     ///需要回执
     this.socket?.on('ensureMessage', (data) {
-      print("socket data = ${data}");
-      setState(() {
-        // this.messageList.add(data);
-      });
+      print("ensureMessage data = ${data}");
+      Map<String, dynamic> map = Convert.jsonDecode(data);
+      var socketData = SocketData.fromJson(map);
+      socket?.emit('confirmMessage',socketData.msgId);
     });
   }
 
@@ -108,6 +108,7 @@ class LivePageState extends State<LivePage>
       getChatRoomMergeMsg(viewModel.room!.roomId!, 1);
       requestChatRoomMergeChat(viewModel.room!.roomId!);
       requestRecomendMsg(viewModel.room!.roomId!);
+      requestResearchList(viewModel.room!.roomId!);
     }
     setState(() {});
   }
@@ -127,6 +128,9 @@ class LivePageState extends State<LivePage>
     setState(() {});
   }
 
+  requestResearchList(int roomId) async {
+    await viewModel.requestResearchList(roomId,1);
+  }
   @override
   void dispose() {
     // TODO: implement dispose
@@ -145,7 +149,7 @@ class LivePageState extends State<LivePage>
             ? LiveTopView(
                 room: viewModel.room,
               )
-            : Text(""),
+            : const Text(""),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(30),
           child: Align(
@@ -155,7 +159,7 @@ class LivePageState extends State<LivePage>
               //未选择样式
               unselectedLabelStyle: TextStyle(fontSize: TextSize.larger),
               //选择样式
-              labelStyle: TextStyle(
+              labelStyle: const TextStyle(
                   fontSize: TextSize.s22, fontWeight: FontWeight.w600),
               //选中的颜色
               labelColor: AppColors.theme,
@@ -168,7 +172,7 @@ class LivePageState extends State<LivePage>
               // 指示器的权重，即线条高度
               indicatorWeight: 2.0,
               indicatorPadding: EdgeInsets.only(bottom: Adapt.px(10)),
-              tabs: [
+              tabs: const [
                 Tab(text: "直播"),
                 Tab(text: "互动"),
                 Tab(text: "研究"),
@@ -180,8 +184,10 @@ class LivePageState extends State<LivePage>
       ),
       body: TabBarView(
         //点击bar对应的内容,第一个组件对应第一个bar,第二个对应第二个,以此类推
+        controller: tabController,
+        //点击bar对应的内容,第一个组件对应第一个bar,第二个对应第二个,以此类推
         children: [
-          viewModel.liveList.length > 0
+          viewModel.liveList.isNotEmpty
               ? LiveListPage(
                   liveList: viewModel.liveList,
                   liveController: liveController,
@@ -190,7 +196,7 @@ class LivePageState extends State<LivePage>
               : Container(
                   color: Colors.white,
                 ),
-          viewModel.chatList.length > 0
+          viewModel.chatList.isNotEmpty
               ? ChatListPage(
                   chatList: viewModel.chatList,
                   chatController: chatController,
@@ -198,9 +204,9 @@ class LivePageState extends State<LivePage>
               : Container(
                   color: Colors.white,
                 ),
-          Container(),
+          viewModel.researchList.isNotEmpty ? ResearchPage(list: viewModel.researchList,)
+          : Container(),
         ],
-        controller: tabController,
       ),
     );
   }

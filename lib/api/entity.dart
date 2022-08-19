@@ -39,6 +39,9 @@ class JsonConvert<T> {
       case RoomInfo:
         return RoomInfo.fromJson(json);
         break;
+      case ResearchData:
+        return ResearchData.fromJson(json);
+        break;
       // case List<AdvertListData>:
       //   return AdvertData.fromJson(json);
       //   break;

@@ -8,6 +8,8 @@ class LiveViewModel {
   List<LiveList> liveList = [];
   List<LiveList> chatList = [];
   List<LiveMsg> topList = [];
+  List<ResearchList> researchList = [];
+
   String? wsRoom;
 
   ///直播室信息
@@ -29,7 +31,7 @@ class LiveViewModel {
 
   ///直播室置顶消息
   Future requestRecomendMsg(int roomId) async{
-    var model = await DioManagerUtils.post("/v3/chat-room/recomend-msg",params: {"rid":roomId});
+    var model = await DioManagerUtils.get("/v3/chat-room/recomend-msg",params: {"rid":roomId});
     List list = model.data["list"];
     topList = list.map((item) => LiveMsg.fromJson(item)).toList();
     // print("code = ${model.code}");
@@ -44,5 +46,14 @@ class LiveViewModel {
     chatList = list.map((item) => LiveList.fromJson(item)).toList();
     // print("wsRoom = ${wsRoom}");
     print("chat array = ${chatList.length}");
+  }
+
+  ///研究列表
+  Future requestResearchList(int roomId,int page) async{
+    var model = await DioManagerUtils.getT<ResearchData>("/v3/chat-room/research-list",params: {"roomId":roomId,"page":page,"pageSize":20});
+    if(model.data?.list != null) {
+      researchList = model.data!.list!;
+    }
+    print("ResearchData array = ${model.data!.list!.length}");
   }
 }
