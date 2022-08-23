@@ -51,7 +51,8 @@ class _LoginVeriftyCodePageState extends State<LoginVeriftyCodePage> {
     await loginViewModel.login(widget.mobile, code,context);
     setState(() {
       EasyLoading.dismiss();
-      Routers.push(context, MainRouter.main, params: {"tabIndex":"3"});
+      Navigator.of(context).popUntil((route) => route.isFirst);
+      // Routers.push(context, MainRouter.main, params: {"tabIndex":"3"});
     });
   }
 

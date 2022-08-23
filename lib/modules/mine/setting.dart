@@ -88,7 +88,7 @@ class MineSettingPageState extends State<MineSettingPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        child: Text("清理缓存",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
+                        child: Text("微信",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                         margin: EdgeInsets.only(left: Adapt.px(15)),
                       ),
                       Container(
@@ -145,7 +145,7 @@ class MineSettingPageState extends State<MineSettingPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        child: Text("清理缓存",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
+                        child: Text("安全中心",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                         margin: EdgeInsets.only(left: Adapt.px(15)),
                       ),
                       Center(

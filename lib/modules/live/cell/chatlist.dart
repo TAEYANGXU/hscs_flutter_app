@@ -82,7 +82,7 @@ class _ChatListCellState extends State<ChatListCell> {
                               children: [
                                 Container(
                                   child: Text(
-                                    widget.model!.chatMsg!.content!,
+                                    widget.model?.chatMsg?.content ?? "",
                                     style: TextStyle(
                                         color: HexColor("#7A481D"),
                                         fontSize: TextSize.big),
@@ -126,7 +126,7 @@ class _ChatListCellState extends State<ChatListCell> {
                                               .model!
                                               .chatMsg!
                                               .replyUserInfo!
-                                              .replyComment!,
+                                              .replyComment ?? "",
                                           style: TextStyle(
                                               color: AppColors.gredText,
                                               fontSize: TextSize.big)),

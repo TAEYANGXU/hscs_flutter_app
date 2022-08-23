@@ -32,8 +32,8 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
             children: [
               CacheImage(
                 imageUrl: icon.iconurl!,
-                width: Adapt.px(25),
-                height: Adapt.px(29),
+                width: Adapt.px(30),
+                height: Adapt.px(30),
               ),
               SizedBox(
                 height: 10,
@@ -57,7 +57,7 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
     }
     print("col = $col");
     print("size = $size");
-    return col * Adapt.px(100);
+    return col * (col == 2 ? Adapt.px(90) : Adapt.px(72));
   }
 
   @override
@@ -71,7 +71,7 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
         crossAxisSpacing: 0,
         children: getItems(),
         // scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.only(top: 30),
+        padding: EdgeInsets.only(top: 15),
         physics: NeverScrollableScrollPhysics(),
       ),
     );

@@ -88,6 +88,7 @@ flutter:
     - lib/assets/image/mine/
     - lib/assets/image/login/
     - lib/assets/image/live/
+    - lib/assets/image/vip/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

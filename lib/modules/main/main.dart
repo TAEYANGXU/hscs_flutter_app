@@ -54,7 +54,7 @@ class MainPageState extends State<MainPage>
       body: allPages[int.parse(widget.tabIndex!)],
       bottomNavigationBar:BottomNavigationBar(
           unselectedItemColor: AppColors.tabText,
-          selectedItemColor: AppColors.tabTextSelect,
+          selectedItemColor: widget.tabIndex == 2 ? HexColor("##E0B777") : AppColors.tabTextSelect,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: TextSize.moreTiny,
           unselectedFontSize: TextSize.moreTiny,
@@ -62,7 +62,7 @@ class MainPageState extends State<MainPage>
           items: [
             BottomNavigationBarItem(icon: AppIcons.tabHome,label: '首页',activeIcon: AppIcons.tabHomeSelect,),
             BottomNavigationBarItem(icon: AppIcons.tabLive,label: '直播',activeIcon: AppIcons.tabLiveSelect,),
-            BottomNavigationBarItem(icon: AppIcons.tabVip,label: '会员',activeIcon: AppIcons.tabVipSelect,),
+            BottomNavigationBarItem(icon: AppIcons.tabVip,label: '会员区',activeIcon: AppIcons.tabVipSelect,),
             BottomNavigationBarItem(icon: AppIcons.tabMine,label: '我的',activeIcon: AppIcons.tabMineSelect,),
       ],
         onTap: onTap,

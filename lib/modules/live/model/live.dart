@@ -41,6 +41,7 @@ class LiveList {
   ChatMsg? chatMsg;
   int? isMass;
   LiveMsg? liveMsg;
+  int? isInteract;
 
   LiveList(
       {this.msgType,
@@ -48,7 +49,8 @@ class LiveList {
         this.ctime,
         this.chatMsg,
         this.isMass,
-        this.liveMsg});
+        this.liveMsg,
+        this.isInteract,});
 
   LiveList.fromJson(Map<String, dynamic> json) {
     msgType = json['msgType'];
@@ -59,6 +61,7 @@ class LiveList {
     isMass = json['isMass'];
     liveMsg =
     json['liveMsg'] != null ? LiveMsg.fromJson(json['liveMsg']) : null;
+    isInteract =  json['isInteract'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
@@ -322,10 +325,10 @@ class LiveMsg {
         this.teacher});
 
   LiveMsg.fromJson(Map<String, dynamic> json) {
-    // ctime = json['ctime'];
+    ctime = '${json['ctime']}';
     zmtime = json['zmtime'];
-    // msgId = json['msgId'];
-    type = json['type'];
+    msgId = '${json['msgId']}';
+    type = '${json['type']}';
     onlyVip = json['onlyVip'];
     summary = json['summary'];
     if (json['pics'] != null) {

@@ -99,6 +99,31 @@ class LivePageState extends State<LivePage>
       Map<String, dynamic> map = Convert.jsonDecode(data);
       var socketData = SocketData.fromJson(map);
       socket?.emit('confirmMessage',socketData.msgId);
+      Map<String, dynamic> post = Convert.jsonDecode(socketData.postData);
+      // print("socket post = ${post}");
+      var msgType = post["msgType"];
+      if (msgType == 9) {
+        var postData = PostData.fromJson(post);
+        if (postData.data!.msgType == 1) {
+          print("直播消息");
+          if (mounted) {
+            setState(() {
+              //具体的操作
+              viewModel.liveList.add(postData.data!);
+            });
+            if (liveController.positions.isNotEmpty) {
+              liveController
+                  .jumpTo(liveController.position.maxScrollExtent + 80);
+            }
+            if(postData.data!.isInteract == 1){
+              viewModel.chatList.add(postData.data!);
+              setState(() {});
+              chatController
+                  .jumpTo(chatController.position.maxScrollExtent + 80);
+            }
+          }
+        }
+      }
     });
   }
 

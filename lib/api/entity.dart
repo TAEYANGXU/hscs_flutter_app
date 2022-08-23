@@ -2,6 +2,8 @@
 import 'package:hscs_flutter_app/modules/home/model/index.dart';
 import 'package:hscs_flutter_app/modules/mine/model/user.dart';
 import 'package:hscs_flutter_app/modules/live/model/index.dart';
+import 'package:hscs_flutter_app/modules/vip/model/index.dart';
+
 /// https://czero1995.github.io/json-to-model/
 class BaseEntity<T> {
   int? code;
@@ -41,6 +43,9 @@ class JsonConvert<T> {
         break;
       case ResearchData:
         return ResearchData.fromJson(json);
+        break;
+      case AudioData:
+        return AudioData.fromJson(json);
         break;
       // case List<AdvertListData>:
       //   return AdvertData.fromJson(json);
