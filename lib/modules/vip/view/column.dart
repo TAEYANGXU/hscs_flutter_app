@@ -78,7 +78,7 @@ class _VipColumnViewState extends State<VipColumnView> {
       return [];
     }
     List<Widget> items = [];
-    for (var i = 0; i < list!.length; i++) {
+    for (var i = 0; i < list.length; i++) {
       ListData data = list[i];
       items.add(item(data, i == list.length -1 ? false : true));
     }

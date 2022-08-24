@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 
 /// 全局配置
 class GlobalConfig {
+
+  static const MethodChannel channel = const MethodChannel('huasheng/flutter');
+
   /// 主题色
   static Color theme = AppColors.theme;
 

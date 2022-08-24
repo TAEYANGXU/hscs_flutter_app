@@ -6,6 +6,7 @@ import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'section.dart';
 import 'package:date_format/date_format.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 
 class VipLiveView extends StatefulWidget {
 
@@ -22,7 +23,7 @@ class VipLiveView extends StatefulWidget {
 
 class _VipLiveViewState extends State<VipLiveView> {
 
-  static const MethodChannel _channel = const MethodChannel('huasheng/flutter');
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class _VipLiveViewState extends State<VipLiveView> {
           GestureDetector(
             onTap: () async {
 
-              var res = await _channel.invokeMethod("");
+              var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/live_video",{"roomId":widget.liveData?.roomId});
               print("访问swift = ${res}");
 
             },
@@ -90,7 +91,7 @@ class _VipLiveViewState extends State<VipLiveView> {
                               margin: EdgeInsets.only(left: Adapt.px(15)),
                               clipBehavior: Clip.hardEdge,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(Adapt.px(18)),
+                                borderRadius: BorderRadius.circular(Adapt.px(15)),
                               ),
                               child: widget.liveData?.teachers![0].avatar != null ? CacheImage(imageUrl: widget.liveData?.teachers![0].avatar ?? "",width: Adapt.px(30),height: Adapt.px(30),) : Container(),
                             ),

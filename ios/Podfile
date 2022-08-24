@@ -30,7 +30,28 @@ flutter_ios_podfile_setup
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-
+  
+  pod 'Masonry'
+  #工具
+  pod 'XyWidget', '~> 1.2.1'
+  #提示框
+  pod 'SVProgressHUD'
+  pod 'ObjectMapper'
+  pod 'Kingfisher', '~> 4.10.0'
+  pod 'SnapKit', '~> 4.0.0'
+  pod 'Alamofire', '~> 5.4.1'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+  pod 'VHLiveSDK', '~> 5.0.0'
+  pod 'SwiftyJSON'
+  pod 'YYCache'
+  pod 'SDWebImage', '~> 5.0.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'MJRefresh','~> 3.1.0'
+  pod 'FDFullscreenPopGesture', '~> 1.1'
+  pod 'TZScrollViewPopGesture'
+  pod 'YYModel'
+#  pod 'MBProgressHUD'
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
 

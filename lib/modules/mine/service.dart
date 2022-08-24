@@ -27,10 +27,10 @@ class MineViewModel {
     var model = await DioManagerUserUtils.get("/v2/user/info");
     var prefs = await SharedPreferences.getInstance();
     if(model.code == 200){
-      Provider.of<UserInfo>(context, listen: false).setInfo(model.data);
-      var json = Convert.jsonEncode(model.data).toString();
+      // Provider.of<UserInfo>(context, listen: false).setInfo(model.data);
+      // var json = Convert.jsonEncode(model.data).toString();
       ///持久化
-      prefs.setString(GlobalConfig.kUserInfo, json);
+      // prefs.setString(GlobalConfig.kUserInfo, json);
     }
     if(model.code == 400002){//重新登录
       EasyLoading.showToast("登录已失效，请重新登录");

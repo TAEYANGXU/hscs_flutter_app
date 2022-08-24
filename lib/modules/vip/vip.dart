@@ -75,7 +75,7 @@ class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin {
         controller: tabController,
         children: [
           VipRecommendPage(
-            reportList: viewModel.repostList ?? [],
+            reportList: viewModel.repostList,
             iconList: viewModel.iconList,
             audio: viewModel.audio,
             liveData: viewModel.liveData,

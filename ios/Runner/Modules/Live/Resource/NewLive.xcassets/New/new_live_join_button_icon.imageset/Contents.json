@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "抽奖前-开奖倒计时-参与抽奖按钮.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "抽奖前-开奖倒计时-参与抽奖按钮@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "抽奖前-开奖倒计时-参与抽奖按钮@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

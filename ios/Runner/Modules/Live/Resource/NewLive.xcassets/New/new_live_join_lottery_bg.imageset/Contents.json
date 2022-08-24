@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "抽奖后-开奖倒计时弹窗.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "抽奖后-开奖倒计时弹窗@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "抽奖后-开奖倒计时弹窗@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

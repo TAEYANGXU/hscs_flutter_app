@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hscs_flutter_app/style/color.dart';
 import 'package:hscs_flutter_app/modules/main/main.dart';
 import 'global_config.dart';
@@ -22,7 +23,6 @@ class HSApp extends StatefulWidget {
 
 class HSAppState extends State<HSApp>
 {
-
   @override
   void initState(){
     DioManagerUtils.init(baseUrl: GlobalConfig.baseUrl2);
@@ -62,12 +62,16 @@ class HSInitPageState extends State<HSInitPage>
   }
 
   void getUserInfo() async {
+
     var prefs = await SharedPreferences.getInstance();
     // prefs.remove(GlobalConfig.kUserInfo);
     var userInfo = prefs.get(GlobalConfig.kUserInfo).toString();
     print("userInfo=${userInfo}");
     var userInfoMap = Convert.jsonDecode(userInfo);
     Provider.of<UserInfo>(context,listen: false).setInfo(userInfoMap);
+
+    var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",userInfo);
+    print("访问swift = ${res}");
   }
 
   @override

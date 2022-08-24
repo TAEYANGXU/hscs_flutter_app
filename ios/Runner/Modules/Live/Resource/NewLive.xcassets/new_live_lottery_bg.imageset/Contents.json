@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "宠粉节-抽奖弹窗背景.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "金花生联播-抽奖弹窗背景@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "宠粉节-抽奖弹窗背景@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -8,7 +8,70 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		36222C8928B4CFFE00863411 /* Video.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36222C7428B4CFFE00863411 /* Video.xcassets */; };
+		36222C8A28B4CFFE00863411 /* HSCSCustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C7A28B4CFFE00863411 /* HSCSCustomSlider.m */; };
+		36222C8B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C7B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m */; };
+		36222C8C28B4CFFE00863411 /* HSCSWatchBackVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C7C28B4CFFE00863411 /* HSCSWatchBackVideoView.m */; };
+		36222C8D28B4CFFE00863411 /* HSCSWatchBackSpeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C7D28B4CFFE00863411 /* HSCSWatchBackSpeedView.m */; };
+		36222C8E28B4CFFE00863411 /* HSCSLiveNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C7F28B4CFFE00863411 /* HSCSLiveNoDataView.m */; };
+		36222C8F28B4CFFE00863411 /* HSCSLiveVideoLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C8028B4CFFE00863411 /* HSCSLiveVideoLightView.m */; };
+		36222C9028B4CFFE00863411 /* HSCSDefinitionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C8228B4CFFE00863411 /* HSCSDefinitionListCell.m */; };
+		36222C9128B4CFFE00863411 /* HSCSDefinitionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C8328B4CFFE00863411 /* HSCSDefinitionListView.m */; };
+		36222C9228B4CFFE00863411 /* HSCSWatchLiveVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C8728B4CFFE00863411 /* HSCSWatchLiveVideoView.m */; };
+		36222C9528B4D3A200863411 /* UIDevice+Mode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222C9328B4D3A200863411 /* UIDevice+Mode.m */; };
+		36222CB728B4D78A00863411 /* HSCSNewLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222C9928B4D78900863411 /* HSCSNewLiveViewController.swift */; };
+		36222CB828B4D78A00863411 /* HSCSNewLiveWinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222C9B28B4D78900863411 /* HSCSNewLiveWinListCell.swift */; };
+		36222CB928B4D78A00863411 /* HSCSNewLiveRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222C9C28B4D78900863411 /* HSCSNewLiveRecommendCell.swift */; };
+		36222CBA28B4D78A00863411 /* HSCSNewLiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222C9D28B4D78900863411 /* HSCSNewLiveChatCell.swift */; };
+		36222CBB28B4D78A00863411 /* HSCSNewLiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222C9F28B4D78900863411 /* HSCSNewLiveModel.swift */; };
+		36222CBC28B4D78A00863411 /* HSCSNewLiveChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA028B4D78900863411 /* HSCSNewLiveChatModel.swift */; };
+		36222CBD28B4D78A00863411 /* HSCSNewLiveActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA128B4D78900863411 /* HSCSNewLiveActivityModel.swift */; };
+		36222CBE28B4D78A00863411 /* HSCSGoodsRecomendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA228B4D78900863411 /* HSCSGoodsRecomendModel.swift */; };
+		36222CBF28B4D78A00863411 /* HSCSNewLiveRecommendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA428B4D78900863411 /* HSCSNewLiveRecommendListView.swift */; };
+		36222CC028B4D78A00863411 /* HSCSNewLiveToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA528B4D78900863411 /* HSCSNewLiveToolView.swift */; };
+		36222CC128B4D78A00863411 /* HSCSNewLiveWinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA628B4D78900863411 /* HSCSNewLiveWinButton.swift */; };
+		36222CC228B4D78A00863411 /* HSCSNewLiveWinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA728B4D78900863411 /* HSCSNewLiveWinListView.swift */; };
+		36222CC328B4D78A00863411 /* HSCSNewLiveLotteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA828B4D78900863411 /* HSCSNewLiveLotteryView.swift */; };
+		36222CC428B4D78A00863411 /* HSCSNewLiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CA928B4D78900863411 /* HSCSNewLiveHeaderView.swift */; };
+		36222CC528B4D78A00863411 /* HSCSNewLiveNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CAA28B4D78900863411 /* HSCSNewLiveNavView.swift */; };
+		36222CC628B4D78A00863411 /* HSCSNewLiveCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CAB28B4D78900863411 /* HSCSNewLiveCountdownView.swift */; };
+		36222CC728B4D78A00863411 /* HSCSNewLiveTimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CAC28B4D78900863411 /* HSCSNewLiveTimingView.swift */; };
+		36222CC828B4D78A00863411 /* HSCSNewLiveTakeLotteryView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CAD28B4D78900863411 /* HSCSNewLiveTakeLotteryView2.swift */; };
+		36222CC928B4D78A00863411 /* HSCSNewLiveWaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CAE28B4D78900863411 /* HSCSNewLiveWaitView.swift */; };
+		36222CCA28B4D78A00863411 /* HSCSNewLiveTakeLotteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CAF28B4D78900863411 /* HSCSNewLiveTakeLotteryView.swift */; };
+		36222CCB28B4D78A00863411 /* HSCSNewLiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CB128B4D78900863411 /* HSCSNewLiveService.swift */; };
+		36222CCC28B4D78A00863411 /* HSCSNewLiveLotterySerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36222CB228B4D78900863411 /* HSCSNewLiveLotterySerice.swift */; };
+		36222CCD28B4D78A00863411 /* NewLive.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36222CB428B4D78900863411 /* NewLive.xcassets */; };
+		36222CCE28B4D78A00863411 /* live.gif in Resources */ = {isa = PBXBuildFile; fileRef = 36222CB528B4D78900863411 /* live.gif */; };
+		36222CCF28B4D78A00863411 /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36222CB628B4D78900863411 /* impact.ttf */; };
+		36222CD228B4D8D300863411 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CD128B4D8D300863411 /* UIColor+Theme.m */; };
+		36222CE128B4DAA000863411 /* UIFaceKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CD428B4DAA000863411 /* UIFaceKeyboardView.m */; };
+		36222CE228B4DAA000863411 /* UIKeybaord.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36222CD728B4DAA000863411 /* UIKeybaord.xcassets */; };
+		36222CE328B4DAA000863411 /* UIMoreButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CDB28B4DAA000863411 /* UIMoreButtonItem.m */; };
+		36222CE428B4DAA000863411 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CDD28B4DAA000863411 /* UIPlaceHolderTextView.m */; };
+		36222CE528B4DAA000863411 /* UIKeyboardBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CDE28B4DAA000863411 /* UIKeyboardBar.m */; };
+		36222CE628B4DAA000863411 /* UIView+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CDF28B4DAA000863411 /* UIView+Methods.m */; };
+		36222CE728B4DAA000863411 /* UIMoreKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CE028B4DAA000863411 /* UIMoreKeyboardView.m */; };
+		36222CEA28B5C6B700863411 /* HSCSUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CE928B5C6B700863411 /* HSCSUserInfoManager.m */; };
 		36A2DAF528B4B84100A88AA9 /* FlutterNativePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */; };
+		36A2DAF828B4C22E00A88AA9 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAF728B4C22E00A88AA9 /* Test.m */; };
+		36A2DB0228B4C85500A88AA9 /* HSCSAFResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAFE28B4C85500A88AA9 /* HSCSAFResponseModel.swift */; };
+		36A2DB0328B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAFF28B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift */; };
+		36A2DB0428B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0028B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift */; };
+		36A2DB0528B4C85500A88AA9 /* HSCSAFHTTPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0128B4C85500A88AA9 /* HSCSAFHTTPTarget.swift */; };
+		36A2DB0728B4C87800A88AA9 /* HSCSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0628B4C87800A88AA9 /* HSCSExtension.swift */; };
+		36A2DB0928B4C88300A88AA9 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0828B4C88300A88AA9 /* UIImage+Gif.swift */; };
+		36A2DB0D28B4C8C300A88AA9 /* AppConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0C28B4C8C300A88AA9 /* AppConst.m */; };
+		36A2DB1228B4C8D500A88AA9 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0E28B4C8D500A88AA9 /* AppConfig.m */; };
+		36A2DB1328B4C8D500A88AA9 /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB1128B4C8D500A88AA9 /* AppUtils.m */; };
+		36A2DB1628B4C9CC00A88AA9 /* UILabel+NumberOfLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB1428B4C9CC00A88AA9 /* UILabel+NumberOfLines.m */; };
+		36A2DB1A28B4CA6800A88AA9 /* HSCSKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB1728B4CA6800A88AA9 /* HSCSKeychainStore.swift */; };
+		36A2DB1B28B4CA6800A88AA9 /* HSCSCacheHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB1928B4CA6800A88AA9 /* HSCSCacheHandle.m */; };
+		36A2DB2328B4CC0800A88AA9 /* HSCSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB1D28B4CC0800A88AA9 /* HSCSProgressHUD.m */; };
+		36A2DB2428B4CC0800A88AA9 /* HSCSGIFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB1E28B4CC0800A88AA9 /* HSCSGIFLoadingView.swift */; };
+		36A2DB2528B4CC0800A88AA9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 36A2DB2028B4CC0800A88AA9 /* loading.gif */; };
+		36A2DB2628B4CC0800A88AA9 /* HSCSHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB2228B4CC0800A88AA9 /* HSCSHUD.m */; };
+		36A2DB2928B4CED200A88AA9 /* UIImage+GIFImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB2728B4CED200A88AA9 /* UIImage+GIFImage.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
@@ -33,7 +96,97 @@
 /* Begin PBXFileReference section */
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		36222C7428B4CFFE00863411 /* Video.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Video.xcassets; sourceTree = "<group>"; };
+		36222C7628B4CFFE00863411 /* HSCSWatchBackSpeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSWatchBackSpeedView.h; sourceTree = "<group>"; };
+		36222C7728B4CFFE00863411 /* HSCSWatchBackVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSWatchBackVideoView.h; sourceTree = "<group>"; };
+		36222C7828B4CFFE00863411 /* HSCSWatchBackVideoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSWatchBackVideoHelper.h; sourceTree = "<group>"; };
+		36222C7928B4CFFE00863411 /* HSCSCustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSCustomSlider.h; sourceTree = "<group>"; };
+		36222C7A28B4CFFE00863411 /* HSCSCustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSCustomSlider.m; sourceTree = "<group>"; };
+		36222C7B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSWatchBackVideoHelper.m; sourceTree = "<group>"; };
+		36222C7C28B4CFFE00863411 /* HSCSWatchBackVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSWatchBackVideoView.m; sourceTree = "<group>"; };
+		36222C7D28B4CFFE00863411 /* HSCSWatchBackSpeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSWatchBackSpeedView.m; sourceTree = "<group>"; };
+		36222C7F28B4CFFE00863411 /* HSCSLiveNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSLiveNoDataView.m; sourceTree = "<group>"; };
+		36222C8028B4CFFE00863411 /* HSCSLiveVideoLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSLiveVideoLightView.m; sourceTree = "<group>"; };
+		36222C8128B4CFFE00863411 /* HSCSWatchLiveVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSWatchLiveVideoView.h; sourceTree = "<group>"; };
+		36222C8228B4CFFE00863411 /* HSCSDefinitionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSDefinitionListCell.m; sourceTree = "<group>"; };
+		36222C8328B4CFFE00863411 /* HSCSDefinitionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSDefinitionListView.m; sourceTree = "<group>"; };
+		36222C8428B4CFFE00863411 /* HSCSLiveNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSLiveNoDataView.h; sourceTree = "<group>"; };
+		36222C8528B4CFFE00863411 /* HSCSLiveVideoLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSLiveVideoLightView.h; sourceTree = "<group>"; };
+		36222C8628B4CFFE00863411 /* HSCSDefinitionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSDefinitionListCell.h; sourceTree = "<group>"; };
+		36222C8728B4CFFE00863411 /* HSCSWatchLiveVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSWatchLiveVideoView.m; sourceTree = "<group>"; };
+		36222C8828B4CFFE00863411 /* HSCSDefinitionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSDefinitionListView.h; sourceTree = "<group>"; };
+		36222C9328B4D3A200863411 /* UIDevice+Mode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Mode.m"; sourceTree = "<group>"; };
+		36222C9428B4D3A200863411 /* UIDevice+Mode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Mode.h"; sourceTree = "<group>"; };
+		36222C9928B4D78900863411 /* HSCSNewLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveViewController.swift; sourceTree = "<group>"; };
+		36222C9B28B4D78900863411 /* HSCSNewLiveWinListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveWinListCell.swift; sourceTree = "<group>"; };
+		36222C9C28B4D78900863411 /* HSCSNewLiveRecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveRecommendCell.swift; sourceTree = "<group>"; };
+		36222C9D28B4D78900863411 /* HSCSNewLiveChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveChatCell.swift; sourceTree = "<group>"; };
+		36222C9F28B4D78900863411 /* HSCSNewLiveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveModel.swift; sourceTree = "<group>"; };
+		36222CA028B4D78900863411 /* HSCSNewLiveChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveChatModel.swift; sourceTree = "<group>"; };
+		36222CA128B4D78900863411 /* HSCSNewLiveActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveActivityModel.swift; sourceTree = "<group>"; };
+		36222CA228B4D78900863411 /* HSCSGoodsRecomendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSGoodsRecomendModel.swift; sourceTree = "<group>"; };
+		36222CA428B4D78900863411 /* HSCSNewLiveRecommendListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveRecommendListView.swift; sourceTree = "<group>"; };
+		36222CA528B4D78900863411 /* HSCSNewLiveToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveToolView.swift; sourceTree = "<group>"; };
+		36222CA628B4D78900863411 /* HSCSNewLiveWinButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveWinButton.swift; sourceTree = "<group>"; };
+		36222CA728B4D78900863411 /* HSCSNewLiveWinListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveWinListView.swift; sourceTree = "<group>"; };
+		36222CA828B4D78900863411 /* HSCSNewLiveLotteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveLotteryView.swift; sourceTree = "<group>"; };
+		36222CA928B4D78900863411 /* HSCSNewLiveHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveHeaderView.swift; sourceTree = "<group>"; };
+		36222CAA28B4D78900863411 /* HSCSNewLiveNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveNavView.swift; sourceTree = "<group>"; };
+		36222CAB28B4D78900863411 /* HSCSNewLiveCountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveCountdownView.swift; sourceTree = "<group>"; };
+		36222CAC28B4D78900863411 /* HSCSNewLiveTimingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveTimingView.swift; sourceTree = "<group>"; };
+		36222CAD28B4D78900863411 /* HSCSNewLiveTakeLotteryView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveTakeLotteryView2.swift; sourceTree = "<group>"; };
+		36222CAE28B4D78900863411 /* HSCSNewLiveWaitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveWaitView.swift; sourceTree = "<group>"; };
+		36222CAF28B4D78900863411 /* HSCSNewLiveTakeLotteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveTakeLotteryView.swift; sourceTree = "<group>"; };
+		36222CB128B4D78900863411 /* HSCSNewLiveService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveService.swift; sourceTree = "<group>"; };
+		36222CB228B4D78900863411 /* HSCSNewLiveLotterySerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewLiveLotterySerice.swift; sourceTree = "<group>"; };
+		36222CB428B4D78900863411 /* NewLive.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NewLive.xcassets; sourceTree = "<group>"; };
+		36222CB528B4D78900863411 /* live.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = live.gif; sourceTree = "<group>"; };
+		36222CB628B4D78900863411 /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
+		36222CD028B4D8D200863411 /* UIColor+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Theme.h"; sourceTree = "<group>"; };
+		36222CD128B4D8D300863411 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
+		36222CD428B4DAA000863411 /* UIFaceKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFaceKeyboardView.m; sourceTree = "<group>"; };
+		36222CD528B4DAA000863411 /* UIMoreButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMoreButtonItem.h; sourceTree = "<group>"; };
+		36222CD628B4DAA000863411 /* UIKeyboardBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKeyboardBar.h; sourceTree = "<group>"; };
+		36222CD728B4DAA000863411 /* UIKeybaord.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UIKeybaord.xcassets; sourceTree = "<group>"; };
+		36222CD828B4DAA000863411 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		36222CD928B4DAA000863411 /* UIView+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Methods.h"; sourceTree = "<group>"; };
+		36222CDA28B4DAA000863411 /* UIMoreKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMoreKeyboardView.h; sourceTree = "<group>"; };
+		36222CDB28B4DAA000863411 /* UIMoreButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMoreButtonItem.m; sourceTree = "<group>"; };
+		36222CDC28B4DAA000863411 /* UIFaceKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFaceKeyboardView.h; sourceTree = "<group>"; };
+		36222CDD28B4DAA000863411 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		36222CDE28B4DAA000863411 /* UIKeyboardBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKeyboardBar.m; sourceTree = "<group>"; };
+		36222CDF28B4DAA000863411 /* UIView+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Methods.m"; sourceTree = "<group>"; };
+		36222CE028B4DAA000863411 /* UIMoreKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMoreKeyboardView.m; sourceTree = "<group>"; };
+		36222CE828B5C6B700863411 /* HSCSUserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSUserInfoManager.h; sourceTree = "<group>"; };
+		36222CE928B5C6B700863411 /* HSCSUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSUserInfoManager.m; sourceTree = "<group>"; };
 		36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterNativePlugin.swift; sourceTree = "<group>"; };
+		36A2DAF628B4C22E00A88AA9 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		36A2DAF728B4C22E00A88AA9 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		36A2DAFE28B4C85500A88AA9 /* HSCSAFResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSAFResponseModel.swift; sourceTree = "<group>"; };
+		36A2DAFF28B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSLiveSocketIOManager.swift; sourceTree = "<group>"; };
+		36A2DB0028B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSAFHTTPSessionManager.swift; sourceTree = "<group>"; };
+		36A2DB0128B4C85500A88AA9 /* HSCSAFHTTPTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSAFHTTPTarget.swift; sourceTree = "<group>"; };
+		36A2DB0628B4C87800A88AA9 /* HSCSExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSExtension.swift; sourceTree = "<group>"; };
+		36A2DB0828B4C88300A88AA9 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		36A2DB0B28B4C8C200A88AA9 /* AppConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConst.h; sourceTree = "<group>"; };
+		36A2DB0C28B4C8C300A88AA9 /* AppConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConst.m; sourceTree = "<group>"; };
+		36A2DB0E28B4C8D500A88AA9 /* AppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
+		36A2DB0F28B4C8D500A88AA9 /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtils.h; sourceTree = "<group>"; };
+		36A2DB1028B4C8D500A88AA9 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		36A2DB1128B4C8D500A88AA9 /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
+		36A2DB1428B4C9CC00A88AA9 /* UILabel+NumberOfLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+NumberOfLines.m"; sourceTree = "<group>"; };
+		36A2DB1528B4C9CC00A88AA9 /* UILabel+NumberOfLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+NumberOfLines.h"; sourceTree = "<group>"; };
+		36A2DB1728B4CA6800A88AA9 /* HSCSKeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSKeychainStore.swift; sourceTree = "<group>"; };
+		36A2DB1828B4CA6800A88AA9 /* HSCSCacheHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSCacheHandle.h; sourceTree = "<group>"; };
+		36A2DB1928B4CA6800A88AA9 /* HSCSCacheHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSCacheHandle.m; sourceTree = "<group>"; };
+		36A2DB1D28B4CC0800A88AA9 /* HSCSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSProgressHUD.m; sourceTree = "<group>"; };
+		36A2DB1E28B4CC0800A88AA9 /* HSCSGIFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSGIFLoadingView.swift; sourceTree = "<group>"; };
+		36A2DB1F28B4CC0800A88AA9 /* HSCSHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSHUD.h; sourceTree = "<group>"; };
+		36A2DB2028B4CC0800A88AA9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		36A2DB2128B4CC0800A88AA9 /* HSCSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSProgressHUD.h; sourceTree = "<group>"; };
+		36A2DB2228B4CC0800A88AA9 /* HSCSHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSHUD.m; sourceTree = "<group>"; };
+		36A2DB2728B4CED200A88AA9 /* UIImage+GIFImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIFImage.m"; sourceTree = "<group>"; };
+		36A2DB2828B4CED200A88AA9 /* UIImage+GIFImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIFImage.h"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		40145345390318A46EF55A9E /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -63,6 +216,209 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36222C7328B4CFFE00863411 /* HSCSVideo */ = {
+			isa = PBXGroup;
+			children = (
+				36222C7428B4CFFE00863411 /* Video.xcassets */,
+				36222C7528B4CFFE00863411 /* WatchBack */,
+				36222C7E28B4CFFE00863411 /* Live */,
+			);
+			path = HSCSVideo;
+			sourceTree = "<group>";
+		};
+		36222C7528B4CFFE00863411 /* WatchBack */ = {
+			isa = PBXGroup;
+			children = (
+				36222C7928B4CFFE00863411 /* HSCSCustomSlider.h */,
+				36222C7A28B4CFFE00863411 /* HSCSCustomSlider.m */,
+				36222C7628B4CFFE00863411 /* HSCSWatchBackSpeedView.h */,
+				36222C7D28B4CFFE00863411 /* HSCSWatchBackSpeedView.m */,
+				36222C7828B4CFFE00863411 /* HSCSWatchBackVideoHelper.h */,
+				36222C7B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m */,
+				36222C7728B4CFFE00863411 /* HSCSWatchBackVideoView.h */,
+				36222C7C28B4CFFE00863411 /* HSCSWatchBackVideoView.m */,
+			);
+			path = WatchBack;
+			sourceTree = "<group>";
+		};
+		36222C7E28B4CFFE00863411 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				36222C8628B4CFFE00863411 /* HSCSDefinitionListCell.h */,
+				36222C8228B4CFFE00863411 /* HSCSDefinitionListCell.m */,
+				36222C8828B4CFFE00863411 /* HSCSDefinitionListView.h */,
+				36222C8328B4CFFE00863411 /* HSCSDefinitionListView.m */,
+				36222C8428B4CFFE00863411 /* HSCSLiveNoDataView.h */,
+				36222C7F28B4CFFE00863411 /* HSCSLiveNoDataView.m */,
+				36222C8528B4CFFE00863411 /* HSCSLiveVideoLightView.h */,
+				36222C8028B4CFFE00863411 /* HSCSLiveVideoLightView.m */,
+				36222C8128B4CFFE00863411 /* HSCSWatchLiveVideoView.h */,
+				36222C8728B4CFFE00863411 /* HSCSWatchLiveVideoView.m */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		36222C9628B4D76000863411 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				36222CD328B4DAA000863411 /* UIKeybaord */,
+				36222C9728B4D78900863411 /* Live */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		36222C9728B4D78900863411 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				36222C9828B4D78900863411 /* Controller */,
+				36222C9A28B4D78900863411 /* Cell */,
+				36222C9E28B4D78900863411 /* Model */,
+				36222CA328B4D78900863411 /* View */,
+				36222CB028B4D78900863411 /* Service */,
+				36222CB328B4D78900863411 /* Resource */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		36222C9828B4D78900863411 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36222C9928B4D78900863411 /* HSCSNewLiveViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		36222C9A28B4D78900863411 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36222C9B28B4D78900863411 /* HSCSNewLiveWinListCell.swift */,
+				36222C9C28B4D78900863411 /* HSCSNewLiveRecommendCell.swift */,
+				36222C9D28B4D78900863411 /* HSCSNewLiveChatCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		36222C9E28B4D78900863411 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36222C9F28B4D78900863411 /* HSCSNewLiveModel.swift */,
+				36222CA028B4D78900863411 /* HSCSNewLiveChatModel.swift */,
+				36222CA128B4D78900863411 /* HSCSNewLiveActivityModel.swift */,
+				36222CA228B4D78900863411 /* HSCSGoodsRecomendModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36222CA328B4D78900863411 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36222CA428B4D78900863411 /* HSCSNewLiveRecommendListView.swift */,
+				36222CA528B4D78900863411 /* HSCSNewLiveToolView.swift */,
+				36222CA628B4D78900863411 /* HSCSNewLiveWinButton.swift */,
+				36222CA728B4D78900863411 /* HSCSNewLiveWinListView.swift */,
+				36222CA828B4D78900863411 /* HSCSNewLiveLotteryView.swift */,
+				36222CA928B4D78900863411 /* HSCSNewLiveHeaderView.swift */,
+				36222CAA28B4D78900863411 /* HSCSNewLiveNavView.swift */,
+				36222CAB28B4D78900863411 /* HSCSNewLiveCountdownView.swift */,
+				36222CAC28B4D78900863411 /* HSCSNewLiveTimingView.swift */,
+				36222CAD28B4D78900863411 /* HSCSNewLiveTakeLotteryView2.swift */,
+				36222CAE28B4D78900863411 /* HSCSNewLiveWaitView.swift */,
+				36222CAF28B4D78900863411 /* HSCSNewLiveTakeLotteryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36222CB028B4D78900863411 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				36222CB128B4D78900863411 /* HSCSNewLiveService.swift */,
+				36222CB228B4D78900863411 /* HSCSNewLiveLotterySerice.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		36222CB328B4D78900863411 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				36222CB428B4D78900863411 /* NewLive.xcassets */,
+				36222CB528B4D78900863411 /* live.gif */,
+				36222CB628B4D78900863411 /* impact.ttf */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		36222CD328B4DAA000863411 /* UIKeybaord */ = {
+			isa = PBXGroup;
+			children = (
+				36222CDC28B4DAA000863411 /* UIFaceKeyboardView.h */,
+				36222CD428B4DAA000863411 /* UIFaceKeyboardView.m */,
+				36222CD728B4DAA000863411 /* UIKeybaord.xcassets */,
+				36222CD628B4DAA000863411 /* UIKeyboardBar.h */,
+				36222CDE28B4DAA000863411 /* UIKeyboardBar.m */,
+				36222CD528B4DAA000863411 /* UIMoreButtonItem.h */,
+				36222CDB28B4DAA000863411 /* UIMoreButtonItem.m */,
+				36222CDA28B4DAA000863411 /* UIMoreKeyboardView.h */,
+				36222CE028B4DAA000863411 /* UIMoreKeyboardView.m */,
+				36222CD828B4DAA000863411 /* UIPlaceHolderTextView.h */,
+				36222CDD28B4DAA000863411 /* UIPlaceHolderTextView.m */,
+				36222CD928B4DAA000863411 /* UIView+Methods.h */,
+				36222CDF28B4DAA000863411 /* UIView+Methods.m */,
+			);
+			path = UIKeybaord;
+			sourceTree = "<group>";
+		};
+		36A2DAFD28B4C83D00A88AA9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				36222CE828B5C6B700863411 /* HSCSUserInfoManager.h */,
+				36222CE928B5C6B700863411 /* HSCSUserInfoManager.m */,
+				36A2DB0828B4C88300A88AA9 /* UIImage+Gif.swift */,
+				36A2DB0628B4C87800A88AA9 /* HSCSExtension.swift */,
+				36A2DB0028B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift */,
+				36A2DB0128B4C85500A88AA9 /* HSCSAFHTTPTarget.swift */,
+				36A2DAFE28B4C85500A88AA9 /* HSCSAFResponseModel.swift */,
+				36A2DAFF28B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		36A2DB0A28B4C8A300A88AA9 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				36A2DB1028B4C8D500A88AA9 /* AppConfig.h */,
+				36A2DB0E28B4C8D500A88AA9 /* AppConfig.m */,
+				36A2DB0B28B4C8C200A88AA9 /* AppConst.h */,
+				36A2DB0C28B4C8C300A88AA9 /* AppConst.m */,
+				36A2DB0F28B4C8D500A88AA9 /* AppUtils.h */,
+				36A2DB1128B4C8D500A88AA9 /* AppUtils.m */,
+				36A2DB1828B4CA6800A88AA9 /* HSCSCacheHandle.h */,
+				36A2DB1928B4CA6800A88AA9 /* HSCSCacheHandle.m */,
+				36A2DB1728B4CA6800A88AA9 /* HSCSKeychainStore.swift */,
+				36222CD028B4D8D200863411 /* UIColor+Theme.h */,
+				36222CD128B4D8D300863411 /* UIColor+Theme.m */,
+				36222C9428B4D3A200863411 /* UIDevice+Mode.h */,
+				36222C9328B4D3A200863411 /* UIDevice+Mode.m */,
+				36A2DB1528B4C9CC00A88AA9 /* UILabel+NumberOfLines.h */,
+				36A2DB1428B4C9CC00A88AA9 /* UILabel+NumberOfLines.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		36A2DB1C28B4CC0800A88AA9 /* HSCSHUD */ = {
+			isa = PBXGroup;
+			children = (
+				36A2DB2828B4CED200A88AA9 /* UIImage+GIFImage.h */,
+				36A2DB2728B4CED200A88AA9 /* UIImage+GIFImage.m */,
+				36A2DB1E28B4CC0800A88AA9 /* HSCSGIFLoadingView.swift */,
+				36A2DB1F28B4CC0800A88AA9 /* HSCSHUD.h */,
+				36A2DB2228B4CC0800A88AA9 /* HSCSHUD.m */,
+				36A2DB2128B4CC0800A88AA9 /* HSCSProgressHUD.h */,
+				36A2DB1D28B4CC0800A88AA9 /* HSCSProgressHUD.m */,
+				36A2DB2028B4CC0800A88AA9 /* loading.gif */,
+			);
+			path = HSCSHUD;
+			sourceTree = "<group>";
+		};
 		52C67D073FEB96E52D8B2B67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +470,11 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				36222C9628B4D76000863411 /* Modules */,
+				36222C7328B4CFFE00863411 /* HSCSVideo */,
+				36A2DB1C28B4CC0800A88AA9 /* HSCSHUD */,
+				36A2DB0A28B4C8A300A88AA9 /* Tool */,
+				36A2DAFD28B4C83D00A88AA9 /* Manager */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -123,6 +484,8 @@
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 				36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */,
+				36A2DAF628B4C22E00A88AA9 /* Test.h */,
+				36A2DAF728B4C22E00A88AA9 /* Test.m */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -142,6 +505,7 @@
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				D209C0A63BA47DD32BB5F658 /* [CP] Embed Pods Frameworks */,
+				52D5CADE303771CD05726DBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,10 +554,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36222CE228B4DAA000863411 /* UIKeybaord.xcassets in Resources */,
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
+				36222CCD28B4D78A00863411 /* NewLive.xcassets in Resources */,
+				36A2DB2528B4CC0800A88AA9 /* loading.gif in Resources */,
+				36222CCE28B4D78A00863411 /* live.gif in Resources */,
+				36222C8928B4CFFE00863411 /* Video.xcassets in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				36222CCF28B4D78A00863411 /* impact.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +583,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+		};
+		52D5CADE303771CD05726DBE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		7D087C1BA36597A3ABA004B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -274,9 +661,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A2DB0528B4C85500A88AA9 /* HSCSAFHTTPTarget.swift in Sources */,
+				36222CC928B4D78A00863411 /* HSCSNewLiveWaitView.swift in Sources */,
+				36222C8C28B4CFFE00863411 /* HSCSWatchBackVideoView.m in Sources */,
+				36222CE728B4DAA000863411 /* UIMoreKeyboardView.m in Sources */,
+				36222CE428B4DAA000863411 /* UIPlaceHolderTextView.m in Sources */,
+				36222CBE28B4D78A00863411 /* HSCSGoodsRecomendModel.swift in Sources */,
+				36222CC728B4D78A00863411 /* HSCSNewLiveTimingView.swift in Sources */,
+				36222CD228B4D8D300863411 /* UIColor+Theme.m in Sources */,
+				36A2DB2428B4CC0800A88AA9 /* HSCSGIFLoadingView.swift in Sources */,
 				36A2DAF528B4B84100A88AA9 /* FlutterNativePlugin.swift in Sources */,
+				36222CBF28B4D78A00863411 /* HSCSNewLiveRecommendListView.swift in Sources */,
+				36A2DB2628B4CC0800A88AA9 /* HSCSHUD.m in Sources */,
+				36A2DB1328B4C8D500A88AA9 /* AppUtils.m in Sources */,
+				36222C8B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m in Sources */,
+				36A2DB0328B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift in Sources */,
+				36222CCB28B4D78A00863411 /* HSCSNewLiveService.swift in Sources */,
+				36222CC628B4D78A00863411 /* HSCSNewLiveCountdownView.swift in Sources */,
+				36222C8D28B4CFFE00863411 /* HSCSWatchBackSpeedView.m in Sources */,
+				36A2DB0D28B4C8C300A88AA9 /* AppConst.m in Sources */,
+				36222C9528B4D3A200863411 /* UIDevice+Mode.m in Sources */,
+				36A2DB1A28B4CA6800A88AA9 /* HSCSKeychainStore.swift in Sources */,
+				36222CB828B4D78A00863411 /* HSCSNewLiveWinListCell.swift in Sources */,
+				36222CC128B4D78A00863411 /* HSCSNewLiveWinButton.swift in Sources */,
+				36222CBC28B4D78A00863411 /* HSCSNewLiveChatModel.swift in Sources */,
+				36222CC428B4D78A00863411 /* HSCSNewLiveHeaderView.swift in Sources */,
+				36222CC828B4D78A00863411 /* HSCSNewLiveTakeLotteryView2.swift in Sources */,
+				36222CC528B4D78A00863411 /* HSCSNewLiveNavView.swift in Sources */,
+				36222CEA28B5C6B700863411 /* HSCSUserInfoManager.m in Sources */,
+				36A2DB0428B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift in Sources */,
+				36222C9128B4CFFE00863411 /* HSCSDefinitionListView.m in Sources */,
+				36222CB728B4D78A00863411 /* HSCSNewLiveViewController.swift in Sources */,
+				36A2DB1628B4C9CC00A88AA9 /* UILabel+NumberOfLines.m in Sources */,
+				36222CC228B4D78A00863411 /* HSCSNewLiveWinListView.swift in Sources */,
+				36A2DB1228B4C8D500A88AA9 /* AppConfig.m in Sources */,
+				36A2DAF828B4C22E00A88AA9 /* Test.m in Sources */,
+				36222CE328B4DAA000863411 /* UIMoreButtonItem.m in Sources */,
+				36A2DB0228B4C85500A88AA9 /* HSCSAFResponseModel.swift in Sources */,
+				36222CC328B4D78A00863411 /* HSCSNewLiveLotteryView.swift in Sources */,
+				36222CCA28B4D78A00863411 /* HSCSNewLiveTakeLotteryView.swift in Sources */,
+				36222CCC28B4D78A00863411 /* HSCSNewLiveLotterySerice.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				36222CB928B4D78A00863411 /* HSCSNewLiveRecommendCell.swift in Sources */,
+				36A2DB1B28B4CA6800A88AA9 /* HSCSCacheHandle.m in Sources */,
+				36222C8E28B4CFFE00863411 /* HSCSLiveNoDataView.m in Sources */,
+				36222CBB28B4D78A00863411 /* HSCSNewLiveModel.swift in Sources */,
+				36A2DB0928B4C88300A88AA9 /* UIImage+Gif.swift in Sources */,
+				36A2DB0728B4C87800A88AA9 /* HSCSExtension.swift in Sources */,
+				36222C9028B4CFFE00863411 /* HSCSDefinitionListCell.m in Sources */,
+				36222CC028B4D78A00863411 /* HSCSNewLiveToolView.swift in Sources */,
+				36222C8F28B4CFFE00863411 /* HSCSLiveVideoLightView.m in Sources */,
+				36222CE628B4DAA000863411 /* UIView+Methods.m in Sources */,
+				36222CBA28B4D78A00863411 /* HSCSNewLiveChatCell.swift in Sources */,
+				36A2DB2928B4CED200A88AA9 /* UIImage+GIFImage.m in Sources */,
+				36222CBD28B4D78A00863411 /* HSCSNewLiveActivityModel.swift in Sources */,
+				36222CE128B4DAA000863411 /* UIFaceKeyboardView.m in Sources */,
+				36222CE528B4DAA000863411 /* UIKeyboardBar.m in Sources */,
+				36222C9228B4CFFE00863411 /* HSCSWatchLiveVideoView.m in Sources */,
+				36A2DB2328B4CC0800A88AA9 /* HSCSProgressHUD.m in Sources */,
+				36222C8A28B4CFFE00863411 /* HSCSCustomSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

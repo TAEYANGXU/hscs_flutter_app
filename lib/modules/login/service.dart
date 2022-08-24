@@ -29,6 +29,7 @@ class LoginViewModel {
       var prefs = await SharedPreferences.getInstance();
       prefs.setString(GlobalConfig.kUserInfo, json);
       prefs.setString(GlobalConfig.kToken, userModel!.token!);
+      var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",json);
     }
   }
 
