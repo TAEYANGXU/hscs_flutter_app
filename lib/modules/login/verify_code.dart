@@ -5,6 +5,7 @@ import 'service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hscs_flutter_app/routers.dart';
 import 'package:hscs_flutter_app/modules/main/router.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginVeriftyCodePage extends StatefulWidget {
   LoginVeriftyCodePage({Key? key, this.mobile = ""}) : super(key: key);
@@ -48,10 +49,15 @@ class _LoginVeriftyCodePageState extends State<LoginVeriftyCodePage> {
 
   Future doLogin(String code) async {
     EasyLoading.show(status: "正在登录");
-    await loginViewModel.login(widget.mobile, code,context);
+    bool suc = await loginViewModel.login(widget.mobile, code,context);
     setState(() {
       EasyLoading.dismiss();
-      Navigator.of(context).popUntil((route) => route.isFirst);
+      if(suc) {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      }else{
+        Fluttertoast.showToast(msg: "登录失败");
+        print("登录失败");
+      }
       // Routers.push(context, MainRouter.main, params: {"tabIndex":"3"});
     });
   }

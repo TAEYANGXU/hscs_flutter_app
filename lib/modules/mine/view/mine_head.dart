@@ -31,34 +31,41 @@ class _MineHeadViewState extends State<MineHeadView> {
         var title = titleList[i];
         list.add(Expanded(
             flex: 1,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: Adapt.px(10),
-                ),
-                Image.asset(
-                  "lib/assets/image/${iconList[i]}.png",
-                  width: Adapt.px(24),
-                  height: Adapt.px(24),
-                  fit: BoxFit.contain,
-                ),
-                SizedBox(
-                  height: Adapt.px(5),
-                ),
-                Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: TextSize.main, color: AppColors.text2),
-                ),
-              ],
+            child: GestureDetector(
+              onTap: () {
+                if (i == 1) {
+                  Routers.push(context, MineRouter.msgGroup);
+                }
+              },
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: Adapt.px(10),
+                  ),
+                  Image.asset(
+                    "lib/assets/image/${iconList[i]}.png",
+                    width: Adapt.px(24),
+                    height: Adapt.px(24),
+                    fit: BoxFit.contain,
+                  ),
+                  SizedBox(
+                    height: Adapt.px(5),
+                  ),
+                  Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: TextSize.main, color: AppColors.text2),
+                  ),
+                ],
+              ),
             )));
       }
       return list;
     }
 
-    String getLevelIcon(int role){
+    String getLevelIcon(int role) {
       String icon = "mine/user_level_5";
-      switch(role){
+      switch (role) {
         case 100:
           icon = "mine/user_level_6";
           break;
@@ -89,7 +96,9 @@ class _MineHeadViewState extends State<MineHeadView> {
               height: Adapt.px(190),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: user.info != null ? AssetImage('lib/assets/image/mine/mine_logined_bg.png')
+                    image: user.info != null
+                        ? AssetImage(
+                            'lib/assets/image/mine/mine_logined_bg.png')
                         : AssetImage('lib/assets/image/mine/mine_login_bg.png'),
                     fit: BoxFit.fill),
               ),
@@ -101,7 +110,7 @@ class _MineHeadViewState extends State<MineHeadView> {
               width: Adapt.px(30),
               height: Adapt.px(30),
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Routers.push(context, MineRouter.setting);
                 },
                 child: Container(
@@ -116,9 +125,10 @@ class _MineHeadViewState extends State<MineHeadView> {
             Column(
               children: [
                 GestureDetector(
-                  onTap: (){
-                    if(user.info == null){
-                      Routers.push(context, LoginRouter.login,settings: const RouteSettings(name: MineRouter.mine));
+                  onTap: () {
+                    if (user.info == null) {
+                      Routers.push(context, LoginRouter.login,
+                          settings: const RouteSettings(name: MineRouter.mine));
                     }
                   },
                   child: Container(
@@ -142,22 +152,22 @@ class _MineHeadViewState extends State<MineHeadView> {
                     child: Row(
                       children: [
                         Container(
-
                           width: Adapt.px(60),
                           height: Adapt.px(60),
                           margin: EdgeInsets.only(left: Adapt.px(10)),
                           clipBehavior: Clip.hardEdge,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(Adapt.px(30))
-                          ),
-                          child: user.info == null ? loadLocalImage("mine/mine_default_avtar",
-                              width: Adapt.px(60),height: Adapt.px(60)) :
-                          CacheImage(
-                            imageUrl: user.info!.avatar ?? "",
-                            width: Adapt.px(60),
-                            height: Adapt.px(60),
-                            fit: BoxFit.cover,
-                          ),
+                              borderRadius:
+                                  BorderRadius.circular(Adapt.px(30))),
+                          child: user.info == null
+                              ? loadLocalImage("mine/mine_default_avtar",
+                                  width: Adapt.px(60), height: Adapt.px(60))
+                              : CacheImage(
+                                  imageUrl: user.info!.avatar ?? "",
+                                  width: Adapt.px(60),
+                                  height: Adapt.px(60),
+                                  fit: BoxFit.cover,
+                                ),
                         ),
                         SizedBox(
                           width: Adapt.px(10),
@@ -169,7 +179,9 @@ class _MineHeadViewState extends State<MineHeadView> {
                             Row(
                               children: [
                                 Text(
-                                  user.info != null ? user.info!.nickname! : "登陆丨注册",
+                                  user.info != null
+                                      ? user.info!.nickname!
+                                      : "登陆丨注册",
                                   style: TextStyle(
                                       fontSize: TextSize.s17,
                                       color: AppColors.text),
@@ -180,18 +192,29 @@ class _MineHeadViewState extends State<MineHeadView> {
                                 Container(
                                   width: Adapt.px(69),
                                   height: Adapt.px(17),
-                                  child: user.info != null ?  loadLocalImage(getLevelIcon(user.info!.role!),
-                                      width: Adapt.px(69), height: Adapt.px(17)) : Container(),
+                                  child: user.info != null
+                                      ? loadLocalImage(
+                                          getLevelIcon(user.info!.role!),
+                                          width: Adapt.px(69),
+                                          height: Adapt.px(17))
+                                      : Container(),
                                 )
                               ],
                             ),
                             SizedBox(
                               height: Adapt.px(3),
                             ),
-                            user.info != null ? Text( user.info != null ? user.info!.vipExpireDay! : "",
-                                style: TextStyle(
-                                    fontSize: TextSize.main1,
-                                    color: AppColors.text2)) : Container(height: 0,),
+                            user.info != null
+                                ? Text(
+                                    user.info != null
+                                        ? user.info!.vipExpireDay!
+                                        : "",
+                                    style: TextStyle(
+                                        fontSize: TextSize.main1,
+                                        color: AppColors.text2))
+                                : Container(
+                                    height: 0,
+                                  ),
                           ],
                         ),
                         Row(

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/api/dio_user_manager.dart';
 import 'package:hscs_flutter_app/api/entity.dart';
@@ -13,13 +15,14 @@ class LoginViewModel {
 
   BaseEntity?  verity;
   UserModel?  userModel;
+  bool suc = true;
   ///获取验证码
   Future verityCode(String mobile) async {
     verity = await DioManagerUserUtils.post("/v2/user/sms",params: {"mobile":mobile});
   }
 
   ///验证码登录
-  Future login(String mobile,String code,BuildContext context) async {
+  Future<bool> login(String mobile,String code,BuildContext context) async {
     var model = await DioManagerUserUtils.post("/v2/user/login",params: {"sms_code":code,"mobile":mobile});
     if(model.code == 200){
       userModel = UserModel.fromJson(model.data);
@@ -29,8 +32,10 @@ class LoginViewModel {
       var prefs = await SharedPreferences.getInstance();
       prefs.setString(GlobalConfig.kUserInfo, json);
       prefs.setString(GlobalConfig.kToken, userModel!.token!);
-      var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",json);
+      GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",json);
+      return true;
     }
+    return false;
   }
 
   ///退出登录

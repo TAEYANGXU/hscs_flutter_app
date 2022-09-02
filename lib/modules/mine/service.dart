@@ -6,18 +6,21 @@ import 'dart:convert' as Convert;
 import 'package:hscs_flutter_app/global_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
-import 'model/user.dart';
+import 'model/index.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class MineViewModel {
+  AdvertListData? listData;
+  List<MsgGroup> groupList = [];
+  List<MsgList> msgList = [];
 
-  AdvertListData?  listData;
   ///广告位
   Future getAD() async {
-    var model = await DioManagerUtils.get("/v3/advert/list-by-type",params: {"type":58});
+    var model = await DioManagerUtils.get("/v3/advert/list-by-type",
+        params: {"type": 58});
     List list = model.data;
     var array = list.map((item) => AdvertListData.fromJson(item)).toList();
-    if(array.isNotEmpty){
+    if (array.isNotEmpty) {
       listData = array[0];
     }
   }
@@ -26,13 +29,14 @@ class MineViewModel {
   Future userInfo(BuildContext context) async {
     var model = await DioManagerUserUtils.get("/v2/user/info");
     var prefs = await SharedPreferences.getInstance();
-    if(model.code == 200){
+    if (model.code == 200) {
       // Provider.of<UserInfo>(context, listen: false).setInfo(model.data);
       // var json = Convert.jsonEncode(model.data).toString();
       ///持久化
       // prefs.setString(GlobalConfig.kUserInfo, json);
     }
-    if(model.code == 400002){//重新登录
+    if (model.code == 400002) {
+      //重新登录
       EasyLoading.showToast("登录已失效，请重新登录");
       prefs.remove(GlobalConfig.kToken);
       prefs.remove(GlobalConfig.kUserInfo);
@@ -40,13 +44,31 @@ class MineViewModel {
     }
   }
 
-
   ///解绑
   Future userCleanWechat() async {
     var model = await DioManagerUserUtils.get("/v2/user/clean-wechat");
-    if(model.code == 200){
+    if (model.code == 200) {
       return true;
     }
     return false;
+  }
+
+  ///消息分组
+  Future messageCenter() async {
+    var model = await DioManagerUserUtils.get("/v2/message/msg-cnt");
+    if (model.code == 200) {
+      List list = model.data;
+      groupList = list.map((e) => MsgGroup.fromJson(e)).toList();
+    }
+  }
+
+  ///消息列表
+  Future messageList(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.post("/v2/message/msg-list",params: param);
+    if (model.code == 200) {
+      Map<String,dynamic> data = model.data;
+      List list = data["list"];
+      msgList = list.map((e) => MsgList.fromJson(e)).toList();
+    }
   }
 }
