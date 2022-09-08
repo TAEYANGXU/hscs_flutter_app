@@ -34,7 +34,7 @@ class MsgList {
   int? msgType;
   String? type;
   String? picture;
-  String? msgDetail;
+  MsgDetail? msgDetail;
 
   MsgList(
       {this.msgId,
@@ -56,7 +56,9 @@ class MsgList {
     msgType = json['msgType'];
     type = json['type'];
     picture = json['picture'];
-    msgDetail = json['msgDetail'];
+    msgDetail = json['msgDetail'] != null
+        ? MsgDetail.fromJson(json['msgDetail'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -69,7 +71,31 @@ class MsgList {
     data['msgType'] = this.msgType;
     data['type'] = this.type;
     data['picture'] = this.picture;
-    data['msgDetail'] = this.msgDetail;
+    if (this.msgDetail != null) {
+      data['msgDetail'] = this.msgDetail!.toJson();
+    }
+    return data;
+  }
+}
+
+class MsgDetail {
+  String? commentNickname;
+  String? commentContent;
+  String? originalComment;
+
+  MsgDetail({this.commentNickname, this.commentContent, this.originalComment});
+
+  MsgDetail.fromJson(Map<String, dynamic> json) {
+    commentNickname = json['commentNickname'];
+    commentContent = json['commentContent'];
+    originalComment = json['originalComment'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['commentNickname'] = this.commentNickname;
+    data['commentContent'] = this.commentContent;
+    data['originalComment'] = this.originalComment;
     return data;
   }
 }

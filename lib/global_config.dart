@@ -5,7 +5,7 @@ import 'package:hscs_flutter_app/style/index.dart';
 /// 全局配置
 class GlobalConfig {
 
-  static const MethodChannel channel = const MethodChannel('huasheng/flutter');
+  static const MethodChannel channel = MethodChannel('huasheng/flutter');
 
   /// 主题色
   static Color theme = AppColors.theme;

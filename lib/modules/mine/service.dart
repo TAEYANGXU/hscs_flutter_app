@@ -13,6 +13,7 @@ class MineViewModel {
   AdvertListData? listData;
   List<MsgGroup> groupList = [];
   List<MsgList> msgList = [];
+  List<OrderData> orderArray = [];
 
   ///广告位
   Future getAD() async {
@@ -69,6 +70,14 @@ class MineViewModel {
       Map<String,dynamic> data = model.data;
       List list = data["list"];
       msgList = list.map((e) => MsgList.fromJson(e)).toList();
+    }
+  }
+  /// 购买列表
+  Future orderList(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.get("/v2/order/my-bought",params: param);
+    if (model.code == 200) {
+      List list = model.data;
+      orderArray = list.map((e) => OrderData.fromJson(e)).toList();
     }
   }
 }

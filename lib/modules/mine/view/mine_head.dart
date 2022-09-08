@@ -17,7 +17,7 @@ const List<String> iconList = [
 ];
 
 class MineHeadView extends StatefulWidget {
-  MineHeadView({Key? key}) : super(key: key);
+  const MineHeadView({Key? key}) : super(key: key);
 
   _MineHeadViewState createState() => _MineHeadViewState();
 }
@@ -31,34 +31,45 @@ class _MineHeadViewState extends State<MineHeadView> {
         var title = titleList[i];
         list.add(Expanded(
             flex: 1,
-            child: GestureDetector(
+            child:GestureDetector(
               onTap: () {
                 if (i == 1) {
                   Routers.push(context, MineRouter.msgGroup);
                 }
+                if (i == 2) {
+                  Routers.push(context, MineRouter.card);
+                }
+                if (i == 3) {
+                  Routers.push(context, MineRouter.order);
+                }
               },
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: Adapt.px(10),
-                  ),
-                  Image.asset(
-                    "lib/assets/image/${iconList[i]}.png",
-                    width: Adapt.px(24),
-                    height: Adapt.px(24),
-                    fit: BoxFit.contain,
-                  ),
-                  SizedBox(
-                    height: Adapt.px(5),
-                  ),
-                  Text(
-                    title,
-                    style: TextStyle(
-                        fontSize: TextSize.main, color: AppColors.text2),
-                  ),
-                ],
+              child: Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: Adapt.px(10),
+                    ),
+                    Image.asset(
+                      "lib/assets/image/${iconList[i]}.png",
+                      width: Adapt.px(24),
+                      height: Adapt.px(24),
+                      fit: BoxFit.contain,
+                    ),
+                    SizedBox(
+                      height: Adapt.px(5),
+                    ),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          fontSize: TextSize.main, color: AppColors.text2),
+                    ),
+                  ],
+                ),
               ),
-            )));
+            )
+        )
+        );
       }
       return list;
     }
@@ -97,9 +108,9 @@ class _MineHeadViewState extends State<MineHeadView> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: user.info != null
-                        ? AssetImage(
+                        ? const AssetImage(
                             'lib/assets/image/mine/mine_logined_bg.png')
-                        : AssetImage('lib/assets/image/mine/mine_login_bg.png'),
+                        : const AssetImage('lib/assets/image/mine/mine_login_bg.png'),
                     fit: BoxFit.fill),
               ),
             ),

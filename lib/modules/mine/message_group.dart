@@ -33,10 +33,12 @@ class _MineMSGGroupPageState extends State<MineMSGGroupPage> {
     var model = viewModel.groupList[index];
     return GestureDetector(
       onTap: () {
-        if (index == 1 || index == 2) {
-          Routers.push(context, MineRouter.msgList,
-              params: {"msgType": '${model.msgType}'});
-        }
+        // if (index == 1 || index == 2) {
+        //   Routers.push(context, MineRouter.msgList,
+        //       params: {"msgType": '${model.msgType}'});
+        // }
+        Routers.push(context, MineRouter.msgList,
+            params: {"msgType": '${model.msgType}'});
       },
       child: Container(
         color: Colors.white,
