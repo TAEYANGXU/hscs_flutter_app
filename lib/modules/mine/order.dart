@@ -195,7 +195,7 @@ class _MineOrderPageState extends State<MineOrderPage> {
         backgroundColor: Colors.white,
         elevation: 0.5,
       ),
-      body: Container(
+      body: SizedBox(
         child: ListView.builder(
           itemBuilder: _cellForRow,
           itemCount: viewModel.orderArray.length,

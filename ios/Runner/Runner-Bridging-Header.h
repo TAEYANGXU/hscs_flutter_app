@@ -12,3 +12,4 @@
 #import <MJRefresh/MJRefresh.h>
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "HSCSUserInfoManager.h"
+#import "WKWebViewJavascriptBridge.h"

@@ -55,8 +55,9 @@ class _MineMSGListPageState extends State<MineMSGListPage> {
     print("scheme =${scheme}");
 
     return GestureDetector(
-      onTap: () {
-        Routers.push(content, WebViewRouter.webView, params: {"url": scheme});
+      onTap: () async {
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":scheme});
+        // Routers.push(content, WebViewRouter.webView, params: {"url": scheme});
       },
       child: Container(
         child: Column(
@@ -162,8 +163,9 @@ class _MineMSGListPageState extends State<MineMSGListPage> {
     print("scheme =${scheme}");
 
     return GestureDetector(
-      onTap: () {
-        Routers.push(content, WebViewRouter.webView, params: {"url": scheme});
+      onTap: () async {
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":scheme});
+        // Routers.push(content, WebViewRouter.webView, params: {"url": scheme});
       },
       child: Container(
         child: Column(
@@ -349,7 +351,7 @@ class _MineMSGListPageState extends State<MineMSGListPage> {
                       EdgeInsets.only(left: Adapt.px(15), right: Adapt.px(15)),
                   child: Text(
                     model.content ?? "",
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: TextSize.big, fontWeight: FontWeight.w500),
                   ),
                 ),
@@ -376,7 +378,7 @@ class _MineMSGListPageState extends State<MineMSGListPage> {
           child: loadLocalImage("page_back",
               width: Adapt.px(11), height: Adapt.px(18)),
         ),
-        title: Text(
+        title:  const Text(
           "消息",
           style: TextStyle(
               color: AppColors.text,

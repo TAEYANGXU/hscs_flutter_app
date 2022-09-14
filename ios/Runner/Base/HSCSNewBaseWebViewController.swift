@@ -27,7 +27,7 @@ import RxCocoa
 import RxSwift
 //import JXSegmentedView
 
-class HSCSNewBaseWebViewController: HSCSBaseViewController {
+class HSCSNewBaseWebViewController: UIViewController {
 
     lazy var wkWebView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
@@ -123,14 +123,15 @@ class HSCSNewBaseWebViewController: HSCSBaseViewController {
 
     func setupUI()
     {
+        view.backgroundColor = .white
         view.addSubview(wkWebView)
         wkWebView.snp.makeConstraints { make in
-            make.edges.equalTo(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            make.edges.equalTo(UIEdgeInsets(top: kNavigationBarHeight, left: 0, bottom: 0, right: 0))
         }
         if #available(iOS 11.0, *) {
             view.addSubview(progressView)
             progressView.snp.makeConstraints { make in
-                make.top.equalTo(0)
+                make.top.equalTo(kNavigationBarHeight)
                 make.left.right.equalTo(0)
                 make.height.equalTo(HeightScale(height: 1.5))
             }
@@ -216,14 +217,17 @@ extension HSCSNewBaseWebViewController
 
         // 登录
         wkBridge.registerHandler("login") { data, responseCallback in
-            HSCSLoginManager.loginSuccess {
-                if let callBack = responseCallback {
-                    callBack(true)
-                }
-            } loginFail: {
-                if let callBack = responseCallback {
-                    callBack(false)
-                }
+//            HSCSLoginManager.loginSuccess {
+//                if let callBack = responseCallback {
+//                    callBack(true)
+//                }
+//            } loginFail: {
+//                if let callBack = responseCallback {
+//                    callBack(false)
+//                }
+//            }
+            if let callBack = responseCallback {
+                callBack(true)
             }
         }
 
@@ -292,14 +296,14 @@ extension HSCSNewBaseWebViewController
 
         //VP弹窗
         wkBridge.registerHandler("showVIPAlert") { data, responseCallback in
-            HSCSVpLocalModel.singleton.pageConfigUrl = HSCSVpLocalModel.singleton.getPageConfigUrl(type:0)
-            HSCSPushCenter.handleDeepLindUrl(DeepLink_unlock_popup_wx, title: "")
+//            HSCSVpLocalModel.singleton.pageConfigUrl = HSCSVpLocalModel.singleton.getPageConfigUrl(type:0)
+//            HSCSPushCenter.handleDeepLindUrl(DeepLink_unlock_popup_wx, title: "")
         }
 
         //一次性订阅消息
         wkBridge.registerHandler("subscribenews") { data, responseCallback in
             if let link = data as? String {
-                HSCSPushCenter.handleDeepLindUrl(link, title: "")
+//                HSCSPushCenter.handleDeepLindUrl(link, title: "")
             }
         }
 
@@ -307,24 +311,24 @@ extension HSCSNewBaseWebViewController
         wkBridge.registerHandler("viewImage") { [weak self] data, responseCallback in
             guard let weakself = self else { return }
             if let dict = data as? Dictionary<String, Any> {
-                if let imageUrls = dict["imageUrls"] as? Array<String>,imageUrls.count > 0 {
-                    if let index = dict["index"] as? Int {
-                        HSCSPhotoBrowserManager.showWebImagesAction(imageUrls, currentIndex: index, superView: weakself.view)
-                    }else{
-                        HSCSPhotoBrowserManager.showWebImagesAction(imageUrls, currentIndex: 0, superView: weakself.view)
-                    }
-                }else{
-                    if let imageUrl = dict["imageUrl"] {
-                        HSCSPhotoBrowserManager.showWebImagesAction([imageUrl], currentIndex: 0, superView: weakself.view)
-                    }
-                }
+//                if let imageUrls = dict["imageUrls"] as? Array<String>,imageUrls.count > 0 {
+//                    if let index = dict["index"] as? Int {
+//                        HSCSPhotoBrowserManager.showWebImagesAction(imageUrls, currentIndex: index, superView: weakself.view)
+//                    }else{
+//                        HSCSPhotoBrowserManager.showWebImagesAction(imageUrls, currentIndex: 0, superView: weakself.view)
+//                    }
+//                }else{
+//                    if let imageUrl = dict["imageUrl"] {
+//                        HSCSPhotoBrowserManager.showWebImagesAction([imageUrl], currentIndex: 0, superView: weakself.view)
+//                    }
+//                }
             }
         }
 
         //Jiesuo
         wkBridge.registerHandler("showUnLockAlert") { data, responseCallback in
-            HSCSVpLocalModel.singleton.pageConfigUrl = HSCSVpLocalModel.singleton.getPageConfigUrl(type:0)
-            HSCSPushCenter.handleDeepLindUrl(DeepLink_unlock_popup_wx, title: "")
+//            HSCSVpLocalModel.singleton.pageConfigUrl = HSCSVpLocalModel.singleton.getPageConfigUrl(type:0)
+//            HSCSPushCenter.handleDeepLindUrl(DeepLink_unlock_popup_wx, title: "")
         }
 
         wkBridge.registerHandler("setTitle") { [weak self] data, responseCallback in
@@ -339,9 +343,9 @@ extension HSCSNewBaseWebViewController
             guard let weakself = self else { return }
             if let dict = data as? Dictionary<String, Any> {
                 if let teacherId = dict["teacherId"] as? String {
-                    let detailVC = HSCSMasterDetailViewController()
-                    detailVC.setValue(teacherId, forKey: "teacherId")
-                    weakself.navigationController?.pushViewController(detailVC, animated: true)
+//                    let detailVC = HSCSMasterDetailViewController()
+//                    detailVC.setValue(teacherId, forKey: "teacherId")
+//                    weakself.navigationController?.pushViewController(detailVC, animated: true)
                 }
             }
         }
@@ -349,7 +353,7 @@ extension HSCSNewBaseWebViewController
         //分享
         wkBridge.registerHandler("shareAction") { [weak self] data, responseCallback in
             guard let weakself = self else { return }
-            weakself.shareDataAction()
+//            weakself.shareDataAction()
         }
 
         //视频播放
@@ -357,9 +361,9 @@ extension HSCSNewBaseWebViewController
             guard let weakself = self else { return }
             if let dict = data as? Dictionary<String, Any> {
                 if let vhallId = dict["vhallId"] as? String {
-                    let detailVC = HSCSLiveWatchBackViewController()
-                    detailVC.setValue(vhallId, forKey: "vhallId")
-                    weakself.navigationController?.pushViewController(detailVC, animated: true)
+//                    let detailVC = HSCSLiveWatchBackViewController()
+//                    detailVC.setValue(vhallId, forKey: "vhallId")
+//                    weakself.navigationController?.pushViewController(detailVC, animated: true)
                 }
             }
         }
@@ -374,54 +378,34 @@ extension HSCSNewBaseWebViewController
         wkBridge.registerHandler("h5JumpApp") { data, responseCallback in
             if let dict = data as? Dictionary<String, Any> {
                 if let url = dict["url"] as? String {
-                    HSCSPushCenter.handleDeepLindUrl(url, title: "")
+//                    HSCSPushCenter.handleDeepLindUrl(url, title: "")
                 }
             }
         }
         
         wkBridge.registerHandler("goHome") { [weak self] data, responseCallback in
             guard let _ = self else { return }
-            HSCSLoginService.doUserLogout(["":""]) { suc, msg in
-                } failure: { error in }
+//            HSCSLoginService.doUserLogout(["":""]) { suc, msg in
+//                } failure: { error in }
         }
     }
 
     //分享
     func shareDataAction()
     {
-        if let shareDict = shareData
-        {
-            let shareTitle = shareDict["title"] as? String
-            let shareUrl = shareDict["link"] as? String
-            let shareContent = shareDict["desc"] as? String
-            let shareImageUrl = shareDict["imgUrl"] as? String
-            let course_id = shareDict["course_id"] as? String
-            let trackId = shareDict["trackId"] as? String
-            let plate = shareDict["plate"] as? String
-            let articleId = shareDict["articleId"] as? String
-            if let track = trackId, let pa = plate, let courseId = course_id {
-                HSCSSensorsAnalyticsManager.track(withId: track, param: ["plate": pa, "course_id": courseId, "cs_user_id": HSCSUserInfoManager.shared().userInfo.userId])
-            }
-            if let shareTitle = shareTitle, let shareContent = shareContent, let shareUrl = shareUrl {
-                HSCSShareCenter.share(with: HSCSShareView(frame: .zero), title: shareTitle, content: shareContent, imageUrl: String.nullEmpty(text: shareImageUrl), url: shareUrl) { type in
-                    if let aId = articleId {
-                        HSCSNewMineService.doPostUserShare(parameters: ["id": aId as Any]) { suc in } failure: { error in }
-                    }
-                }
-            }
-        }
+        
     }
 
     //MARK: - 下载图片
     func downloadImage(imgUrl: String)
     {
-        SDWebImageManager.shared.loadImage(with: URL(string: imgUrl), options: .lowPriority) { receivedSize, expectedSize, targetURL in
-        } completed: { [weak self] image, data, error, cacheType, finished, imageURL in
-            guard let weakself = self else { return }
-            if let img = image {
-                UIImageWriteToSavedPhotosAlbum(img, weakself, #selector(weakself.image(image: didFinishSavingWithError: contextInfo:)), nil)
-            }
-        }
+//        SDWebImageManager.shared.loadImage(with: URL(string: imgUrl), options: .lowPriority) { receivedSize, expectedSize, targetURL in
+//        } completed: { [weak self] image, data, error, cacheType, finished, imageURL in
+//            guard let weakself = self else { return }
+//            if let img = image {
+//                UIImageWriteToSavedPhotosAlbum(img, weakself, #selector(weakself.image(image: didFinishSavingWithError: contextInfo:)), nil)
+//            }
+//        }
     }
 
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject)
@@ -480,6 +464,7 @@ extension HSCSNewBaseWebViewController: WKNavigationDelegate
     }
     // 页面加载失败时调用
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print("error \(error)")
         print("didFailProvisionalNavigation")
     }
     // 接收到服务器跳转请求之后调用

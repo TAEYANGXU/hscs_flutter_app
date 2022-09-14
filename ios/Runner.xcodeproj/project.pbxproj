@@ -72,6 +72,10 @@
 		36A2DB2528B4CC0800A88AA9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 36A2DB2028B4CC0800A88AA9 /* loading.gif */; };
 		36A2DB2628B4CC0800A88AA9 /* HSCSHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB2228B4CC0800A88AA9 /* HSCSHUD.m */; };
 		36A2DB2928B4CED200A88AA9 /* UIImage+GIFImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB2728B4CED200A88AA9 /* UIImage+GIFImage.m */; };
+		36B0F26528C9EF2100AB0B99 /* HSCSNewBaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B0F26428C9EF2100AB0B99 /* HSCSNewBaseWebViewController.swift */; };
+		36B0F26E28C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B0F26828C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.m */; };
+		36B0F26F28C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B0F26928C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.m */; };
+		36B0F27028C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B0F26C28C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
@@ -187,6 +191,13 @@
 		36A2DB2228B4CC0800A88AA9 /* HSCSHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSHUD.m; sourceTree = "<group>"; };
 		36A2DB2728B4CED200A88AA9 /* UIImage+GIFImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIFImage.m"; sourceTree = "<group>"; };
 		36A2DB2828B4CED200A88AA9 /* UIImage+GIFImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIFImage.h"; sourceTree = "<group>"; };
+		36B0F26428C9EF2100AB0B99 /* HSCSNewBaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSNewBaseWebViewController.swift; sourceTree = "<group>"; };
+		36B0F26828C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
+		36B0F26928C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		36B0F26A28C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
+		36B0F26B28C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
+		36B0F26C28C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
+		36B0F26D28C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		40145345390318A46EF55A9E /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -419,6 +430,35 @@
 			path = HSCSHUD;
 			sourceTree = "<group>";
 		};
+		36B0F26328C9EF0E00AB0B99 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				36B0F26428C9EF2100AB0B99 /* HSCSNewBaseWebViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		36B0F26628C9EF6300AB0B99 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				36B0F26728C9EF6D00AB0B99 /* WebViewJavascriptBridge */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		36B0F26728C9EF6D00AB0B99 /* WebViewJavascriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				36B0F26828C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.m */,
+				36B0F26928C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.m */,
+				36B0F26A28C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.h */,
+				36B0F26B28C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.h */,
+				36B0F26C28C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.m */,
+				36B0F26D28C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.h */,
+			);
+			path = WebViewJavascriptBridge;
+			sourceTree = "<group>";
+		};
 		52C67D073FEB96E52D8B2B67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +510,8 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				36B0F26628C9EF6300AB0B99 /* Library */,
+				36B0F26328C9EF0E00AB0B99 /* Base */,
 				36222C9628B4D76000863411 /* Modules */,
 				36222C7328B4CFFE00863411 /* HSCSVideo */,
 				36A2DB1C28B4CC0800A88AA9 /* HSCSHUD */,
@@ -677,9 +719,11 @@
 				36222C8B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m in Sources */,
 				36A2DB0328B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift in Sources */,
 				36222CCB28B4D78A00863411 /* HSCSNewLiveService.swift in Sources */,
+				36B0F27028C9EF6D00AB0B99 /* WebViewJavascriptBridge_JS.m in Sources */,
 				36222CC628B4D78A00863411 /* HSCSNewLiveCountdownView.swift in Sources */,
 				36222C8D28B4CFFE00863411 /* HSCSWatchBackSpeedView.m in Sources */,
 				36A2DB0D28B4C8C300A88AA9 /* AppConst.m in Sources */,
+				36B0F26528C9EF2100AB0B99 /* HSCSNewBaseWebViewController.swift in Sources */,
 				36222C9528B4D3A200863411 /* UIDevice+Mode.m in Sources */,
 				36A2DB1A28B4CA6800A88AA9 /* HSCSKeychainStore.swift in Sources */,
 				36222CB828B4D78A00863411 /* HSCSNewLiveWinListCell.swift in Sources */,
@@ -701,6 +745,7 @@
 				36222CC328B4D78A00863411 /* HSCSNewLiveLotteryView.swift in Sources */,
 				36222CCA28B4D78A00863411 /* HSCSNewLiveTakeLotteryView.swift in Sources */,
 				36222CCC28B4D78A00863411 /* HSCSNewLiveLotterySerice.swift in Sources */,
+				36B0F26F28C9EF6D00AB0B99 /* WKWebViewJavascriptBridge.m in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				36222CB928B4D78A00863411 /* HSCSNewLiveRecommendCell.swift in Sources */,
@@ -710,6 +755,7 @@
 				36A2DB0928B4C88300A88AA9 /* UIImage+Gif.swift in Sources */,
 				36A2DB0728B4C87800A88AA9 /* HSCSExtension.swift in Sources */,
 				36222C9028B4CFFE00863411 /* HSCSDefinitionListCell.m in Sources */,
+				36B0F26E28C9EF6D00AB0B99 /* WebViewJavascriptBridgeBase.m in Sources */,
 				36222CC028B4D78A00863411 /* HSCSNewLiveToolView.swift in Sources */,
 				36222C8F28B4CFFE00863411 /* HSCSLiveVideoLightView.m in Sources */,
 				36222CE628B4DAA000863411 /* UIView+Methods.m in Sources */,

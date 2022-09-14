@@ -82,5 +82,13 @@ class HSPushCenter {
                 print("username = \(HSCSUserInfoManager.shared().userInfo.nickname)");
             }
         }
+        if path == "lyitp://diqiu/webview" {
+            let dict: Dictionary = params as! Dictionary<String, Any>
+            let url = dict["url"] as! String
+            let webview = HSCSNewBaseWebViewController()
+            webview.URLString = url
+            print("token = \(HSCSUserInfoManager.shared().userInfo.token)")
+            UIViewController.currentViewController()?.navigationController?.pushViewController(webview, animated: true)
+        }
     }
 }

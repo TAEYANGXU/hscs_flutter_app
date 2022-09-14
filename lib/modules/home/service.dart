@@ -12,7 +12,9 @@ class HomeViewModel
     var model = await DioManagerUtils.getT<HomeData>("/v3/home/index2");
     homeData = model.data;
     var vipH5Url =  homeData!.vipH5Url;
+    var myAssetsUrl =  homeData!.myAssetsUrl;
     print("vipH5Url = $vipH5Url");
+    print("myAssetsUrl = $myAssetsUrl");
     return homeData!;
   }
 

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../model/user.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import '../router.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 
 const List<String> titleList = ["我的资产", "我的消息", "卡券包", "购买记录"];
 const List<String> iconList = [
@@ -32,12 +33,16 @@ class _MineHeadViewState extends State<MineHeadView> {
         list.add(Expanded(
             flex: 1,
             child:GestureDetector(
-              onTap: () {
+              onTap: () async {
+
+                if(i == 0){
+                  await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":"http://wxpay.jinsvip.com/user/my-assets"});
+                }
                 if (i == 1) {
                   Routers.push(context, MineRouter.msgGroup);
                 }
                 if (i == 2) {
-                  Routers.push(context, MineRouter.card);
+                  Routers.push(context, MineRouter.coupon);
                 }
                 if (i == 3) {
                   Routers.push(context, MineRouter.order);

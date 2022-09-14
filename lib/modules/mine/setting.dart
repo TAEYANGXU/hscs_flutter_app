@@ -51,7 +51,7 @@ class MineSettingPageState extends State<MineSettingPage> {
           },
           child: loadLocalImage("page_back",width: Adapt.px(11),height: Adapt.px(18)),
         ),
-        title: Text("设置",style: TextStyle(color: AppColors.text,fontSize: TextSize.larger,fontWeight: FontWeight.bold),),
+        title: const Text("设置",style: TextStyle(color: AppColors.text,fontSize: TextSize.larger,fontWeight: FontWeight.bold),),
         backgroundColor: Colors.white,
         elevation: 0.5,
       ),
@@ -67,13 +67,13 @@ class MineSettingPageState extends State<MineSettingPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    child: Text("清理缓存",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                     margin: EdgeInsets.only(left: Adapt.px(15)),
+                    child: const Text("清理缓存",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                   ),
-                  Container(
+                  SizedBox(
                     width: Adapt.px(60),
                     height: Adapt.px(45),
-                    child: Center(child:
+                    child: const Center(child:
                     Text("1.0M",style: TextStyle(fontSize: TextSize.main1,color: AppColors.gredText),),),
                   )
                 ],
@@ -88,19 +88,17 @@ class MineSettingPageState extends State<MineSettingPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        child: Text("微信",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                         margin: EdgeInsets.only(left: Adapt.px(15)),
+                        child: const Text("微信",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                       ),
                       Container(
                         child: Row(
                           // crossAxisAlignment: CrossAxisAlignment.center,
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(child:
                             Consumer<UserInfo>(builder: (context,user,child){
                               return Text( user.info != null ? user.info!.nickname! : "",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),);
                             }),
-                            ),
                             SizedBox(width: Adapt.px(10),),
                             Center(
                               child: GestureDetector(
@@ -116,7 +114,7 @@ class MineSettingPageState extends State<MineSettingPage> {
                                   ),
                                   width: Adapt.px(40),
                                   height: Adapt.px(25),
-                                  child: Center(
+                                  child: const Center(
                                     child: Text("解绑"),
                                   ),
                                 ),
@@ -145,8 +143,8 @@ class MineSettingPageState extends State<MineSettingPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        child: Text("安全中心",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                         margin: EdgeInsets.only(left: Adapt.px(15)),
+                        child: const Text("安全中心",style: TextStyle(fontSize: TextSize.big,color: AppColors.text),),
                       ),
                       Center(
                           child: Container(
@@ -177,7 +175,7 @@ class MineSettingPageState extends State<MineSettingPage> {
               child: Container(
                 color: Colors.white,
                 height: Adapt.px(45),
-                child: Center(
+                child: const Center(
                   child: Text("退出登录",style: TextStyle(color: AppColors.theme,fontSize: TextSize.big),),
                 ),
               ),

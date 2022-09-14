@@ -14,6 +14,7 @@ class MineViewModel {
   List<MsgGroup> groupList = [];
   List<MsgList> msgList = [];
   List<OrderData> orderArray = [];
+  List<CouponData> couponList = [];
 
   ///广告位
   Future getAD() async {
@@ -78,6 +79,24 @@ class MineViewModel {
     if (model.code == 200) {
       List list = model.data;
       orderArray = list.map((e) => OrderData.fromJson(e)).toList();
+    }
+  }
+
+  ///  卡券分组
+  Future getCouponList(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.get("/v2/coupon/type-list",params: param);
+    if (model.code == 200) {
+      List list = model.data;
+      couponList = list.map((e) => CouponData.fromJson(e)).toList();
+    }
+  }
+
+  ///  礼品卡、优惠券列表
+  Future getCouponDetailList(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.get("/v2/coupon/detail-list",params: param);
+    if (model.code == 200) {
+      // List list = model.data;
+      // couponList = list.map((e) => CouponData.fromJson(e)).toList();
     }
   }
 }
