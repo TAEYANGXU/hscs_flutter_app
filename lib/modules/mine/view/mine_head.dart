@@ -145,6 +145,8 @@ class _MineHeadViewState extends State<MineHeadView> {
                     if (user.info == null) {
                       Routers.push(context, LoginRouter.login,
                           settings: const RouteSettings(name: MineRouter.mine));
+                    }else{
+                      Routers.push(context, MineRouter.userInfo);
                     }
                   },
                   child: Container(

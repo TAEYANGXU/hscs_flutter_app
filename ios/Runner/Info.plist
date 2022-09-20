@@ -31,6 +31,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>需要扫描二维码或拍照,是否允许打开相机？</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要获取个人照片进行编辑和上传,是否允许打开相册？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要获取个人照片进行编辑和上传,是否允许打开相册？</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

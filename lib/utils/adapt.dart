@@ -11,10 +11,6 @@ class Adapt {
   static late EdgeInsets _padding;
 
   static init(BuildContext _) {
-    // ignore: unnecessary_null_comparison
-    // if (mediaQuery == null) {
-    //
-    // }
     mediaQuery = MediaQuery.of(_);
     _width = mediaQuery.size.width;
 
