@@ -30,6 +30,7 @@ class MineRouter extends IRouter {
   static const String nickname = '/nickname';
   static const String addressList = '/address_list';
   static const String addressAdd = '/address_add';
+  static const String addressUpdate = '/address_update';
 
   @override
   void initRouter(FluroRouter router) {
@@ -51,6 +52,13 @@ class MineRouter extends IRouter {
     router.define(addressAdd,
         handler: Handler(handlerFunc: (_, __) => MineAddressAddPage()));
 
+    router.define(addressUpdate,
+        handler: Handler(handlerFunc: (_, Map<String, dynamic> params) {
+          var address = params['address'][0];
+          return MineAddressAddPage(
+            address: address,
+          );
+        }));
     router.define(card,
         handler: Handler(handlerFunc: (_, Map<String, dynamic> params) {
       var type = params['type'][0];

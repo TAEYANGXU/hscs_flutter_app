@@ -128,4 +128,22 @@ class MineViewModel {
       print("addressList = ${addressList.length}");
     }
   }
+
+  ///  新增、修改地址
+  Future<bool> saveAddress(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.post("/v2/address/save",params: param);
+    if (model.code == 200) {
+      return true;
+    }
+    return false;
+  }
+
+  ///  删除地址
+  Future<bool> deleteAddress(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.post("/v2/address/del",params: param);
+    if (model.code == 200) {
+      return true;
+    }
+    return false;
+  }
 }

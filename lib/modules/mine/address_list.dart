@@ -1,9 +1,14 @@
+import 'package:fluro/fluro.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hscs_flutter_app/modules/mine/model/address.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'service.dart';
 import 'router.dart';
 import 'package:hscs_flutter_app/routers.dart';
+import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MineAddressPage extends StatefulWidget {
   MineAddressPage({Key? key}) : super(key: key);
@@ -23,9 +28,60 @@ class _MineAddressPageState extends State<MineAddressPage> {
   }
 
   Future fetchData() async {
-    await viewModel.getAddressList({"": ""});
+    await viewModel.getAddressList({"id": ""});
     // await viewModel.getCouponDetailList({"type":widget.type,"page":1 ,"pageSize": 20});
     setState(() {});
+  }
+
+  /// 删除地址
+  deleteAddress(int? id) async {
+    bool res = await viewModel.deleteAddress({"id":id});
+    if(res){
+      Fluttertoast.showToast(msg: "删除成功");
+      fetchData();
+    }
+  }
+
+  void showCupertinoAlertDialog(BuildContext context, AddressData model) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoAlertDialog(
+            // title: const Text("这是一个iOS风格的对话框"),
+            content: Column(
+              children: const <Widget>[
+                SizedBox(
+                  height: 10,
+                ),
+                Align(
+                  alignment: Alignment(0, 0),
+                  child: Text("确定删除地址吗？",style: TextStyle(fontSize: TextSize.big),),
+                ),
+                Align(
+                  alignment: Alignment(0, 0),
+                  child:Text(""),
+                ),
+              ],
+            ),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                child:const Text("取消"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  print("取消");
+                },
+              ),
+              CupertinoDialogAction(
+                child: const Text("确定"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  // print("确定");
+                  deleteAddress(model?.id);
+                },
+              ),
+            ],
+          );
+        });
   }
 
   Widget _cellForRow(BuildContext context, int index) {
@@ -33,7 +89,14 @@ class _MineAddressPageState extends State<MineAddressPage> {
       return GestureDetector(
         onTap: (){
           print("新增");
-          Routers.push(context, MineRouter.addressAdd);
+          // Routers.push(context, MineRouter.addressAdd);
+          Routers.route
+              .navigateTo(context, MineRouter.addressAdd,clearStack: false,transition: TransitionType.inFromRight).then((value) => {
+                if(value){
+                  // print("刷新")
+                  fetchData()
+                }
+          });
         },
         child: Container(
           margin: EdgeInsets.only(top:Adapt.px(15),left: Adapt.px(15),right: Adapt.px(15)),
@@ -140,6 +203,7 @@ class _MineAddressPageState extends State<MineAddressPage> {
                         GestureDetector(
                           onTap: () {
                             print("删除");
+                            showCupertinoAlertDialog(context,model);
                           },
                           child: SizedBox(
                             width: Adapt.px(60),
@@ -156,6 +220,7 @@ class _MineAddressPageState extends State<MineAddressPage> {
                         GestureDetector(
                           onTap: () {
                             print("修改");
+                            Routers.push(context, MineRouter.addressUpdate,params: {"address":json.encode(model)});
                           },
                           child: SizedBox(
                             width: Adapt.px(60),

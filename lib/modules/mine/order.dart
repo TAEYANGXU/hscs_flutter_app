@@ -62,7 +62,7 @@ class _MineOrderPageState extends State<MineOrderPage> {
                   children: [
                     Text(
                       model.goodsName ?? "",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: TextSize.larger,
                           fontWeight: FontWeight.w600),
                     ),
@@ -79,7 +79,7 @@ class _MineOrderPageState extends State<MineOrderPage> {
                       child: Center(
                         child: Text(
                           '  ${model.tagText ?? ""}  ',
-                          style: TextStyle(fontSize: TextSize.big),
+                          style: const TextStyle(fontSize: TextSize.big),
                         ),
                       ),
                     ),
@@ -88,7 +88,7 @@ class _MineOrderPageState extends State<MineOrderPage> {
                     ),
                     Text(
                       '${model.realAmount ?? ""}元',
-                      style: TextStyle(fontSize: TextSize.big),
+                      style: const TextStyle(fontSize: TextSize.big),
                     ),
                     SizedBox(
                       height: Adapt.px(5),
