@@ -5,7 +5,7 @@ import 'entity.dart';
 import 'interceptor/index.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-const bool PROXY_ENABLE = true;
+// const bool PROXY_ENABLE = true;
 
 class DioManager {
   static DioManager? _instance;

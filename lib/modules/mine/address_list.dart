@@ -76,7 +76,7 @@ class _MineAddressPageState extends State<MineAddressPage> {
                 onPressed: () {
                   Navigator.pop(context);
                   // print("确定");
-                  deleteAddress(model?.id);
+                  deleteAddress(model.id);
                 },
               ),
             ],

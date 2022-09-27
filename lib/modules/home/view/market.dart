@@ -11,6 +11,7 @@ class HomeMarketView extends StatefulWidget {
   HomeMarketView({Key? key, this.fundList}) : super(key: key);
   List<FundlistData>? fundList;
 
+  @override
   _HomeMarketViewState createState() => _HomeMarketViewState();
 }
 

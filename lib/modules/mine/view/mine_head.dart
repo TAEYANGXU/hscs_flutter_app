@@ -34,17 +34,13 @@ class _MineHeadViewState extends State<MineHeadView> {
             flex: 1,
             child:GestureDetector(
               onTap: () async {
-
                 if(i == 0){
                   await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":"http://wxpay.jinsvip.com/user/my-assets"});
-                }
-                if (i == 1) {
+                }else if (i == 1) {
                   Routers.push(context, MineRouter.msgGroup);
-                }
-                if (i == 2) {
+                }else if (i == 2) {
                   Routers.push(context, MineRouter.coupon);
-                }
-                if (i == 3) {
+                }else if (i == 3) {
                   Routers.push(context, MineRouter.order);
                 }
               },
@@ -130,7 +126,7 @@ class _MineHeadViewState extends State<MineHeadView> {
                   Routers.push(context, MineRouter.setting);
                 },
                 child: Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   width: Adapt.px(20),
                   height: Adapt.px(20),
                   child: loadLocalImage("mine/mine_setting_white",
@@ -200,7 +196,7 @@ class _MineHeadViewState extends State<MineHeadView> {
                                   user.info != null
                                       ? user.info!.nickname!
                                       : "登陆丨注册",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: TextSize.s17,
                                       color: AppColors.text),
                                 ),
@@ -227,7 +223,7 @@ class _MineHeadViewState extends State<MineHeadView> {
                                     user.info != null
                                         ? user.info!.vipExpireDay!
                                         : "",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: TextSize.main1,
                                         color: AppColors.text2))
                                 : Container(

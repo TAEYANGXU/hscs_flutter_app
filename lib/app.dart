@@ -31,11 +31,10 @@ class HSAppState extends State<HSApp>
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      title: '哈哈',
+      title: '',
       theme: ThemeData(primaryColor: AppColors.theme),
       routes: {
         MainRouter.init:(context) => HSInitPage(),

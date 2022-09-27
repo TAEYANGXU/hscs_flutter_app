@@ -37,7 +37,7 @@ class MinePageState extends State<MinePage> {
   }
 
   Future getDA() async {
-    await viewModel.getAD();
+    await viewModel.getAD({"type": 57});
     setState(() {});
   }
 
