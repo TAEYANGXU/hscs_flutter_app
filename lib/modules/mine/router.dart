@@ -14,6 +14,9 @@ import 'page/birthday.dart';
 import 'nickname.dart';
 import 'address_list.dart';
 import 'address_add.dart';
+import 'feedback.dart';
+import 'aboutus.dart';
+import 'integral_center.dart';
 
 class MineRouter extends IRouter {
   static const String mine = '/mine';
@@ -31,6 +34,9 @@ class MineRouter extends IRouter {
   static const String addressList = '/address_list';
   static const String addressAdd = '/address_add';
   static const String addressUpdate = '/address_update';
+  static const String aboutUs = '/aboutUs';
+  static const String feedback = '/feedback';
+  static const String integral = '/integral';
 
   @override
   void initRouter(FluroRouter router) {
@@ -51,7 +57,12 @@ class MineRouter extends IRouter {
         handler: Handler(handlerFunc: (_, __) => MineAddressPage()));
     router.define(addressAdd,
         handler: Handler(handlerFunc: (_, __) => MineAddressAddPage()));
-
+    router.define(aboutUs,
+        handler: Handler(handlerFunc: (_, __) => MineAboutUsPage()));
+    router.define(feedback,
+        handler: Handler(handlerFunc: (_, __) => MineFeedbackPage()));
+    router.define(integral,
+        handler: Handler(handlerFunc: (_, __) => MineIntegralPage()));
     router.define(addressUpdate,
         handler: Handler(handlerFunc: (_, Map<String, dynamic> params) {
           var address = params['address'][0];

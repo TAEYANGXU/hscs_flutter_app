@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'model/index.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'model/address.dart';
+import 'model/integral.dart';
 
 class MineViewModel {
   AdvertListData? listData;
@@ -17,11 +18,12 @@ class MineViewModel {
   List<OrderData> orderArray = [];
   List<CouponData> couponList = [];
   List<AddressData> addressList = [];
+  List<IntegralData> integralList = [];
 
   ///广告位
-  Future getAD() async {
+  Future getAD(Map<String, dynamic>? param) async {
     var model = await DioManagerUtils.get("/v3/advert/list-by-type",
-        params: {"type": 58});
+        params: param);
     List list = model.data;
     var array = list.map((item) => AdvertListData.fromJson(item)).toList();
     if (array.isNotEmpty) {
@@ -145,5 +147,15 @@ class MineViewModel {
       return true;
     }
     return false;
+  }
+
+  ///
+  Future integralGoodsList(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.post("/v2/integral-goods/list",params: param);
+    if (model.code == 200) {
+      List list = model.data;
+      integralList = list.map((e) => IntegralData.fromJson(e)).toList();
+      print("integralList = ${integralList.length}");
+    }
   }
 }
