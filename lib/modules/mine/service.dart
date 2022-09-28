@@ -149,9 +149,18 @@ class MineViewModel {
     return false;
   }
 
-  ///
+  ///积分中心商品列表
   Future integralGoodsList(Map<String, dynamic>? param) async {
     var model = await DioManagerUserUtils.post("/v2/integral-goods/list",params: param);
+    if (model.code == 200) {
+      List list = model.data;
+      integralList = list.map((e) => IntegralData.fromJson(e)).toList();
+      print("integralList = ${integralList.length}");
+    }
+  }
+
+  Future integralGoodsListByType(Map<String, dynamic>? param) async {
+    var model = await DioManagerUserUtils.post("/v2/integral-goods/list-by-type",params: param);
     if (model.code == 200) {
       List list = model.data;
       integralList = list.map((e) => IntegralData.fromJson(e)).toList();

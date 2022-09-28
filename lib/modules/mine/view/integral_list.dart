@@ -75,12 +75,12 @@ class _IntegralListViewState extends State<IntegralListView> {
                     Text("${model.price}积分",style: TextStyle(color: HexColor("#FB7204")),),
                     SizedBox(height: Adapt.px(5),),
                     Container(
-                      child: int.parse(model!.goodsNumber!) > 0 ?
-                      Container(
+                      child: int.parse(model.goodsNumber!) > 0 ?
+                      SizedBox(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("剩余${model!.goodsNumber ?? ""}"),
+                            Text("剩余${model.goodsNumber ?? ""}"),
                             Container(
                               padding: EdgeInsets.only(right: Adapt.px(15)),
                               child: Text("限兑${model.limitAmount}件",style: TextStyle(color: HexColor("#666666")),),
@@ -88,7 +88,7 @@ class _IntegralListViewState extends State<IntegralListView> {
                           ],
                         ),
                       ) :
-                      Container(
+                      SizedBox(
                         child: const Text("抢完了，下次再来吧"),
                       ),
                     )
@@ -108,7 +108,7 @@ class _IntegralListViewState extends State<IntegralListView> {
     }
     print("col = $col");
     print("size = $size");
-    return col * Adapt.px(155) + Adapt.px(40);
+    return col * Adapt.px(150) + Adapt.px(30);
   }
 
   @override
@@ -116,7 +116,7 @@ class _IntegralListViewState extends State<IntegralListView> {
     // TODO: implement build
     return Container(
       height: getHeight(),
-      color: HexColor("F7F7F7"),
+      color: HexColor("#F7F7F7"),
       child: GridView.count(
         crossAxisCount: 2,
         mainAxisSpacing: 0,

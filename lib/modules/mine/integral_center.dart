@@ -8,6 +8,8 @@ import 'service.dart';
 import 'dart:convert' as Convert;
 import 'view/integral_list.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
+import 'package:hscs_flutter_app/routers.dart';
+import 'router.dart';
 
 class MineIntegralPage extends StatefulWidget {
   MineIntegralPage({Key? key}) : super(key: key);
@@ -47,8 +49,8 @@ class _MineIntegralPageState extends State<MineIntegralPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: HexColor("F7F7F7"),
-      body: Container(
+      backgroundColor: HexColor("#F7F7F7"),
+      body: SizedBox(
         width: double.infinity,
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -61,7 +63,7 @@ class _MineIntegralPageState extends State<MineIntegralPage> {
                     width: double.infinity,
                     height: Adapt.px(220),
                     decoration: BoxDecoration(
-                      color: HexColor("F7F7F7"),
+                      color: HexColor("#F7F7F7"),
                       gradient: LinearGradient(colors: [HexColor("#FF8837"),HexColor("#FFA345")],begin: Alignment.topRight,end: Alignment.bottomRight),
                     ),
                   ),
@@ -106,14 +108,14 @@ class _MineIntegralPageState extends State<MineIntegralPage> {
                     // color: Colors.yellow,
                     child: Column(
                       children: [
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           height: Adapt.px(40),
                           child: Row(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: Adapt.px(40),
-                                child: Text("100",style: TextStyle(fontSize: TextSize.s36,fontWeight: FontWeight.bold,color: Colors.white),),
+                                child:const Text("100",style: TextStyle(fontSize: TextSize.s36,fontWeight: FontWeight.bold,color: Colors.white),),
                               ),
                               SizedBox(width: Adapt.px(5),),
                               Container(
@@ -152,7 +154,7 @@ class _MineIntegralPageState extends State<MineIntegralPage> {
                     width: double.infinity,
                     height: Adapt.px(50),
                     decoration: BoxDecoration(
-                      color: HexColor("F7F7F7"),
+                      color: HexColor("#F7F7F7"),
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(16),
                         topRight: Radius.circular(16),
@@ -184,6 +186,7 @@ class _MineIntegralPageState extends State<MineIntegralPage> {
                         GestureDetector(
                           onTap: (){
                             print("更多福利");
+                            Routers.push(context, MineRouter.integralMore);
                           },
                           child: Container(
                             margin: EdgeInsets.only(right: Adapt.px(15)),
@@ -211,7 +214,7 @@ class _MineIntegralPageState extends State<MineIntegralPage> {
                   await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":viewModel.listData?.linkUrl});
                 },
                 child: Container(
-                  margin: EdgeInsets.only(left: Adapt.px(15),right: Adapt.px(15)),
+                  margin: EdgeInsets.only(left: Adapt.px(15),right: Adapt.px(15),top: Adapt.px(15)),
                   height: Adapt.px(70),
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(

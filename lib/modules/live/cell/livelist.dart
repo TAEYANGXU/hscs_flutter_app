@@ -4,6 +4,7 @@ import 'package:hscs_flutter_app/style/index.dart';
 import '../model/index.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
+import 'package:hscs_flutter_app/utils/photos_view.dart';
 
 class LiveListCell extends StatefulWidget {
   LiveListCell({Key? key, this.model}) : super(key: key);
@@ -48,7 +49,7 @@ class _LiveListCellState extends State<LiveListCell> {
                     children: [
                       Text(
                         widget.model!.liveMsg!.teacher!.nickname ?? "",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: AppColors.text,
                             fontSize: TextSize.big,
                             fontWeight: FontWeight.bold),
@@ -66,7 +67,7 @@ class _LiveListCellState extends State<LiveListCell> {
                           child: Center(
                             child: Text(
                               widget.model!.liveMsg!.teacher!.title ?? "",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: TextSize.small),
                             ),
@@ -115,20 +116,29 @@ class _LiveListCellState extends State<LiveListCell> {
                                 print("Opening $url...");
                               },
                             ),
-                            widget.model!.liveMsg!.pics!.length == 0
+                            widget.model!.liveMsg!.pics!.isEmpty
                                 ? Container()
-                                : Container(
-                              margin: EdgeInsets.only(left: Adapt.px(10),bottom: Adapt.px(10),right: Adapt.px(10)),
-                              height: Adapt.px(120),
-                              clipBehavior: Clip.hardEdge,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3)
-                              ),
-                              child: CacheImage(
-                                imageUrl: widget.model!.liveMsg!.pics![0],
+                                : GestureDetector(
+                              onTap: (){
+                                print("图片");
+                                Navigator.push(context,MaterialPageRoute(builder:(_)=>PhotoPreview(
+                                  galleryItems:widget.model!.liveMsg!.pics!,
+                                  defaultImage: 0,
+                                )));
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(left: Adapt.px(10),bottom: Adapt.px(10),right: Adapt.px(10)),
                                 height: Adapt.px(120),
-                                width: double.infinity,
-                                fit: BoxFit.cover,
+                                clipBehavior: Clip.hardEdge,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3)
+                                ),
+                                child: CacheImage(
+                                  imageUrl: widget.model!.liveMsg!.pics![0],
+                                  height: Adapt.px(120),
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             )
                           ],

@@ -3,6 +3,7 @@ import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import '../model/index.dart';
 import '../cell/livelist.dart';
+import 'package:hscs_flutter_app/utils/photos_view.dart';
 
 class LiveListPage extends StatefulWidget{
 

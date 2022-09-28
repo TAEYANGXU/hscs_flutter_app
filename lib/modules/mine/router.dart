@@ -17,6 +17,7 @@ import 'address_add.dart';
 import 'feedback.dart';
 import 'aboutus.dart';
 import 'integral_center.dart';
+import 'integral_more.dart';
 
 class MineRouter extends IRouter {
   static const String mine = '/mine';
@@ -37,6 +38,7 @@ class MineRouter extends IRouter {
   static const String aboutUs = '/aboutUs';
   static const String feedback = '/feedback';
   static const String integral = '/integral';
+  static const String integralMore = '/integralMore';
 
   @override
   void initRouter(FluroRouter router) {
@@ -63,6 +65,8 @@ class MineRouter extends IRouter {
         handler: Handler(handlerFunc: (_, __) => MineFeedbackPage()));
     router.define(integral,
         handler: Handler(handlerFunc: (_, __) => MineIntegralPage()));
+    router.define(integralMore,
+        handler: Handler(handlerFunc: (_, __) => MineIntegralMorePage()));
     router.define(addressUpdate,
         handler: Handler(handlerFunc: (_, Map<String, dynamic> params) {
           var address = params['address'][0];
