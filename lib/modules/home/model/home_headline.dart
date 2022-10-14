@@ -1,39 +1,59 @@
 
-import 'package:json_annotation/json_annotation.dart';
-part 'home_headline.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class HeadLine {
-  HeadLineData? data;
   int? code;
-  String? message;
-  HeadLine({
-    this.data,
-    this.code,
-    this.message
-  });
+  String? msg;
+  HeadLineData? data;
+  int? serverTime;
 
-  factory HeadLine.fromJson(Map<String, dynamic> json) => _$HeadLineFromJson(json);
-  Map<String, dynamic> toJson() => _$HeadLineToJson(this);
+  HeadLine({this.code, this.msg, this.data, this.serverTime});
+
+  HeadLine.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
+    msg = json['msg'];
+    data = json['data'] != null ? new HeadLineData.fromJson(json['data']) : null;
+    serverTime = json['serverTime'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['code'] = this.code;
+    data['msg'] = this.msg;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    data['serverTime'] = this.serverTime;
+    return data;
+  }
 }
 
-@JsonSerializable(explicitToJson: true)
 class HeadLineData {
   String? updatedAt;
   List<ListData>? list;
 
-  HeadLineData({
-    this.updatedAt,
-    this.list,
+  HeadLineData({this.updatedAt, this.list});
 
-  });
+  HeadLineData.fromJson(Map<String, dynamic> json) {
+    updatedAt = json['updatedAt'];
+    if (json['list'] != null) {
+      list = <ListData>[];
+      json['list'].forEach((v) {
+        list!.add(new ListData.fromJson(v));
+      });
+    }
+  }
 
-  factory HeadLineData.fromJson(Map<String, dynamic> json) => _$HeadLineDataFromJson(json);
-  Map<String, dynamic> toJson() => _$HeadLineDataToJson(this);
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['updatedAt'] = this.updatedAt;
+    if (this.list != null) {
+      data['list'] = this.list!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
-@JsonSerializable(explicitToJson: true)
-class ListData{
+class ListData {
   int? id;
   String? title;
   String? detailLink;
@@ -45,21 +65,43 @@ class ListData{
   bool? canVisit;
   bool? isNew;
 
-  ListData({
-    this.id,
-    this.title,
-    this.detailLink,
-    this.coverPic,
-    this.shareTitle,
-    this.shareContent,
-    this.createdAt,
-    this.createTime,
-    this.canVisit,
-    this.isNew,
-  });
+  ListData(
+      {this.id,
+        this.title,
+        this.detailLink,
+        this.coverPic,
+        this.shareTitle,
+        this.shareContent,
+        this.createdAt,
+        this.createTime,
+        this.canVisit,
+        this.isNew});
 
-  factory ListData.fromJson(Map<String, dynamic> json) => _$ListDataFromJson(json);
-  Map<String, dynamic> toJson() => _$ListDataToJson(this);
+  ListData.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    detailLink = json['detailLink'];
+    coverPic = json['coverPic'];
+    shareTitle = json['shareTitle'];
+    shareContent = json['shareContent'];
+    createdAt = json['createdAt'];
+    createTime = json['createTime'];
+    canVisit = json['canVisit'];
+    isNew = json['isNew'];
+  }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['detailLink'] = this.detailLink;
+    data['coverPic'] = this.coverPic;
+    data['shareTitle'] = this.shareTitle;
+    data['shareContent'] = this.shareContent;
+    data['createdAt'] = this.createdAt;
+    data['createTime'] = this.createTime;
+    data['canVisit'] = this.canVisit;
+    data['isNew'] = this.isNew;
+    return data;
+  }
 }
-

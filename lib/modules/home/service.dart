@@ -22,6 +22,7 @@ class HomeViewModel
   Future<FundData> getFundData() async {
     var model = await DioManagerUtils.getT<FundData>("/v3/fund/fund-list");
     fundData = model.data;
+    print("fundList = ${fundData!.fundList!.length}");
     return fundData!;
   }
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../model/home_model.dart';
+import '../model/index.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 
 class HomeTopFocusView extends StatefulWidget {
   HomeTopFocusView({Key? key, this.infos}) : super(key: key);
-  List<InfosData>? infos;
+  List<Infos>? infos;
 
   _HomeTopFocusViewState createState() => _HomeTopFocusViewState();
 }
@@ -23,7 +23,7 @@ class _HomeTopFocusViewState extends State<HomeTopFocusView> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext content, int index) {
           return CacheImage(
-            imageUrl: widget.infos![index].img_url!,
+            imageUrl: widget.infos![index].imgUrl!,
             width: double.infinity,
             height: double.infinity,
           );

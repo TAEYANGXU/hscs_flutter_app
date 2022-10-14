@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
-import '../model/home_model.dart';
+import '../model/index.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/global_config.dart';
@@ -9,7 +9,7 @@ import '../router.dart';
 
 class HomeSudokuView extends StatefulWidget {
   HomeSudokuView({Key? key, this.iconList}) : super(key: key);
-  List<IconlistData>? iconList;
+  List<IconList>? iconList;
 
   _HomeSudokuViewState createState() => _HomeSudokuViewState();
 }

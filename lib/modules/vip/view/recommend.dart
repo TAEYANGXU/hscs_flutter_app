@@ -12,7 +12,7 @@ class VipRecommendPage extends StatefulWidget {
 
   VipRecommendPage({Key? key,this.iconList,this.reportList,this.audio,this.liveData,this.columnList}) : super(key: key);
 
-  List<IconlistData>? iconList = [];
+  List<IconList>? iconList = [];
   List<AdvertListData>? reportList = [];
   AudioList? audio;
   LiveVideoData?  liveData;

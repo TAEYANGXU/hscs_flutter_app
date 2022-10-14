@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'entity.dart';
 import 'interceptor/index.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-
+import 'dart:developer';
 // const bool PROXY_ENABLE = true;
 
 class DioManager {
@@ -93,7 +93,7 @@ class DioManager {
     );
     print("params = $params");
     print("path = $path");
-    print("response.data = $response");
+    log("response.data = $response");
     return response;
   }
 

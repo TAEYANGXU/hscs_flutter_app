@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
-import '../model/home_model.dart';
+import '../model/index.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 
 class HomeMasterView extends StatefulWidget {
   HomeMasterView({Key? key, this.chiefComment, this.askTeacher})
       : super(key: key);
 
-  ChiefcommentData? chiefComment;
-  AskteacherData? askTeacher;
+  ChiefComment? chiefComment;
+  AskTeacher? askTeacher;
 
   _HomeMasterViewState createState() => _HomeMasterViewState();
 }

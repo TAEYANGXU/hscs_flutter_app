@@ -9,7 +9,7 @@ import 'section.dart';
 
 class HomeMarketView extends StatefulWidget {
   HomeMarketView({Key? key, this.fundList}) : super(key: key);
-  List<FundlistData>? fundList;
+  List<FundList>? fundList;
 
   @override
   _HomeMarketViewState createState() => _HomeMarketViewState();
@@ -44,7 +44,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
     return tagList;
   }
 
-  Widget textInfo(FundlistData fund) {
+  Widget textInfo(FundList fund) {
     var profitText = fund.profitRate.toString() + '%';
     return Container(
       // color: Colors.red,
@@ -71,7 +71,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
     );
   }
 
-  List<Widget> pieChartText(List<AssetradioData>? assetRadio) {
+  List<Widget> pieChartText(List<AssetRadio>? assetRadio) {
     List<Widget> list = [];
     for (var i = 0; i < assetRadio!.length; i++) {
       var text =
@@ -100,8 +100,8 @@ class _HomeMarketViewState extends State<HomeMarketView> {
     return list;
   }
 
-  Widget pieChart(FundlistData fund) {
-    List<AssetradioData> list = [];
+  Widget pieChart(FundList fund) {
+    List<AssetRadio> list = [];
     for (var i = 0; i < fund.assetRadio!.length; i++) {
       var model = fund.assetRadio![i];
       model.status = i;
@@ -115,12 +115,12 @@ class _HomeMarketViewState extends State<HomeMarketView> {
     var seriesList = [
       charts.Series(
         id: 'radio',
-        domainFn: (AssetradioData radio, _) => radio.status,
-        measureFn: (AssetradioData radio, _) => radio.radio,
-        colorFn: (AssetradioData radio, _) =>
+        domainFn: (AssetRadio radio, _) => radio.status,
+        measureFn: (AssetRadio radio, _) => radio.radio,
+        colorFn: (AssetRadio radio, _) =>
             charts.ColorUtil.fromDartColor(HexColor(radio.color!)),
         data: list,
-        labelAccessorFn: (AssetradioData row, _) => row.assetName!,
+        labelAccessorFn: (AssetRadio row, _) => row.assetName!,
       )
     ];
     return Row(

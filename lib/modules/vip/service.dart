@@ -1,12 +1,12 @@
 import 'package:hscs_flutter_app/api/dio_manager.dart';
 import 'model/index.dart';
-import 'package:hscs_flutter_app/modules/home/model/home_model.dart';
+import 'package:hscs_flutter_app/modules/home/model/index.dart';
 import 'package:hscs_flutter_app/modules/home/model/home_ad.dart';
 import 'package:hscs_flutter_app/modules/home/model/home_headline.dart';
 
 class VipRecommendViewModel{
 
-  List<IconlistData> iconList = [];
+  List<IconList> iconList = [];
   List<TableData> tableList = [];
   List<AdvertListData> repostList = [];
   AudioList? audio;
@@ -17,7 +17,7 @@ class VipRecommendViewModel{
   Future getVipIconList() async {
     var model = await DioManagerUtils.get("/v3/vip-center/icon-list",params: {"tableId":1});
     List list = model.data;
-    var array = list.map((item) => IconlistData.fromJson(item)).toList();
+    var array = list.map((item) => IconList.fromJson(item)).toList();
     if(array.isNotEmpty){
       print("icon list = ${array.length}");
       iconList = array;
