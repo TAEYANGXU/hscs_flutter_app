@@ -424,9 +424,11 @@ static const NSTimeInterval TimeInterval = 10.0;
         case 1001:
             //全屏切换
             if (self.isFullScreen) {
-                ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+//                ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+                [self doEndFullScreen];
             }else{
-                ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+//                ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+                [self doFullScreen];
             }
             break;
         case 1002:
@@ -436,9 +438,11 @@ static const NSTimeInterval TimeInterval = 10.0;
         case 1003:
             //返回
             if (self.isFullScreen) {
-                ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+//                ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+                [self doEndFullScreen];
             }else{
-                ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+//                ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+                [self doFullScreen];
             }
             break;
         case 1004:
@@ -602,6 +606,23 @@ static const NSTimeInterval TimeInterval = 10.0;
 
 #pragma mark - fullScreen - 全屏模式
 
+- (void)doEndFullScreen
+{
+    ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+    if (@available(iOS 16.0, *)) {
+        self.isFullScreen = NO;
+        [self performSelector:@selector(didEndFullScreenLive) withObject:self afterDelay:0.1];
+    }
+}
+
+- (void)doFullScreen{
+    ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+    if (@available(iOS 16.0, *)) {
+        self.isFullScreen = YES;
+        [self performSelector:@selector(didFullScreenLive) withObject:self afterDelay:0.1];
+    }
+}
+
 //全屏
 - (void)didFullScreenLive{
     
@@ -739,7 +760,8 @@ static const NSTimeInterval TimeInterval = 10.0;
     }
     [self playWithVhallId:self.vhallId toTiew:self];
     if (self.isFullScreen) {
-        ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+//        ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+        [self doEndFullScreen];
     }
 }
 
@@ -995,7 +1017,8 @@ static const NSTimeInterval TimeInterval = 10.0;
 - (void)LiveStoped {
     Log(@"解盘结束");
     if (self.isFullScreen) {
-        ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+//        ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+        [self doEndFullScreen];
     }
     [self.vhMoviePlayer stopPlay];
     [self showHideView];

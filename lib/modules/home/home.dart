@@ -7,10 +7,10 @@ import 'service.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  HomePageState createState() => new  HomePageState();
+  _HomePageState createState() =>  _HomePageState();
 }
 
-class HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
 
   final viewModel = HomeViewModel();
   final EasyRefreshController _controller = EasyRefreshController();
@@ -43,11 +43,11 @@ class HomePageState extends State<HomePage> {
   }
 
   Future getBottomAD() async {
-    await viewModel.getBottomAD();
+    await viewModel.getAD({"type":22});
     setState(() {});
   }
 
-  Widget bottomView(AdvertListData listData) {
+  Widget bottomView(AdvertListData? listData) {
       if(listData != null ){
           return HomeBottomView(advertData: listData,);
       }else{
@@ -67,6 +67,7 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context){
+    super.build(context);
     if(viewModel.homeData == null){
       return Scaffold();
     }
@@ -98,7 +99,7 @@ class HomePageState extends State<HomePage> {
               viewModel.fundData != null ? HomeMarketView(fundList: viewModel.fundData?.fundList,) : Container(),
               HomeMasterView(chiefComment: viewModel.homeData?.chiefComment,askTeacher: viewModel.homeData?.askTeacher,),
               HomeHeadlineView(list: viewModel.headLineData?.list,),
-              bottomView(viewModel.listData),
+              bottomView(viewModel.adData),
               SizedBox(height: Adapt.px(30),)
             ],
           ),
@@ -106,4 +107,8 @@ class HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

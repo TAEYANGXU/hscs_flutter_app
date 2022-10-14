@@ -8,7 +8,7 @@ class VipPage extends StatefulWidget {
   VipPageState createState() => new VipPageState();
 }
 
-class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin {
+class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin,AutomaticKeepAliveClientMixin {
   TabController? tabController;
   var viewModel = VipRecommendViewModel();
 
@@ -88,4 +88,8 @@ class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

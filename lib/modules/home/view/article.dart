@@ -54,7 +54,7 @@ class _HomeHeadlineViewState extends State<HomeHeadlineView> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6)
                       ),
-                      child: data.coverPic!.length > 0 ? CacheImage(imageUrl: data.coverPic!,width: Adapt.px(90),height: Adapt.px(70),) : Container(),
+                      child: data.coverPic!.isNotEmpty ? CacheImage(imageUrl: data.coverPic!,width: Adapt.px(90),height: Adapt.px(70),) : Container(),
                     )
                   ],
                 ) ,

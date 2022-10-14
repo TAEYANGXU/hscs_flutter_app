@@ -17,6 +17,7 @@ class MainRouter extends IRouter
           return MainPage(
             tabIndex: tabIndex,
           );
-        }));
+        })
+    );
   }
 }

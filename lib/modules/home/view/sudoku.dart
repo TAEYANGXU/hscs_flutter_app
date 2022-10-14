@@ -3,6 +3,9 @@ import 'package:hscs_flutter_app/utils/index.dart';
 import '../model/home_model.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'package:hscs_flutter_app/style/index.dart';
+import 'package:hscs_flutter_app/global_config.dart';
+import 'package:hscs_flutter_app/routers.dart';
+import '../router.dart';
 
 class HomeSudokuView extends StatefulWidget {
   HomeSudokuView({Key? key, this.iconList}) : super(key: key);
@@ -24,10 +27,17 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
   Widget buildItem(BuildContext context, int index) {
     var icon = widget.iconList![index];
     return GestureDetector(
-        onTap: () {
+        onTap: () async {
           debugPrint("index = $index");
+          debugPrint("deepLink = ${icon.deepLink}");
+          if(icon.deepLink!.contains('http')){
+            await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":icon.deepLink!});
+          }else if(icon.deepLink!.contains('free_video')){
+            Routers.push(context, HomeRouter.videoList,params: {"type":"2"});
+          }
         },
         child: Container(
+          color: Colors.white,
           child: Column(
             children: [
               CacheImage(
@@ -35,14 +45,14 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
                 width: Adapt.px(30),
                 height: Adapt.px(30),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 icon.name!,
                 textAlign: TextAlign.center,
                 style:
-                    TextStyle(color: AppColors.text, fontSize: TextSize.main),
+                    const TextStyle(color: AppColors.text, fontSize: TextSize.main),
               ),
             ],
           ),
@@ -64,6 +74,7 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      color: Colors.white,
       height: getHeight(),
       child: GridView.count(
         crossAxisCount: 4,

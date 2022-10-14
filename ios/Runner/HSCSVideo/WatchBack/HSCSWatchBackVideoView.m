@@ -1004,9 +1004,21 @@ static const NSTimeInterval TimeInterval = 6.0;
     }
 }
 
-- (void)doFullScreen
+- (void)doEndFullScreen
 {
     ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+    if (@available(iOS 16.0, *)) {
+        self.isFullScreen = NO;
+        [self performSelector:@selector(didEndFullScreen) withObject:self afterDelay:0.1];
+    }
+}
+
+- (void)doFullScreen{
+    ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+    if (@available(iOS 16.0, *)) {
+        self.isFullScreen = YES;
+        [self performSelector:@selector(didFullScreen) withObject:self afterDelay:0.1];
+    }
 }
 
 #pragma mark - events respone - 点击事件
@@ -1035,9 +1047,10 @@ static const NSTimeInterval TimeInterval = 6.0;
         case 1001:
             //全屏切换
             if (self.isFullScreen) {
-                ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+                [self doEndFullScreen];
             }else{
-                ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+                Log(@"全屏------");
+                [self doFullScreen];
             }
             break;
         case 1002:
@@ -1047,9 +1060,10 @@ static const NSTimeInterval TimeInterval = 6.0;
         case 1003:
             //返回
             if (self.isFullScreen) {
-                ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+                [self doEndFullScreen];
             }else{
-                ScreenRotateToPortrait(UIInterfaceOrientationLandscapeRight);
+                Log(@"全屏------");
+                [self doFullScreen];
             }
             break;
         default:
@@ -1060,7 +1074,8 @@ static const NSTimeInterval TimeInterval = 6.0;
 - (void)endFullScreen
 {
     if (self.isFullScreen) {
-        ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+//        ScreenRotateToPortrait(UIInterfaceOrientationPortrait);
+        [self doEndFullScreen];
     }
 }
 

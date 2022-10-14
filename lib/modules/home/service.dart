@@ -6,7 +6,8 @@ class HomeViewModel
   HomeData?  homeData;
   FundData?  fundData;
   HeadLineData? headLineData;
-  late AdvertListData listData;
+  AdvertListData? adData;
+  List<VideoList>  videoList = [];
 
   Future<HomeData> getHomeData() async {
     var model = await DioManagerUtils.getT<HomeData>("/v3/home/index2");
@@ -30,12 +31,24 @@ class HomeViewModel
     return headLineData!;
   }
 
-  Future getBottomAD() async {
-    var model = await DioManagerUtils.get("/v3/advert/list-by-type",params: {"type":22});
+  Future getAD(Map<String,dynamic>? params) async {
+    var model = await DioManagerUtils.get("/v3/advert/list-by-type",params: params);
     List list = model.data;
     var array = list.map((item) => AdvertListData.fromJson(item)).toList();
     if(array.isNotEmpty){
-      listData = array[0];
+      adData = array[0];
     }
   }
+
+  Future getVideoListByType(Map<String,dynamic> params) async {
+    var model = await DioManagerUtils.get("/v3/video/list-by-act-type",params: params);
+    Map<String,dynamic> data = model.data;
+    List list = data["list"];
+    var array = list.map((item) => VideoList.fromJson(item)).toList();
+    if(array.isNotEmpty){
+      videoList = array;
+      print("length = ${array.length}");
+    }
+  }
+
 }

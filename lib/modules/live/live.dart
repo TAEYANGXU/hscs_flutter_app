@@ -15,7 +15,7 @@ class LivePage extends StatefulWidget {
 }
 
 class LivePageState extends State<LivePage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   LiveViewModel viewModel = LiveViewModel();
   final ScrollController liveController = ScrollController();
   final ScrollController chatController = ScrollController();
@@ -235,4 +235,8 @@ class LivePageState extends State<LivePage>
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
