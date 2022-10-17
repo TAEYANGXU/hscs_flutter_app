@@ -90,5 +90,14 @@ class HSPushCenter {
             print("token = \(HSCSUserInfoManager.shared().userInfo.token)")
             UIViewController.currentViewController()?.navigationController?.pushViewController(webview, animated: true)
         }
+        
+        if path == "lyitp://diqiu/video_play" {
+            let dict: Dictionary = params as! Dictionary<String, Any>
+            let json = dict["json"] as? Dictionary<String,Any>
+            print("json2 = \(json)")
+            let video = HSCSVideoBackViewController()
+            video.videoJson = json
+            UIViewController.currentViewController()?.navigationController?.pushViewController(video, animated: true)
+        }
     }
 }

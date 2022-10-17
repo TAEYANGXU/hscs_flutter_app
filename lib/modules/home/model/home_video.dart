@@ -14,6 +14,7 @@ class VideoList {
   int? actId;
   String? hotWord;
   ActInfo? actInfo;
+  int? index;
 
   VideoList(
       {this.vid,
@@ -30,7 +31,8 @@ class VideoList {
         this.checkCode,
         this.actId,
         this.hotWord,
-        this.actInfo});
+        this.actInfo,
+        this.index});
 
   VideoList.fromJson(Map<String, dynamic> json) {
     vid = json['vid'];
@@ -49,6 +51,7 @@ class VideoList {
     hotWord = json['hotWord'];
     actInfo =
     json['actInfo'] != null ? new ActInfo.fromJson(json['actInfo']) : null;
+    index = json['index'];
   }
 
   Map<String, dynamic> toJson() {
@@ -70,6 +73,7 @@ class VideoList {
     if (this.actInfo != null) {
       data['actInfo'] = this.actInfo!.toJson();
     }
+    data['index'] = this.index;
     return data;
   }
 }

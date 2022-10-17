@@ -40,6 +40,8 @@
 #import <XyWidget/UIView+Additions.h>
 #import "UIImageView+WebCache.h"
 #import <XyWidget/UIFont+PingFangSC.h>
+#import "HSCSUserInfoManager.h"
+
 //控制面板隐藏时间
 static const NSTimeInterval TimeInterval = 6.0;
 
@@ -453,8 +455,9 @@ static const NSTimeInterval TimeInterval = 6.0;
 //    NSString *iphone = [NSString stringWithFormat:@"%@password",[AppUtils nullEmpty:[HSCSUserInfoManager sharedManager].userInfo.mobile]];
     NSMutableDictionary * param = [[NSMutableDictionary alloc]init];
     param[@"id"] = [AppUtils nullEmpty:vId];
-//    param[@"name"] = [AppUtils nullEmpty:[HSCSUserInfoManager sharedManager].userInfo.nickname];
-//    param[@"email"] = [AppUtils nullEmpty:[HSCSUserInfoManager sharedManager].userInfo.vhallEmail];
+    param[@"name"] = [AppUtils nullEmpty:[HSCSUserInfoManager sharedManager].userInfo.nickname];
+    param[@"email"] = [AppUtils nullEmpty:[HSCSUserInfoManager sharedManager].userInfo.vhallEmail];
+    NSLog(@"param = %@",param);
     if (self.vhMoviePlayer) {
         [self.vhMoviePlayer startPlayback:param];
     }

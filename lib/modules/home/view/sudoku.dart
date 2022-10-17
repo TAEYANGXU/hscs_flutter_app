@@ -80,10 +80,10 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
         crossAxisCount: 4,
         mainAxisSpacing: 0,
         crossAxisSpacing: 0,
-        children: getItems(),
         // scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.only(top: 15),
-        physics: NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.only(top: 15),
+        physics: const NeverScrollableScrollPhysics(),
+        children: getItems(),
       ),
     );
   }

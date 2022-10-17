@@ -107,8 +107,7 @@
  *
  *  @param text 成功信息文本
  */
-+ (void)showSuccessText:(NSString *)text
-{
++ (void)showSuccessText:(NSString *)text{
     [HSCSProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [HSCSProgressHUD showSuccessWithStatus:text];
     [HSCSProgressHUD dismissWithDelay:1.5f];
@@ -123,7 +122,6 @@
             completion();
         }
     }];
-    
 }
 
 /**
@@ -189,7 +187,7 @@
 
 + (void)showProgressHUDAddedToVideoView:(UIView *)view
 {
-    [HSCSHUD hideHUDTo:view];
+    [HSCSHUD showLoading:view];
 //    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
 //    hud.backgroundColor = [UIColor clearColor];
 //    [hud showAnimated:YES];
@@ -277,6 +275,7 @@
  */
 + (void)hideHUDTo:(UIView *)view
 {
+    [HSCSHUD dismissLoading];
 //    [MBProgressHUD hideHUDForView:view animated:YES];
 }
 

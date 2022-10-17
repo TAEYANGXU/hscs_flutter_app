@@ -28,7 +28,7 @@ class HomeFund {
 }
 
 class FundData {
-  List<FundList>? fundList;
+  List<FundList>? fundList = [];
   String? h5Url;
 
   FundData({this.fundList, this.h5Url});

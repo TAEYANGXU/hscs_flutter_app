@@ -13,3 +13,4 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "HSCSUserInfoManager.h"
 #import "WKWebViewJavascriptBridge.h"
+#import <VHLiveSDK/VHallApi.h>

@@ -53,6 +53,11 @@
 		36222CE628B4DAA000863411 /* UIView+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CDF28B4DAA000863411 /* UIView+Methods.m */; };
 		36222CE728B4DAA000863411 /* UIMoreKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CE028B4DAA000863411 /* UIMoreKeyboardView.m */; };
 		36222CEA28B5C6B700863411 /* HSCSUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36222CE928B5C6B700863411 /* HSCSUserInfoManager.m */; };
+		366D095928FD37E3001DF770 /* Video.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366D095828FD37E3001DF770 /* Video.xcassets */; };
+		366D095B28FD3873001DF770 /* HSCSVideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D095A28FD3873001DF770 /* HSCSVideoService.swift */; };
+		366D095D28FD387F001DF770 /* HSCSVideoBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D095C28FD387F001DF770 /* HSCSVideoBackViewController.swift */; };
+		366D095F28FD3888001DF770 /* HSCSFreeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D095E28FD3888001DF770 /* HSCSFreeListCell.swift */; };
+		366D096128FD3897001DF770 /* HSCSVpReviewActModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D096028FD3897001DF770 /* HSCSVpReviewActModel.swift */; };
 		36A2DAF528B4B84100A88AA9 /* FlutterNativePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */; };
 		36A2DAF828B4C22E00A88AA9 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAF728B4C22E00A88AA9 /* Test.m */; };
 		36A2DB0228B4C85500A88AA9 /* HSCSAFResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAFE28B4C85500A88AA9 /* HSCSAFResponseModel.swift */; };
@@ -163,6 +168,11 @@
 		36222CE028B4DAA000863411 /* UIMoreKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMoreKeyboardView.m; sourceTree = "<group>"; };
 		36222CE828B5C6B700863411 /* HSCSUserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCSUserInfoManager.h; sourceTree = "<group>"; };
 		36222CE928B5C6B700863411 /* HSCSUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCSUserInfoManager.m; sourceTree = "<group>"; };
+		366D095828FD37E3001DF770 /* Video.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Video.xcassets; sourceTree = "<group>"; };
+		366D095A28FD3873001DF770 /* HSCSVideoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSVideoService.swift; sourceTree = "<group>"; };
+		366D095C28FD387F001DF770 /* HSCSVideoBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSVideoBackViewController.swift; sourceTree = "<group>"; };
+		366D095E28FD3888001DF770 /* HSCSFreeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSFreeListCell.swift; sourceTree = "<group>"; };
+		366D096028FD3897001DF770 /* HSCSVpReviewActModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSVpReviewActModel.swift; sourceTree = "<group>"; };
 		36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterNativePlugin.swift; sourceTree = "<group>"; };
 		36A2DAF628B4C22E00A88AA9 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		36A2DAF728B4C22E00A88AA9 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
@@ -272,6 +282,7 @@
 		36222C9628B4D76000863411 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				366D095028FD376C001DF770 /* VideoBack */,
 				36222CD328B4DAA000863411 /* UIKeybaord */,
 				36222C9728B4D78900863411 /* Live */,
 			);
@@ -376,6 +387,58 @@
 				36222CDF28B4DAA000863411 /* UIView+Methods.m */,
 			);
 			path = UIKeybaord;
+			sourceTree = "<group>";
+		};
+		366D095028FD376C001DF770 /* VideoBack */ = {
+			isa = PBXGroup;
+			children = (
+				366D095528FD379B001DF770 /* Resource */,
+				366D095428FD378D001DF770 /* Model */,
+				366D095328FD3787001DF770 /* Service */,
+				366D095228FD3782001DF770 /* Cell */,
+				366D095128FD3778001DF770 /* Controller */,
+			);
+			path = VideoBack;
+			sourceTree = "<group>";
+		};
+		366D095128FD3778001DF770 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				366D095C28FD387F001DF770 /* HSCSVideoBackViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		366D095228FD3782001DF770 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				366D095E28FD3888001DF770 /* HSCSFreeListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		366D095328FD3787001DF770 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				366D095A28FD3873001DF770 /* HSCSVideoService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		366D095428FD378D001DF770 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				366D096028FD3897001DF770 /* HSCSVpReviewActModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		366D095528FD379B001DF770 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				366D095828FD37E3001DF770 /* Video.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		36A2DAFD28B4C83D00A88AA9 /* Manager */ = {
@@ -605,6 +668,7 @@
 				36222C8928B4CFFE00863411 /* Video.xcassets in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				366D095928FD37E3001DF770 /* Video.xcassets in Resources */,
 				36222CCF28B4D78A00863411 /* impact.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,6 +770,7 @@
 				36A2DB0528B4C85500A88AA9 /* HSCSAFHTTPTarget.swift in Sources */,
 				36222CC928B4D78A00863411 /* HSCSNewLiveWaitView.swift in Sources */,
 				36222C8C28B4CFFE00863411 /* HSCSWatchBackVideoView.m in Sources */,
+				366D095F28FD3888001DF770 /* HSCSFreeListCell.swift in Sources */,
 				36222CE728B4DAA000863411 /* UIMoreKeyboardView.m in Sources */,
 				36222CE428B4DAA000863411 /* UIPlaceHolderTextView.m in Sources */,
 				36222CBE28B4D78A00863411 /* HSCSGoodsRecomendModel.swift in Sources */,
@@ -715,6 +780,7 @@
 				36A2DAF528B4B84100A88AA9 /* FlutterNativePlugin.swift in Sources */,
 				36222CBF28B4D78A00863411 /* HSCSNewLiveRecommendListView.swift in Sources */,
 				36A2DB2628B4CC0800A88AA9 /* HSCSHUD.m in Sources */,
+				366D095D28FD387F001DF770 /* HSCSVideoBackViewController.swift in Sources */,
 				36A2DB1328B4C8D500A88AA9 /* AppUtils.m in Sources */,
 				36222C8B28B4CFFE00863411 /* HSCSWatchBackVideoHelper.m in Sources */,
 				36A2DB0328B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift in Sources */,
@@ -730,6 +796,7 @@
 				36222CC128B4D78A00863411 /* HSCSNewLiveWinButton.swift in Sources */,
 				36222CBC28B4D78A00863411 /* HSCSNewLiveChatModel.swift in Sources */,
 				36222CC428B4D78A00863411 /* HSCSNewLiveHeaderView.swift in Sources */,
+				366D095B28FD3873001DF770 /* HSCSVideoService.swift in Sources */,
 				36222CC828B4D78A00863411 /* HSCSNewLiveTakeLotteryView2.swift in Sources */,
 				36222CC528B4D78A00863411 /* HSCSNewLiveNavView.swift in Sources */,
 				36222CEA28B5C6B700863411 /* HSCSUserInfoManager.m in Sources */,
@@ -739,6 +806,7 @@
 				36A2DB1628B4C9CC00A88AA9 /* UILabel+NumberOfLines.m in Sources */,
 				36222CC228B4D78A00863411 /* HSCSNewLiveWinListView.swift in Sources */,
 				36A2DB1228B4C8D500A88AA9 /* AppConfig.m in Sources */,
+				366D096128FD3897001DF770 /* HSCSVpReviewActModel.swift in Sources */,
 				36A2DAF828B4C22E00A88AA9 /* Test.m in Sources */,
 				36222CE328B4DAA000863411 /* UIMoreButtonItem.m in Sources */,
 				36A2DB0228B4C85500A88AA9 /* HSCSAFResponseModel.swift in Sources */,
@@ -849,7 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = NBHLABGDCP;
+				DEVELOPMENT_TEAM = Q473GAH635;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -858,7 +926,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.hscsFlutterApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fund.feiyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -980,7 +1048,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = NBHLABGDCP;
+				DEVELOPMENT_TEAM = Q473GAH635;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -989,7 +1057,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.hscsFlutterApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fund.feiyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1005,7 +1073,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = NBHLABGDCP;
+				DEVELOPMENT_TEAM = Q473GAH635;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1014,7 +1082,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.hscsFlutterApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fund.feiyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

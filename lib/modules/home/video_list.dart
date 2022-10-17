@@ -56,9 +56,10 @@ class _VideoListPageState extends State<VideoListPage> {
       );
     }
     var model = viewModel.videoList[index - 1];
+    model.index = index - 1;
     return GestureDetector(
       onTap: () async {
-
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/video_play",{"json": model.toJson()});
       },
       child: Container(
         color: Colors.white,

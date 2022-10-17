@@ -8,9 +8,9 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'section.dart';
 
 class HomeMarketView extends StatefulWidget {
-  HomeMarketView({Key? key, this.fundList}) : super(key: key);
-  List<FundList>? fundList;
-
+  HomeMarketView({Key? key,this.fundData}) : super(key: key);
+  // List<FundList>? fundList;
+  FundData?  fundData;
   @override
   _HomeMarketViewState createState() => _HomeMarketViewState();
 }
@@ -26,16 +26,16 @@ class _HomeMarketViewState extends State<HomeMarketView> {
           children: [
             loadLocalImage('fund_gou',
                 width: Adapt.px(14), height: Adapt.px(12)),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
-            Text(tagArr[i], style: TextStyle(
+            Text(tagArr[i], style: const TextStyle(
                 color: AppColors.gredText, fontSize: TextSize.main1),)
           ],
         ),
       ));
       if (i != tagArr.length - 1) {
-        tagList.add(SizedBox(
+        tagList.add(const SizedBox(
           width: 30,
         ));
       }
@@ -45,7 +45,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
   }
 
   Widget textInfo(FundList fund) {
-    var profitText = fund.profitRate.toString() + '%';
+    var profitText = '${fund.profitRate}%';
     return Container(
       // color: Colors.red,
       height: Adapt.px(100),
@@ -55,7 +55,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
         children: [
           Text(
             fund.profitTypeDes!,
-            style: TextStyle(color: AppColors.text, fontSize: TextSize.larger),
+            style: const TextStyle(color: AppColors.text, fontSize: TextSize.larger),
             textAlign: TextAlign.center,
           ),
           SizedBox(
@@ -63,7 +63,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
           ),
           Text(
             profitText,
-            style: TextStyle(color: Colors.red, fontSize: TextSize.s36),
+            style: const TextStyle(color: Colors.red, fontSize: TextSize.s36),
             textAlign: TextAlign.center,
           ),
         ],
@@ -85,14 +85,14 @@ class _HomeMarketViewState extends State<HomeMarketView> {
             height: Adapt.px(8),
             decoration: BoxDecoration(
                 color: HexColor(assetRadio[i].color!),
-                borderRadius: BorderRadius.all(Radius.circular(5))),
+                borderRadius: BorderRadius.all(const Radius.circular(5))),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           Text(
             text,
-            style: TextStyle(fontSize: TextSize.small, color: AppColors.text),
+            style: const TextStyle(fontSize: TextSize.small, color: AppColors.text),
           )
         ],
       ));
@@ -135,12 +135,12 @@ class _HomeMarketViewState extends State<HomeMarketView> {
               child: charts.PieChart(
                 seriesList,
                 animate: true,
-                defaultRenderer: new charts.ArcRendererConfig(
+                defaultRenderer: charts.ArcRendererConfig(
                     arcWidth: (10).toInt(),
                     arcRendererDecorators: [
                       charts.ArcLabelDecorator(
                         labelPosition: charts.ArcLabelPosition.outside,
-                        insideLabelStyleSpec: charts.TextStyleSpec(
+                        insideLabelStyleSpec: const charts.TextStyleSpec(
                             fontSize: 8, color: charts.Color.white),
                       )
                     ]),
@@ -159,9 +159,9 @@ class _HomeMarketViewState extends State<HomeMarketView> {
   }
 
   Widget swiperCard(int index) {
-    var fund = widget.fundList![index];
+    var fund = widget.fundData!.fundList![index];
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage('lib/assets/image/fund_bg.png'),
             fit: BoxFit.fill),),
@@ -181,10 +181,10 @@ class _HomeMarketViewState extends State<HomeMarketView> {
                     children: [
                       loadLocalImage('fund_ss',
                           width: Adapt.px(16), height: Adapt.px(15)),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
-                      Text(fund.name!, style: TextStyle(
+                      Text(fund.name!, style: const TextStyle(
                           fontSize: TextSize.s17, fontWeight: FontWeight.bold),)
                     ],
                   ),
@@ -213,8 +213,8 @@ class _HomeMarketViewState extends State<HomeMarketView> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: fund.type != 1 ? [
-                    Text("资产",style: TextStyle(fontSize: TextSize.small),),
-                    Text("配置",style: TextStyle(fontSize: TextSize.small)),
+                    const Text("资产",style: TextStyle(fontSize: TextSize.small),),
+                    const Text("配置",style: TextStyle(fontSize: TextSize.small)),
                   ] : [],
                 ),
               )
@@ -237,7 +237,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
         itemBuilder: (BuildContext content, int index) {
           return swiperCard(index);
         },
-        itemCount: widget.fundList!.length,
+        itemCount: widget.fundData!.fundList!.length,
         autoplay: true,
         autoplayDelay: 80000000,
         // pagination: _buildPlugin(),
@@ -262,16 +262,16 @@ class _HomeMarketViewState extends State<HomeMarketView> {
       padding: EdgeInsets.only(left: Adapt.px(50), right: Adapt.px(50)),
       child: GradientButton(
         onPressed: lookAction,
-        colors: [
+        colors: const [
           Color.fromRGBO(245, 201, 121, 1),
           Color.fromRGBO(250, 234, 177, 1)
         ],
-        child: Text(
+        borderRadius: BorderRadius.circular(Adapt.px(36)),
+        child: const Text(
           '立即查看',
           style: TextStyle(
               color: Color.fromRGBO(153, 111, 34, 1), fontSize: TextSize.main1),
         ),
-        borderRadius: BorderRadius.circular(Adapt.px(36)),
       ),
     );
   }
@@ -290,7 +290,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              HomeSectionView(title: "跟投精选",),
+              HomeSectionView(title: "跟投精选",url: widget.fundData!.h5Url,),
               marketSwiper(),
             ],
           ),
@@ -298,7 +298,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
             height: Adapt.px(20),
             margin: EdgeInsets.only(top: 260),
             // color: Colors.red,
-            child: Center(
+            child: const Center(
               child: Text(
                 '信息仅供参考，不构成对任何人的推荐，用户应当自主决策。',
                 textAlign: TextAlign.center,

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 
 class HomeSectionView extends StatelessWidget {
-  HomeSectionView({Key? key, this.title = "", this.router = ""})
+  HomeSectionView({Key? key, this.title = "", this.router = "",this.url})
       : super(key: key);
 
   String title;
   String router;
+  String? url;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class HomeSectionView extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: TextSize.larger,
                     color: AppColors.text,
                     fontWeight: FontWeight.bold),
@@ -34,12 +36,15 @@ class HomeSectionView extends StatelessWidget {
             flex: 1,
             // padding: EdgeInsets.only(right: 0),
             child: GestureDetector(
-              onTap: () {
+              onTap: () async {
                 print("更多");
+                if(router == "webview"){
+                  await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":url});
+                }
               },
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     '更多',
                     style: TextStyle(color: AppColors.orangeText),
                   ),

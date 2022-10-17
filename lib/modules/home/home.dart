@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
               HomeTopFocusView(infos: viewModel.homeData?.topFocus?.infos),
               HomeSudokuView(iconList: viewModel.homeData?.iconList),
               HomeMarqueeView(text: "8月8日上午，第二艘国产大型邮轮（H1509船）在中国船舶集团有限公司旗下上海外高桥造船有限公司（下称“外高桥造船”）开工建造。",),
-              viewModel.fundData != null ? HomeMarketView(fundList: viewModel.fundData?.fundList,) : Container(),
+              viewModel.fundData != null ? HomeMarketView(fundData: viewModel.fundData,) : Container(),
               HomeMasterView(chiefComment: viewModel.homeData?.chiefComment,askTeacher: viewModel.homeData?.askTeacher,),
               HomeHeadlineView(list: viewModel.headLineData?.list,),
               bottomView(viewModel.adData),

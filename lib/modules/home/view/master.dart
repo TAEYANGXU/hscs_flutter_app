@@ -45,7 +45,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                         EdgeInsets.only(top: Adapt.px(10), left: Adapt.px(12)),
                     child: Text(
                       widget.chiefComment?.realName ?? "",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: TextSize.s17,
                           fontWeight: FontWeight.bold,
                           color: AppColors.text),
@@ -59,7 +59,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                         EdgeInsets.only(top: Adapt.px(10), left: Adapt.px(12)),
                     child: Text(
                       widget.chiefComment!.title!,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: TextSize.main,
                           fontWeight: FontWeight.bold,
                           color: AppColors.gredText),
@@ -107,7 +107,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                     width: Adapt.px(215),
                     child: Text(
                       widget.chiefComment!.des.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: TextSize.small, color: AppColors.gredText),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -178,7 +178,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
                   height: Adapt.px(36),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
@@ -226,7 +226,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
     return Container(
       padding: EdgeInsets.only(left: Adapt.px(12), top: Adapt.px(5)),
       child: Row(
-        children: [
+        children: const [
           Text(
             '问理财师',
             textAlign: TextAlign.left,
@@ -243,7 +243,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
+    return SizedBox(
       height: Adapt.px(295),
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.start,

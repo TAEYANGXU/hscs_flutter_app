@@ -34,7 +34,7 @@ class _HomeHeadlineViewState extends State<HomeHeadlineView> {
                       height: Adapt.px(60),
                       child: Text(data.title!,
                         maxLines: 2,overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: TextSize.main1,color: AppColors.text),
+                        style: const TextStyle(fontSize: TextSize.main1,color: AppColors.text),
                       ),
                     ),
                     Container(

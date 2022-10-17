@@ -100,8 +100,6 @@ class IconList {
   int? nowUid;
   int? nowUserLevel;
   String? backIconUrl;
-  Null? iconCategoryId;
-  Null? indexShow;
   String? noEnterDeepLink;
   int? indexSort;
 
@@ -123,8 +121,6 @@ class IconList {
         this.nowUid,
         this.nowUserLevel,
         this.backIconUrl,
-        this.iconCategoryId,
-        this.indexShow,
         this.noEnterDeepLink,
         this.indexSort});
 
@@ -146,8 +142,6 @@ class IconList {
     nowUid = json['nowUid'];
     nowUserLevel = json['nowUserLevel'];
     backIconUrl = json['backIconUrl'];
-    iconCategoryId = json['iconCategoryId'];
-    indexShow = json['indexShow'];
     noEnterDeepLink = json['noEnterDeepLink'];
     indexSort = json['indexSort'];
   }
@@ -171,8 +165,6 @@ class IconList {
     data['nowUid'] = this.nowUid;
     data['nowUserLevel'] = this.nowUserLevel;
     data['backIconUrl'] = this.backIconUrl;
-    data['iconCategoryId'] = this.iconCategoryId;
-    data['indexShow'] = this.indexShow;
     data['noEnterDeepLink'] = this.noEnterDeepLink;
     data['indexSort'] = this.indexSort;
     return data;
@@ -405,7 +397,7 @@ class ChiefComment {
   String? certificateNo;
   int? audioActId;
   int? articleType;
-  Null? noEnterPic;
+  String? noEnterPic;
   String? desc;
 
   ChiefComment(
@@ -453,7 +445,7 @@ class ChiefComment {
     certificateNo = json['certificateNo'];
     audioActId = json['audioActId'];
     articleType = json['articleType'];
-    noEnterPic = json['noEnterPic'];
+    noEnterPic = json['noEnterPic'] ?? "";
     desc = json['desc'];
   }
 
