@@ -59,7 +59,6 @@
 		366D095F28FD3888001DF770 /* HSCSFreeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D095E28FD3888001DF770 /* HSCSFreeListCell.swift */; };
 		366D096128FD3897001DF770 /* HSCSVpReviewActModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D096028FD3897001DF770 /* HSCSVpReviewActModel.swift */; };
 		36A2DAF528B4B84100A88AA9 /* FlutterNativePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */; };
-		36A2DAF828B4C22E00A88AA9 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAF728B4C22E00A88AA9 /* Test.m */; };
 		36A2DB0228B4C85500A88AA9 /* HSCSAFResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAFE28B4C85500A88AA9 /* HSCSAFResponseModel.swift */; };
 		36A2DB0328B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DAFF28B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift */; };
 		36A2DB0428B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2DB0028B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift */; };
@@ -174,8 +173,6 @@
 		366D095E28FD3888001DF770 /* HSCSFreeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSFreeListCell.swift; sourceTree = "<group>"; };
 		366D096028FD3897001DF770 /* HSCSVpReviewActModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSVpReviewActModel.swift; sourceTree = "<group>"; };
 		36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterNativePlugin.swift; sourceTree = "<group>"; };
-		36A2DAF628B4C22E00A88AA9 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
-		36A2DAF728B4C22E00A88AA9 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		36A2DAFE28B4C85500A88AA9 /* HSCSAFResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSAFResponseModel.swift; sourceTree = "<group>"; };
 		36A2DAFF28B4C85500A88AA9 /* HSCSLiveSocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSLiveSocketIOManager.swift; sourceTree = "<group>"; };
 		36A2DB0028B4C85500A88AA9 /* HSCSAFHTTPSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCSAFHTTPSessionManager.swift; sourceTree = "<group>"; };
@@ -589,8 +586,6 @@
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 				36A2DAF428B4B84100A88AA9 /* FlutterNativePlugin.swift */,
-				36A2DAF628B4C22E00A88AA9 /* Test.h */,
-				36A2DAF728B4C22E00A88AA9 /* Test.m */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -807,7 +802,6 @@
 				36222CC228B4D78A00863411 /* HSCSNewLiveWinListView.swift in Sources */,
 				36A2DB1228B4C8D500A88AA9 /* AppConfig.m in Sources */,
 				366D096128FD3897001DF770 /* HSCSVpReviewActModel.swift in Sources */,
-				36A2DAF828B4C22E00A88AA9 /* Test.m in Sources */,
 				36222CE328B4DAA000863411 /* UIMoreButtonItem.m in Sources */,
 				36A2DB0228B4C85500A88AA9 /* HSCSAFResponseModel.swift in Sources */,
 				36222CC328B4D78A00863411 /* HSCSNewLiveLotteryView.swift in Sources */,

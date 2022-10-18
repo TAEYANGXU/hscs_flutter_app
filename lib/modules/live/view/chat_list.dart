@@ -37,7 +37,7 @@ class _ChatListPageState extends State<ChatListPage> {
       return Container(
         padding: EdgeInsets.only(
             left: Adapt.px(60), right: Adapt.px(40), bottom: Adapt.px(20)),
-        child: Text(
+        child: const Text(
           "本界面内容及分析仅供您参考学习，不构成对任何金融产品的投资建议，投资有风险，入市需谨慎！",
           style: TextStyle(color: AppColors.gredText),
         ),

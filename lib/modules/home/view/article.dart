@@ -4,6 +4,7 @@ import 'package:hscs_flutter_app/style/index.dart';
 import '../model/home_headline.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'section.dart';
+import '../router.dart';
 
 class HomeHeadlineView extends StatefulWidget {
   HomeHeadlineView({Key? key, this.list}) : super(key: key);
@@ -110,7 +111,7 @@ class _HomeHeadlineViewState extends State<HomeHeadlineView> {
       child: Column(
         children: [
           HomeSectionView(
-            title: "市场解读",
+            title: "市场解读",router: HomeRouter.articleList,
           ),
           listView(widget.list!)
         ],

@@ -35,7 +35,7 @@ class _ResearchPageState extends State<ResearchPage> {
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withAlpha(20),
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
                 blurRadius: 6,
                 spreadRadius: 0,
               )

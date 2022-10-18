@@ -22,7 +22,7 @@ class _LiveListPageState extends State<LiveListPage> {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(milliseconds: 200), () {
-      if(widget.liveList!.length > 0){
+      if(widget.liveList!.isNotEmpty){
         // if(_controller.offset == _controller.position.maxScrollExtent){
         //   return;
         // }
@@ -37,7 +37,7 @@ class _LiveListPageState extends State<LiveListPage> {
     if(widget.liveList!.length == index){
       return Container(
         padding: EdgeInsets.only(left: Adapt.px(60),right: Adapt.px(40),bottom: Adapt.px(20)),
-        child: Text("本界面内容及分析仅供您参考学习，不构成对任何金融产品的投资建议，投资有风险，入市需谨慎！",style: TextStyle(color: AppColors.gredText),),
+        child: const Text("本界面内容及分析仅供您参考学习，不构成对任何金融产品的投资建议，投资有风险，入市需谨慎！",style: TextStyle(color: AppColors.gredText),),
       );
     }
     var model = widget.liveList![index];
@@ -78,12 +78,12 @@ class _LiveListPageState extends State<LiveListPage> {
                 Container(
                   width: Adapt.screenW() - Adapt.px(110),
                   child: Center(
-                    child: Text(model.summary!,style: TextStyle(color: AppColors.gredText),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                    child: Text(model.summary!,style: const TextStyle(color: AppColors.gredText),maxLines: 1,overflow: TextOverflow.ellipsis,),
                   ),
                 ),
                 SizedBox(width: Adapt.px(20),),
                 Container(
-                  child: Text("查看",style: TextStyle(color: Colors.blue),),
+                  child: const Text("查看",style: TextStyle(color: Colors.blue),),
                 )
               ],
             ),
@@ -119,7 +119,7 @@ class _LiveListPageState extends State<LiveListPage> {
           child:
           ListView.builder(itemBuilder: _topCellForRow,
             itemCount: widget.topList != null ? widget.topList!.length : 0,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
           ),
         ),
       ],

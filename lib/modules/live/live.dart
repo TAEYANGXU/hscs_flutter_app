@@ -35,24 +35,24 @@ class LivePageState extends State<LivePage>
 
   Future receiveLiveMessage() async {
     // 和服务器端建立连接  ws://47.104.228.200:8099  wss://chat3.jinoufe.com/socket.io
-    this.socket = IO.io('wss://chat3.jinoufe.com', <String, dynamic>{
+    socket = IO.io('wss://chat3.jinoufe.com', <String, dynamic>{
       'transports': ['websocket'],
       'namespace': ['/socket.io/'],
       'path': '/socket.io/',
     });
     // 连接事件
-    this.socket?.on('connect', (_) {
+    socket?.on('connect', (_) {
       print('connect..');
       socket!.emit("joinRoom", "diqiusocial:msgLive:10");
     });
 
     // // 断开连接
-    this.socket?.on('disconnect', (data) {
+    socket?.on('disconnect', (data) {
       print('disconnect ${data.toString()}');
     });
 
     // 接受来自服务端的数据
-    this.socket?.on('commonMessage', (data) {
+    socket?.on('commonMessage', (data) {
       print("socket data = ${data}");
       Map<String, dynamic> map = Convert.jsonDecode(data);
       var socketData = SocketData.fromJson(map);
@@ -94,8 +94,8 @@ class LivePageState extends State<LivePage>
     });
 
     ///需要回执
-    this.socket?.on('ensureMessage', (data) {
-      print("ensureMessage data = ${data}");
+    socket?.on('ensureMessage', (data) {
+      print("ensureMessage data = $data");
       Map<String, dynamic> map = Convert.jsonDecode(data);
       var socketData = SocketData.fromJson(map);
       socket?.emit('confirmMessage',socketData.msgId);
@@ -176,13 +176,13 @@ class LivePageState extends State<LivePage>
               )
             : const Text(""),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(30),
+          preferredSize: const Size.fromHeight(30),
           child: Align(
             alignment: Alignment.centerLeft,
             child: TabBar(
               isScrollable: true,
               //未选择样式
-              unselectedLabelStyle: TextStyle(fontSize: TextSize.larger),
+              unselectedLabelStyle: const TextStyle(fontSize: TextSize.larger),
               //选择样式
               labelStyle: const TextStyle(
                   fontSize: TextSize.s22, fontWeight: FontWeight.w600),

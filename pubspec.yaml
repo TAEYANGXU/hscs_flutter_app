@@ -91,6 +91,7 @@ flutter:
     - lib/assets/image/login/
     - lib/assets/image/live/
     - lib/assets/image/vip/
+    - lib/assets/image/home/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

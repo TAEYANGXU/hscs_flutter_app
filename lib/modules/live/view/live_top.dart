@@ -30,9 +30,7 @@ class _LiveTopViewState extends State<LiveTopView>{
               children: [
                 loadLocalImage("live/live_vip",width: Adapt.px(16),height: Adapt.px(14)),
                 SizedBox(width: Adapt.px(5),),
-                Container(
-                  child: Text(widget.room!.roomName ?? "",style: TextStyle(fontSize: TextSize.s17,fontWeight: FontWeight.w600,color: AppColors.text),),
-                )
+                Text(widget.room!.roomName ?? "",style: const TextStyle(fontSize: TextSize.s17,fontWeight: FontWeight.w600,color: AppColors.text),)
               ],
             ),
           ),
@@ -55,7 +53,7 @@ class _LiveTopViewState extends State<LiveTopView>{
                     child: loadLocalImage("live/live_search",width: Adapt.px(16),height: Adapt.px(16)),
                   ),
                   SizedBox(width: Adapt.px(5),),
-                  Text("搜搜你关心的内容吧~",style: TextStyle(color: AppColors.gredText,fontSize: TextSize.main),)
+                  const Text("搜搜你关心的内容吧~",style: TextStyle(color: AppColors.gredText,fontSize: TextSize.main),)
                 ],
               ),
             ),

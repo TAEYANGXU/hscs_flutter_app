@@ -6,6 +6,8 @@ class HomeViewModel
   HomeData?  homeData;
   FundData?  fundData;
   HeadLineData? headLineData;
+  List<ListData>? headLineTopList = [];
+  List<ListData>? headLineList = [];
   AdvertListData? adData;
   List<VideoList>  videoList = [];
 
@@ -29,7 +31,21 @@ class HomeViewModel
   Future<HeadLineData> getHeadlineTop() async {
     var model = await DioManagerUtils.getT<HeadLineData>("/v3/headline/top");
     headLineData = model.data;
+    if(headLineData!.list!.isNotEmpty){
+      headLineTopList = headLineData!.list!;
+    }
     return headLineData!;
+  }
+
+  Future getHeadlineList(Map<String,dynamic>? params) async {
+    var model = await DioManagerUtils.get("/v3/headline/list",params: params);
+    Map<String,dynamic> data = model.data;
+    List list = data["list"];
+    var array = list.map((item) => ListData.fromJson(item)).toList();
+    if(array.isNotEmpty){
+      headLineList = array;
+      print("getHeadlineList = ${array.length}");
+    }
   }
 
   Future getAD(Map<String,dynamic>? params) async {

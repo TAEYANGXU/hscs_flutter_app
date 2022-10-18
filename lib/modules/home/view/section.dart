@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/global_config.dart';
+import 'package:hscs_flutter_app/routers.dart';
 
 class HomeSectionView extends StatelessWidget {
   HomeSectionView({Key? key, this.title = "", this.router = "",this.url})
@@ -41,6 +42,8 @@ class HomeSectionView extends StatelessWidget {
                 if(router == "webview"){
                   await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":url});
                 }
+                // ignore: use_build_context_synchronously
+                Routers.push(context, router);
               },
               child: Row(
                 children: [

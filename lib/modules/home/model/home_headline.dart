@@ -29,7 +29,7 @@ class HeadLine {
 
 class HeadLineData {
   String? updatedAt;
-  List<ListData>? list;
+  List<ListData>? list = [];
 
   HeadLineData({this.updatedAt, this.list});
 
@@ -38,13 +38,13 @@ class HeadLineData {
     if (json['list'] != null) {
       list = <ListData>[];
       json['list'].forEach((v) {
-        list!.add(new ListData.fromJson(v));
+        list!.add(ListData.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['updatedAt'] = this.updatedAt;
     if (this.list != null) {
       data['list'] = this.list!.map((v) => v.toJson()).toList();
