@@ -5,6 +5,7 @@ import '../model/home_headline.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'section.dart';
 import '../router.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 
 class HomeHeadlineView extends StatefulWidget {
   HomeHeadlineView({Key? key, this.list}) : super(key: key);
@@ -16,9 +17,8 @@ class HomeHeadlineView extends StatefulWidget {
 class _HomeHeadlineViewState extends State<HomeHeadlineView> {
   Widget item(ListData data,bool showLine) {
     return GestureDetector(
-      onTap: (){
-        var title = data.title!;
-        debugPrint("title = $title");
+      onTap: () async {
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":data.detailLink});
       },
       child: Stack(
         children: [

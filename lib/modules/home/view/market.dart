@@ -290,7 +290,7 @@ class _HomeMarketViewState extends State<HomeMarketView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              HomeSectionView(title: "跟投精选",url: widget.fundData!.h5Url,),
+              HomeSectionView(title: "跟投精选",url: widget.fundData!.h5Url,router: "webview",),
               marketSwiper(),
             ],
           ),

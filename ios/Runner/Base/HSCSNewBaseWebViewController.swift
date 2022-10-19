@@ -207,6 +207,9 @@ extension HSCSNewBaseWebViewController
     }
     func registerHandler()
     {
+        
+        print("username = \(HSCSUserInfoManager.shared().getUserInfo().token)");
+        
         // H5 bridge引擎初始化完毕#define kJSAPPVER  @"1.0"
         wkBridge.registerHandler("jsBridgeReady") { [weak self] data, responseCallback in
             guard let weakself = self else { return }
@@ -233,6 +236,7 @@ extension HSCSNewBaseWebViewController
 
         // 用户信息
         wkBridge.registerHandler("getUserInfo") { data, responseCallback in
+            print("HSCSUserInfoManager.shared().userInfo = \(HSCSUserInfoManager.shared().userInfo)")
             if HSCSUserInfoManager.shared().isLogined() {
                 if let callBack = responseCallback {
                     callBack(HSCSUserInfoManager.shared().userInfo.yy_modelToJSONObject())

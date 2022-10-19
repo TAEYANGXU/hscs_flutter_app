@@ -10,6 +10,8 @@ class HomeViewModel
   List<ListData>? headLineList = [];
   AdvertListData? adData;
   List<VideoList>  videoList = [];
+  TeacherData?  teacherData;
+  List<ArticleData>? articleList = [];
 
   Future<HomeData> getHomeData() async {
     var model = await DioManagerUtils.getT<HomeData>("/v3/home/index2");
@@ -28,6 +30,7 @@ class HomeViewModel
     return fundData!;
   }
 
+  /// 理财头条 - 置顶
   Future<HeadLineData> getHeadlineTop() async {
     var model = await DioManagerUtils.getT<HeadLineData>("/v3/headline/top");
     headLineData = model.data;
@@ -37,6 +40,7 @@ class HomeViewModel
     return headLineData!;
   }
 
+  /// 理财头条 - 列表
   Future getHeadlineList(Map<String,dynamic>? params) async {
     var model = await DioManagerUtils.get("/v3/headline/list",params: params);
     Map<String,dynamic> data = model.data;
@@ -68,4 +72,16 @@ class HomeViewModel
     }
   }
 
+  /// 老师详情
+  Future getTeacherDetail(Map<String,dynamic>? params) async {
+    var model = await DioManagerUtils.get("/v3/teacher/detail",params: params);
+    teacherData = TeacherData.fromJson(model.data);
+  }
+
+  /// 获取老师关联文章
+  Future getArticleByTeacher(Map<String,dynamic>? params) async {
+    var model = await DioManagerUtils.get("/v3/article/get-list-by-teacher",params: params);
+    List list = model.data;
+    articleList = list.map((item) => ArticleData.fromJson(item)).toList();
+  }
 }

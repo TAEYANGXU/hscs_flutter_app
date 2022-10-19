@@ -35,7 +35,23 @@ import Flutter
         //微吼SDK
         VHallApi.registerApp("5c08f284d0e0f6d0084746bc63c1279d", secretKey: "acd2da2b734725d145ab22f09993c916")
         
+        addToWebViewUserAgent()
+        
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func addToWebViewUserAgent()
+    {
+        let webView =  WKWebView()
+        webView.evaluateJavaScript("navigator.userAgent") { (oldAgent, err) in
+            print("oldAgent: \(oldAgent)")
+            let newAgent = "\(oldAgent) JinHuaSheng iOS \(majorVersion)"
+            print("newAgent: \(newAgent)")
+            let dict = ["UserAgent":newAgent]
+            UserDefaults.standard.register(defaults: dict)
+            AppConfig.sharedManager().userAgent = newAgent
+            webView.customUserAgent = newAgent
+        }
     }
     
     //实现UINavigationControllerDelegate代理

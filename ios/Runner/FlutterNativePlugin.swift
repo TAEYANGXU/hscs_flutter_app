@@ -74,12 +74,15 @@ class HSPushCenter {
             UIViewController.currentViewController()?.navigationController?.pushViewController(liveVC, animated: true)
         }
         if path == "lyitp://diqiu/userInfo" {
-//            let dict: Dictionary = params as! Dictionary<String, Any>
+            let dict: Dictionary = params as! Dictionary<String, Any>
 //            print("userInfo2 = \(dict)");
-            if let userInfo = HSCSUserInfoModel.yy_model(withJSON: params as Any) {
-                
+            let userInfoJson = dict["userInfo"]
+            if let userInfo = HSCSUserInfoModel.yy_model(withJSON: userInfoJson as Any) {
+                if let token = dict["token"] as? String {
+                    userInfo.token = token
+                }
                 HSCSUserInfoManager.shared().saveUserInfo(userInfo)
-                print("username = \(HSCSUserInfoManager.shared().userInfo.nickname)");
+                print("username1 = \(HSCSUserInfoManager.shared().userInfo.nickname)");
             }
         }
         if path == "lyitp://diqiu/webview" {

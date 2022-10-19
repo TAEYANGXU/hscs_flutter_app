@@ -3,6 +3,8 @@ import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import '../model/index.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
+import '../router.dart';
+import 'package:hscs_flutter_app/routers.dart';
 
 class HomeMasterView extends StatefulWidget {
   HomeMasterView({Key? key, this.chiefComment, this.askTeacher})
@@ -145,6 +147,7 @@ class _HomeMasterViewState extends State<HomeMasterView> {
     return GestureDetector(
         onTap: () {
           debugPrint("index = $index");
+          Routers.push(context, HomeRouter.masterDetail,params: {"teacherId":'${teacher.id}'});
         },
         child: Container(
           decoration: BoxDecoration(

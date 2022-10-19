@@ -65,11 +65,13 @@ class HSInitPageState extends State<HSInitPage>
     var prefs = await SharedPreferences.getInstance();
     // prefs.remove(GlobalConfig.kUserInfo);
     var userInfo = prefs.get(GlobalConfig.kUserInfo).toString();
-    print("userInfo=${userInfo}");
+    var token = prefs.get(GlobalConfig.kToken).toString();
+
+    print("userInfo2=${userInfo}");
     var userInfoMap = Convert.jsonDecode(userInfo);
     Provider.of<UserInfo>(context,listen: false).setInfo(userInfoMap);
 
-    var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",userInfo);
+    var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",{"userInfo":userInfo,"token":token});
     print("访问swift = ${res}");
   }
 
