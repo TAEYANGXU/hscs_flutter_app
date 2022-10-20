@@ -35,14 +35,14 @@ class _VipColumnViewState extends State<VipColumnView> {
                       height: Adapt.px(60),
                       child: Text(data.title!,
                         maxLines: 2,overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: TextSize.main1,color: AppColors.text),
+                        style: const TextStyle(fontSize: TextSize.main1,color: AppColors.text),
                       ),
                     ),
                     Container(
                       width: Adapt.screenW() - Adapt.px(25 + 120),
                       padding: EdgeInsets.only(top: Adapt.px(10),left: Adapt.px(15)),
                       height: Adapt.px(40),
-                      child: Text(data.createdAt!,style: TextStyle(fontSize: TextSize.main,color: AppColors.gredText),),
+                      child: Text(data.createdAt!,style: const TextStyle(fontSize: TextSize.main,color: AppColors.gredText),),
                     ),
                   ],
                 ),
@@ -56,7 +56,7 @@ class _VipColumnViewState extends State<VipColumnView> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6)
                       ),
-                      child: data.coverPic!.length > 0 ? CacheImage(imageUrl: data.coverPic!,width: Adapt.px(90),height: Adapt.px(70),) : Container(),
+                      child: data.coverPic!.isNotEmpty ? CacheImage(imageUrl: data.coverPic!,width: Adapt.px(90),height: Adapt.px(70),) : Container(),
                     )
                   ],
                 ) ,

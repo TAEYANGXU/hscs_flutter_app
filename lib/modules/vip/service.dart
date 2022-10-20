@@ -4,7 +4,7 @@ import 'package:hscs_flutter_app/modules/home/model/index.dart';
 import 'package:hscs_flutter_app/modules/home/model/home_ad.dart';
 import 'package:hscs_flutter_app/modules/home/model/home_headline.dart';
 
-class VipRecommendViewModel{
+class VipViewModel{
 
   List<IconList> iconList = [];
   List<TableData> tableList = [];
@@ -12,7 +12,7 @@ class VipRecommendViewModel{
   AudioList? audio;
   LiveVideoData? liveData;
   List<ListData>? columnList = [];
-
+  VipArticleData? vipArticleData;
   ///九宫格
   Future getVipIconList() async {
     var model = await DioManagerUtils.get("/v3/vip-center/icon-list",params: {"tableId":1});
@@ -75,5 +75,11 @@ class VipRecommendViewModel{
       columnList = array;
       print("columnList list = ${array.length}");
     }
+  }
+
+  /// 获取PDF类文章列表
+  Future getPDFList(Map<String,dynamic>? param) async {
+    var model = await DioManagerUtils.get("/v3/article/get-pdf-list",params: param);
+    vipArticleData = VipArticleData.fromJson(model.data);
   }
 }

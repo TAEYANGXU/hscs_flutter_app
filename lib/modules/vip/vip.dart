@@ -10,7 +10,7 @@ class VipPage extends StatefulWidget {
 
 class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin,AutomaticKeepAliveClientMixin {
   TabController? tabController;
-  var viewModel = VipRecommendViewModel();
+  var viewModel = VipViewModel();
 
   @override
   void initState() {

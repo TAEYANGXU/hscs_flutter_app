@@ -6,6 +6,7 @@ import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/global_config.dart';
 import 'package:hscs_flutter_app/routers.dart';
 import '../router.dart';
+import 'package:hscs_flutter_app/modules/vip/router.dart';
 
 class HomeSudokuView extends StatefulWidget {
   HomeSudokuView({Key? key, this.iconList}) : super(key: key);
@@ -34,6 +35,10 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
             await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":icon.deepLink!});
           }else if(icon.deepLink!.contains('free_video')){
             Routers.push(context, HomeRouter.videoList,params: {"type":"2"});
+          }else if(icon.deepLink!.contains('vip_pdf_list')){
+            Uri u = Uri.parse(icon.deepLink!);
+            String? articleType = u.queryParameters['articleType'];
+            Routers.push(context, VipRouter.vipArticle,params: {"articleType":articleType});
           }
         },
         child: Container(
