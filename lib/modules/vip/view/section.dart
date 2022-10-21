@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
+import 'package:hscs_flutter_app/routers.dart';
 
 class VipSectionView extends StatelessWidget {
-  VipSectionView({Key? key, this.title = "", this.icon = "",this.router = ""})
+  VipSectionView({Key? key, this.title = "", this.icon = "",this.router = "",this.params})
       : super(key: key);
 
   String icon;
   String title;
   String router;
+  Map<String,dynamic>? params;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class VipSectionView extends StatelessWidget {
                 children: [
                   loadLocalImage(icon,width: Adapt.px(15),height: Adapt.px(16)),
                   SizedBox(width: Adapt.px(3),),
-                  Text(title,style: TextStyle(fontSize: TextSize.larger,fontWeight: FontWeight.w600),)
+                  Text(title,style: const TextStyle(fontSize: TextSize.larger,fontWeight: FontWeight.w600),)
                 ],
               ),
             ),
@@ -36,11 +38,12 @@ class VipSectionView extends StatelessWidget {
             // padding: EdgeInsets.only(right: 0),
             child: GestureDetector(
               onTap: () {
-                print("更多");
+                print("更多1");
+                Routers.push(context, router,params: params);
               },
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     '更多',
                     style: TextStyle(color: AppColors.orangeText),
                   ),

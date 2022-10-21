@@ -3,6 +3,7 @@ import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import '../model/audio.dart';
 import 'section.dart';
+import '../router.dart';
 
 class VipAudioView extends StatefulWidget {
 
@@ -22,6 +23,11 @@ class _VipAudioViewState extends State<VipAudioView> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    if(widget.audio == null){
+      return Container();
+    }
+    print("audio!.toJson = ${widget.audio!.toJson()}");
+    var actId =  widget.audio!.actId ?? 36;
     return Container(
       height: Adapt.px(161),
       color: Colors.white,
@@ -33,7 +39,7 @@ class _VipAudioViewState extends State<VipAudioView> {
             color: AppColors.space,
           ),
           SizedBox(height: Adapt.px(10),),
-          VipSectionView(icon: "vip/vip_section_1",title: "首席之声",),
+          VipSectionView(icon: "vip/vip_section_1",title: "首席之声",router: VipRouter.audioLine,params: {"actId":'$actId'},),
           Container(
             width: double.infinity,
             height: Adapt.px(110),

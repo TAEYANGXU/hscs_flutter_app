@@ -13,7 +13,7 @@ class VideoList {
   String? checkCode;
   int? actId;
   String? hotWord;
-  ActInfo? actInfo;
+  HomeActInfo? actInfo;
   int? index;
 
   VideoList(
@@ -50,7 +50,7 @@ class VideoList {
     actId = json['actId'];
     hotWord = json['hotWord'];
     actInfo =
-    json['actInfo'] != null ? new ActInfo.fromJson(json['actInfo']) : null;
+    json['actInfo'] != null ? new HomeActInfo.fromJson(json['actInfo']) : null;
     index = json['index'];
   }
 
@@ -78,7 +78,7 @@ class VideoList {
   }
 }
 
-class ActInfo {
+class HomeActInfo {
   int? id;
   String? name;
   String? pgmtime;
@@ -90,7 +90,7 @@ class ActInfo {
   List<String>? teacher;
   List<String>? teaherUids;
 
-  ActInfo(
+  HomeActInfo(
       {this.id,
         this.name,
         this.pgmtime,
@@ -102,7 +102,7 @@ class ActInfo {
         this.teacher,
         this.teaherUids});
 
-  ActInfo.fromJson(Map<String, dynamic> json) {
+  HomeActInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     pgmtime = json['pgmtime'];

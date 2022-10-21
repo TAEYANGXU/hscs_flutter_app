@@ -1,24 +1,25 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hscs_flutter_app/modules/vip/view/audio_line_list.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'service.dart';
-import 'view/vip_article_header.dart';
 import 'view/vip_article_list.dart';
+import 'view/audio_line_haeder.dart';
 
-class VipArticlePage extends StatefulWidget
+class VipAudioLinePage extends StatefulWidget
 {
-  int? articleType;
-  VipArticlePage({Key? key, this.articleType}) : super(key: key);
+  int? actId;
+  VipAudioLinePage({Key? key, this.actId}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _VipArticlePageState();
+    return _VipAudioLinePageState();
   }
 }
 
-class _VipArticlePageState extends State<VipArticlePage>
+class _VipAudioLinePageState extends State<VipAudioLinePage>
 {
 
   final viewModel = VipViewModel();
@@ -32,7 +33,8 @@ class _VipArticlePageState extends State<VipArticlePage>
   }
 
   Future fetchData() async {
-    await viewModel.getPDFList({"articleType":widget.articleType,"page":1 ,"pageSize": 20});
+    await viewModel.getAudioDetail({"actId":widget.actId});
+    await viewModel.getAudioActList({"actId":widget.actId,"page":1 ,"pageSize": 20});
     setState(() {});
   }
 
@@ -60,20 +62,20 @@ class _VipArticlePageState extends State<VipArticlePage>
                   },
                   child: loadLocalImage("vip/vip_white_share",
                       width: Adapt.px(22), height: Adapt.px(22)),
-              )],
-              expandedHeight: Adapt.px(235),
+                )],
+              expandedHeight: Adapt.px(245),
               floating: true,
               pinned: false,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: const Text(""),
-                background: viewModel.vipArticleData != null ? VipArticleHeaderView(articleData: viewModel.vipArticleData,) : Container(),
+                background: AudioLineHeaderView(actInfoData: viewModel.actInfo,),
               ),
             ),
           ];
         },
         body: SizedBox(
-          child: viewModel.vipArticleData != null ? VipArticleView(articleList: viewModel.vipArticleData!.list,) : Container()
+            child: viewModel.audioList!.isNotEmpty ? AudioLineListView(audioList: viewModel.audioList,) : Container()
         ),
       ),
     );

@@ -1,8 +1,6 @@
 import 'package:hscs_flutter_app/api/dio_manager.dart';
 import 'model/index.dart';
 import 'package:hscs_flutter_app/modules/home/model/index.dart';
-import 'package:hscs_flutter_app/modules/home/model/home_ad.dart';
-import 'package:hscs_flutter_app/modules/home/model/home_headline.dart';
 
 class VipViewModel{
 
@@ -13,6 +11,9 @@ class VipViewModel{
   LiveVideoData? liveData;
   List<ListData>? columnList = [];
   VipArticleData? vipArticleData;
+  ActInfoData? actInfo;
+  List<AudioList>? audioList = [];
+
   ///九宫格
   Future getVipIconList() async {
     var model = await DioManagerUtils.get("/v3/vip-center/icon-list",params: {"tableId":1});
@@ -46,11 +47,12 @@ class VipViewModel{
   }
 
   ///音频列表
-  Future getAudioActList() async {
-    var model = await DioManagerUtils.getT<AudioData>("/v3/audio-tingting/list-with-act",params: {"page":1,"pageSize":1});
+  Future getAudioActList(Map<String, dynamic> params) async {
+    var model = await DioManagerUtils.getT<AudioData>("/v3/audio-tingting/list-with-act",params: params);
     print('length = ${model.data!.list!.length}');
-    if(model.data!.list!.length > 0){
+    if(model.data!.list!.isNotEmpty){
       audio = model.data!.list![0];
+      audioList = model.data!.list;
     }
   }
 
@@ -81,5 +83,11 @@ class VipViewModel{
   Future getPDFList(Map<String,dynamic>? param) async {
     var model = await DioManagerUtils.get("/v3/article/get-pdf-list",params: param);
     vipArticleData = VipArticleData.fromJson(model.data);
+  }
+
+  /// 音频节目详情
+  Future getAudioDetail(Map<String,dynamic>? param) async {
+    var model = await DioManagerUtils.get("/v3/audio-tingting/act-detail",params: param);
+    actInfo = ActInfoData.fromJson(model.data);
   }
 }

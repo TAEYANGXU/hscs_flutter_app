@@ -38,14 +38,14 @@ class _VipArticleViewState extends State<VipArticleView> {
                       height: Adapt.px(20),
                       child: Text(model.title ?? "",
                         maxLines: 2,overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(fontSize: TextSize.main1,color: AppColors.text,fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: TextSize.big,color: AppColors.text,fontWeight: FontWeight.w600,),
                       ),
                     ),
                     Container(
                       width: Adapt.screenW() - Adapt.px(125),
                       margin: EdgeInsets.only(top: Adapt.px(10),left: Adapt.px(15)),
                       height: Adapt.px(40),
-                      child: Text(model.summary ?? "",style: const TextStyle(fontSize: TextSize.main,color: AppColors.gredText),maxLines: 2,overflow:TextOverflow.ellipsis),
+                      child: Text(model.summary ?? "",style: const TextStyle(fontSize: TextSize.main,color: AppColors.text),maxLines: 2,overflow:TextOverflow.ellipsis),
                     ),
                     Container(
                       width: Adapt.screenW() - Adapt.px(115),
@@ -76,8 +76,8 @@ class _VipArticleViewState extends State<VipArticleView> {
             height: Adapt.px(0.8),
             color: AppColors.line,
           ),
-          model!.isNew! ? Container(
-            margin: EdgeInsets.only(left:Adapt.px(195),top: Adapt.px(5)),
+          model.isNew! ? Container(
+            margin: EdgeInsets.only(left:Adapt.px(200),top: Adapt.px(5)),
             child: loadLocalImage("vip/vip_article_new",
                 width: Adapt.px(25), height: Adapt.px(17)),
           ) : Container(),

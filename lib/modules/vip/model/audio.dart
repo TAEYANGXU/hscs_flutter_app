@@ -1,3 +1,4 @@
+
 class AudioData {
   int? totalNum;
   int? currPage;
@@ -40,7 +41,7 @@ class AudioList {
   int? id;
   String? tag;
   int? actId;
-  ActInfo? actInfo;
+  ActInfoData? actInfo;
 
   AudioList(
       {this.zmtime,
@@ -65,7 +66,7 @@ class AudioList {
     tag = json['tag'];
     actId = json['actId'];
     actInfo =
-    json['actInfo'] != null ? new ActInfo.fromJson(json['actInfo']) : null;
+    json['actInfo'] != null ? new ActInfoData.fromJson(json['actInfo']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -86,7 +87,7 @@ class AudioList {
   }
 }
 
-class ActInfo {
+class ActInfoData {
   int? id;
   String? name;
   String? description;
@@ -104,7 +105,7 @@ class ActInfo {
   String? audioDes;
   String? h5Url;
 
-  ActInfo(
+  ActInfoData(
       {this.id,
         this.name,
         this.description,
@@ -122,7 +123,7 @@ class ActInfo {
         this.audioDes,
         this.h5Url});
 
-  ActInfo.fromJson(Map<String, dynamic> json) {
+  ActInfoData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];
