@@ -33,7 +33,7 @@ class _HomeTopFocusViewState extends State<HomeTopFocusView> {
         autoplayDelay: 3000,
         // pagination: _buildPlugin(),
         onTap: (index) {
-          print(" 点击 " + index.toString());
+          print(" 点击 $index");
         },
         viewportFraction: 1,
         autoplayDisableOnInteraction: true,

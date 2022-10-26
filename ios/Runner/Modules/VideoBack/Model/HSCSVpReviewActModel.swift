@@ -46,6 +46,7 @@ struct HSCSVpReviewListModel: Mappable {
     var vid: String = ""
     
     var index: Int = 0
+    var type: Int = 0
     
     init?(map: Map) {
         
@@ -70,5 +71,6 @@ struct HSCSVpReviewListModel: Mappable {
         vUrl <- map["vUrl"]
         vid <- map["vid"]
         index <- map["index"]
+        type <- map["type"]
     }
 }

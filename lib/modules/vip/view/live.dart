@@ -7,6 +7,7 @@ import 'package:hscs_flutter_app/style/index.dart';
 import 'section.dart';
 import 'package:date_format/date_format.dart';
 import 'package:hscs_flutter_app/global_config.dart';
+import '../router.dart';
 
 class VipLiveView extends StatefulWidget {
 
@@ -33,7 +34,7 @@ class _VipLiveViewState extends State<VipLiveView> {
       child: Column(
         children: [
           SizedBox(height: Adapt.px(10),),
-          VipSectionView(title: "投资有道",icon: "vip/vip_section_2",),
+          widget.liveData != null ? VipSectionView(title: "投资有道",icon: "vip/vip_section_2",router: VipRouter.backList,params: {"roomId":'${widget.liveData!.roomId}',"actId":'${widget.liveData!.roomId}'},) : Container(),
           GestureDetector(
             onTap: () async {
 

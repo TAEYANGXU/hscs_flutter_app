@@ -52,16 +52,28 @@ class HSCSFreeListCell: UITableViewCell {
     }()
     
     
+    var type: Int = 1
+    
     var reviewModel: HSCSVpReviewListModel?
     {
         didSet{
             if let model = reviewModel {
-                let image = UIImage.placeholderImage(bgColor: .init(hex: "#E6E6E6"), image: UIImage(named: "white_app_logo")!, size: CGSize(width: HeightScale(height: 113), height: HeightScale(height: 75)), iconSize: CGSize(width: HeightScale(height: 101) / 3, height: HeightScale(height: 62) / 3))
-                let str = model.vCoverImgUrl + "?imageView2/1/w/\(Int(HeightScale(height: 113*3)))/h/\(Int(HeightScale(height: 75*3)))/q/100"
-                coverView.kf.setImage(with: URL(string: str), placeholder: image, options: nil, progressBlock: nil) { (image, error, type, url) in
+                
+                if type == 1 {
+                    let image = UIImage.placeholderImage(bgColor: .init(hex: "#E6E6E6"), image: UIImage(named: "white_app_logo")!, size: CGSize(width: HeightScale(height: 113), height: HeightScale(height: 75)), iconSize: CGSize(width: HeightScale(height: 101) / 3, height: HeightScale(height: 62) / 3))
+                    let str = model.vCoverImgUrl + "?imageView2/1/w/\(Int(HeightScale(height: 113*3)))/h/\(Int(HeightScale(height: 75*3)))/q/100"
+                    coverView.kf.setImage(with: URL(string: str), placeholder: image, options: nil, progressBlock: nil) { (image, error, type, url) in
+                    }
+                    vTitleLabel.text = model.vTitle
+                    contentLabel.text = model.vContent
+                }else{
+                    let image = UIImage.placeholderImage(bgColor: .init(hex: "#E6E6E6"), image: UIImage(named: "white_app_logo")!, size: CGSize(width: HeightScale(height: 113), height: HeightScale(height: 75)), iconSize: CGSize(width: HeightScale(height: 101) / 3, height: HeightScale(height: 62) / 3))
+                    let str = model.coverPic + "?imageView2/1/w/\(Int(HeightScale(height: 113*3)))/h/\(Int(HeightScale(height: 75*3)))/q/100"
+                    coverView.kf.setImage(with: URL(string: str), placeholder: image, options: nil, progressBlock: nil) { (image, error, type, url) in
+                    }
+                    vTitleLabel.text = model.title
+                    contentLabel.text = model.content
                 }
-                vTitleLabel.text = model.vTitle
-                contentLabel.text = model.vContent
             }
         }
     }

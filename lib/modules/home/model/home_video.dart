@@ -15,6 +15,7 @@ class VideoList {
   String? hotWord;
   HomeActInfo? actInfo;
   int? index;
+  int? type;
 
   VideoList(
       {this.vid,
@@ -32,7 +33,8 @@ class VideoList {
         this.actId,
         this.hotWord,
         this.actInfo,
-        this.index});
+        this.index,
+        this.type});
 
   VideoList.fromJson(Map<String, dynamic> json) {
     vid = json['vid'];
@@ -74,6 +76,7 @@ class VideoList {
       data['actInfo'] = this.actInfo!.toJson();
     }
     data['index'] = this.index;
+    data['type'] = this.type;
     return data;
   }
 }

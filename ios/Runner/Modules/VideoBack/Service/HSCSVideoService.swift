@@ -25,10 +25,34 @@ import UIKit
 import ObjectMapper
 
 class HSCSVideoService: NSObject {
+    
     //MARK: 免费课
     public class func requestVideoListByType(parameters: Dictionary<String, Any>, success: ((Bool, Array<HSCSVpReviewListModel>) -> ())?, failure: ((String) -> ())?)
     {
         HSCSAFHTTPSessionManager.shared.get(target: FTHTTPTarget(path: "/v3/video/list-by-act-type", pararms: parameters, method: .GET, serverType: .HSCS)) { (model, response) in
+            if model.code == 200 {
+                let dict = response as! Dictionary<String, Any>
+                let data = model.data as! Dictionary<String, Any>
+                let list: Array<HSCSVpReviewListModel> = Mapper<HSCSVpReviewListModel>().mapArray(JSONObject: data["list"])!
+                if success != nil {
+                    success!(true, list)
+                }
+            } else {
+                if success != nil {
+                    success!(false, [])
+                }
+            }
+        } failure: { (error) in
+            if failure != nil {
+                failure!(error.errorMsg!)
+            }
+        }
+    }
+    
+    //MARK: 直播回放
+    public class func requestVideoListByAct(parameters: Dictionary<String, Any>, success: ((Bool, Array<HSCSVpReviewListModel>) -> ())?, failure: ((String) -> ())?)
+    {
+        HSCSAFHTTPSessionManager.shared.get(target: FTHTTPTarget(path: "/v3/room/review-list-by-act", pararms: parameters, method: .GET, serverType: .HSCS)) { (model, response) in
             if model.code == 200 {
                 let dict = response as! Dictionary<String, Any>
                 let data = model.data as! Dictionary<String, Any>

@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
+import '../../extension/loading_icon.dart';
+import '../../global_config.dart';
 import 'service.dart';
-import 'package:hscs_flutter_app/extension/loading_icon.dart';
-import 'package:hscs_flutter_app/global_config.dart';
 
-class VideoListPage extends StatefulWidget {
-
-  VideoListPage({Key? key,this.type}) : super(key: key);
-  String? type = "2";
-
+class VipBackListPage extends StatefulWidget {
+  VipBackListPage({Key? key,this.roomId,this.actId}) : super(key: key);
+  int? roomId;
+  int? actId;
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _VideoListPageState();
-  }
+  State<StatefulWidget> createState() => _VipBackListPageState();
 }
 
-class _VideoListPageState extends State<VideoListPage> {
+class _VipBackListPageState extends State<VipBackListPage> {
+  final viewModel = VipViewModel();
 
-  final HomeViewModel viewModel = HomeViewModel();
   @override
   void initState() {
     // TODO: implement initState
@@ -28,39 +24,18 @@ class _VideoListPageState extends State<VideoListPage> {
   }
 
   Future fetchData() async {
-    await viewModel.getVideoListByType({"actType": widget.type,"page":1,"pageSize":20});
-    await viewModel.getAD({"type":5});
-    setState(() {
-
-    });
+    await viewModel.getReviewListByAct({"roomId":widget.roomId,"actId":widget.actId,"page":1 ,"pageSize": 20});
+    setState(() {});
   }
 
   Widget _cellForRow(BuildContext context, int index) {
 
-    if(viewModel.adData != null && index == 0){
-      return GestureDetector(
-        onTap: () async {
-          if(viewModel.adData!.linkUrl!.isNotEmpty){
-            await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":viewModel.adData!.linkUrl});
-          }
-        },
-        child: Container(
-          height: Adapt.px(140),
-          margin: EdgeInsets.all(Adapt.px(10)),
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6)
-          ),
-          child: CacheImage(imageUrl: viewModel.adData!.imgUrl,width: Adapt.screenW() - Adapt.px(20),height: Adapt.px(140),),
-        ),
-      );
-    }
-    var model = viewModel.videoList[index - 1];
-    model.index = index - 1;
+    var model = viewModel.backReviewList![index];
+    model.index = index;
     return GestureDetector(
       onTap: () async {
-        model.type = 1;
-        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/video_play",{"json": model.toJson(),"title":"限时免费课"});
+        model.type = 2;
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/video_play",{"json": model.toJson(),"title":"直播回放"});
       },
       child: Container(
         color: Colors.white,
@@ -77,7 +52,7 @@ class _VideoListPageState extends State<VideoListPage> {
               ),
               child: Stack(
                 children: [
-                  CacheImage(imageUrl: model.vCoverImgUrl,width: Adapt.screenW() - Adapt.px(20),height: Adapt.px(140),),
+                  CacheImage(imageUrl: model.coverPic,width: Adapt.screenW() - Adapt.px(20),height: Adapt.px(140),),
                   Container(
                     margin: EdgeInsets.only(top: Adapt.px(20),left: Adapt.px(40)),
                     height: Adapt.px(40),
@@ -93,10 +68,10 @@ class _VideoListPageState extends State<VideoListPage> {
             Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: Adapt.px(10),left: Adapt.px(10)),
+                  padding: EdgeInsets.only(top: Adapt.px(15),left: Adapt.px(10)),
                   width: Adapt.screenW() - Adapt.px(30 + 120),
-                  // height: Adapt.px(50),
-                  child: Text(model.vTitle ?? "",
+                  height: Adapt.px(60),
+                  child: Text(model.title ?? "",
                     maxLines: 2,overflow: TextOverflow.ellipsis,
                     style: const TextStyle(fontSize: TextSize.big,color: AppColors.text),
                   ),
@@ -105,7 +80,7 @@ class _VideoListPageState extends State<VideoListPage> {
                   width: Adapt.screenW() - Adapt.px(25 + 120),
                   padding: EdgeInsets.only(top: Adapt.px(5),left: Adapt.px(10)),
                   height: Adapt.px(40),
-                  child: Text(model.vContent ?? "",style: const TextStyle(fontSize: TextSize.main,color: AppColors.gredText),),
+                  child: Text(model.createTime ?? "",style: const TextStyle(fontSize: TextSize.main,color: AppColors.gredText),),
                 ),
               ],
             )
@@ -129,7 +104,7 @@ class _VideoListPageState extends State<VideoListPage> {
               width: Adapt.px(11), height: Adapt.px(18)),
         ),
         title: const Text(
-          "限时免费课",
+          "直播回放",
           style: TextStyle(
               color: AppColors.text,
               fontSize: TextSize.larger,
@@ -141,7 +116,7 @@ class _VideoListPageState extends State<VideoListPage> {
       body: SizedBox(
         child: ListView.builder(
           itemBuilder: _cellForRow,
-          itemCount: viewModel.videoList.length + (viewModel.adData != null ? 1 : 0),
+          itemCount: viewModel.backReviewList!.isNotEmpty ? viewModel.backReviewList!.length : 0,
           padding: EdgeInsets.zero,
         ),
       ),

@@ -102,16 +102,24 @@ class HSCSVideoBackViewController: UIViewController {
             guard let json = videoJson else { return }
             model  = Mapper<HSCSVpReviewListModel>().map(JSON: json)
             if let model = model {
+                print("type = \(model.type)")
                 print("vTitle = \(model.vTitle)")
 //                print("videoJson = \(videoJson)")
                 print("model.index = \(model.index)")
                 currentIndex = model.index
                 print("currentIndex = \(currentIndex)")
-                watchBackVideo(vUrl: model.vUrl, title: model.vTitle, surfaceImg: model.vCoverImgUrl)
+                type  = model.type
+                if model.type == 2 {
+                    requestVideoListByAct()
+                    watchBackVideo(vUrl: "\(model.vhallAid)", title: model.title, surfaceImg: model.coverPic)
+                }else{
+                    requestVideoList()
+                    watchBackVideo(vUrl: model.vUrl, title: model.vTitle, surfaceImg: model.vCoverImgUrl)
+                }
             }
         }
     }
-    
+    private var type: Int = 1
     private var page: Int = 1
     private let pageSize: Int = 20
     var list: Array<HSCSVpReviewListModel> = []
@@ -120,7 +128,7 @@ class HSCSVideoBackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        requestVideoList()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -182,7 +190,11 @@ class HSCSVideoBackViewController: UIViewController {
             model = list[currentIndex]
             print("currentIndex = \(currentIndex)")
             if let model = model {
-                watchBackVideo(vUrl: model.vUrl, title: model.vTitle, surfaceImg: model.vCoverImgUrl)
+                if model.type == 2 {
+                    watchBackVideo(vUrl: "\(model.vhallAid)", title: model.title, surfaceImg: model.coverPic)
+                }else{
+                    watchBackVideo(vUrl: model.vUrl, title: model.vTitle, surfaceImg: model.vCoverImgUrl)
+                }
             }
         }
     }
@@ -202,6 +214,19 @@ extension HSCSVideoBackViewController
             weakself.list.append(contentsOf: array)
             weakself.tableView.reloadData()
             weakself.tableView.mj_footer = array.count >= 10 ? MJRefreshAutoNormalFooter.init(refreshingTarget: weakself, refreshingAction: #selector(weakself.requestVideoList)) : nil
+        } failure: { error in
+            
+        }
+    }
+    
+    @objc func requestVideoListByAct()
+    {
+        HSCSVideoService.requestVideoListByAct(parameters: ["actId":model?.roomId,"roomId":model?.roomId,"page":page,"pageSize":pageSize]) { [weak self] suc, array in
+            guard let weakself = self else { return  }
+            weakself.page += 1
+            weakself.list.append(contentsOf: array)
+            weakself.tableView.reloadData()
+            weakself.tableView.mj_footer = array.count >= 10 ? MJRefreshAutoNormalFooter.init(refreshingTarget: weakself, refreshingAction: #selector(weakself.requestVideoListByAct)) : nil
         } failure: { error in
             
         }
@@ -252,6 +277,7 @@ extension HSCSVideoBackViewController: UITableViewDelegate, UITableViewDataSourc
         
         let cell: HSCSFreeListCell = tableView.dequeueReusableCell(withIdentifier: "HSCSFreeListCell", for: indexPath) as! HSCSFreeListCell
         if indexPath.row < list.count {
+            cell.type = type
             let model = list[indexPath.row]
             cell.reviewModel = model
         }
@@ -266,7 +292,11 @@ extension HSCSVideoBackViewController: UITableViewDelegate, UITableViewDataSourc
             model = list[indexPath.row]
             if let model = model {
                 currentIndex = indexPath.row
-                watchBackVideo(vUrl: model.vUrl, title: model.vTitle, surfaceImg: model.vCoverImgUrl)
+                if model.type == 2 {
+                    watchBackVideo(vUrl: "\(model.vhallAid)", title: model.title, surfaceImg: model.coverPic)
+                }else{
+                    watchBackVideo(vUrl: model.vUrl, title: model.vTitle, surfaceImg: model.vCoverImgUrl)
+                }
             }
         }
     }

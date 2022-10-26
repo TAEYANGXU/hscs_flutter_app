@@ -97,9 +97,13 @@ class HSPushCenter {
         if path == "lyitp://diqiu/video_play" {
             let dict: Dictionary = params as! Dictionary<String, Any>
             let json = dict["json"] as? Dictionary<String,Any>
+            let title = dict["title"] as? String
             print("json2 = \(json)")
             let video = HSCSVideoBackViewController()
             video.videoJson = json
+            if let title = title {
+                video.title = title
+            }
             UIViewController.currentViewController()?.navigationController?.pushViewController(video, animated: true)
         }
     }

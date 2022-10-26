@@ -13,6 +13,7 @@ class VipViewModel{
   VipArticleData? vipArticleData;
   ActInfoData? actInfo;
   List<AudioList>? audioList = [];
+  List<BackReviewList>? backReviewList = [];
 
   ///九宫格
   Future getVipIconList() async {
@@ -65,6 +66,7 @@ class VipViewModel{
     if(array.length > 0){
       print("live list = ${array.length}");
       liveData = array[0];
+      await getReviewActList({"roomId":liveData!.roomId});
     }
   }
 
@@ -89,5 +91,27 @@ class VipViewModel{
   Future getAudioDetail(Map<String,dynamic>? param) async {
     var model = await DioManagerUtils.get("/v3/audio-tingting/act-detail",params: param);
     actInfo = ActInfoData.fromJson(model.data);
+  }
+
+
+  ///  直播回放列表
+  Future getReviewListByAct(Map<String,dynamic> params) async {
+    var model = await DioManagerUtils.get("/v3/room/review-list-by-act",params: params);
+    List list = model.data["list"];
+    var array = list.map((item) => BackReviewList.fromJson(item)).toList();
+    if(array.length > 0) {
+      backReviewList = array;
+      print("backReviewList list = ${array.length}");
+    }
+  }
+  /// 直播回放节目列表
+  Future getReviewActList(Map<String,dynamic> params) async {
+    var model = await DioManagerUtils.get("/v3/room/review-act-list",params: params);
+    // List list = model.data["list"];
+    // var array = list.map((item) => ListData.fromJson(item)).toList();
+    // if(array.length > 0) {
+    //   columnList = array;
+    //   print("columnList list = ${array.length}");
+    // }
   }
 }
