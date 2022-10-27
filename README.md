@@ -14,5 +14,6 @@
 
 ## 项目截图
 
-   ![](https://github.com/AlbertXYZ/HDCP/raw/master/Images/gif001.gif) ![](https://github.com/AlbertXYZ/HDCP/raw/master/Images/gif002.gif)  ![](https://github.com/AlbertXYZ/HDCP/raw/master/Images/gif003.gif)   ![](https://github.com/AlbertXYZ/HDCP/raw/master/Images/gif004.gif) 
+   ![](https://github.com/TAEYANGXU/hscs_flutter_app/blob/main/images/122.gif) ![](https://github.com/TAEYANGXU/hscs_flutter_app/blob/main/images/123.gif)  ![](https://github.com/TAEYANGXU/hscs_flutter_app/blob/main/images/124.gif)   ![](https://github.com/TAEYANGXU/hscs_flutter_app/blob/main/images/125.gif) 
+   ![](https://github.com/TAEYANGXU/hscs_flutter_app/blob/main/images/126.gif) 
 
