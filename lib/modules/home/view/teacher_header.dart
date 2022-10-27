@@ -98,12 +98,12 @@ class _TeacherHeaderViewState extends State<TeacherHeaderView> {
             ],
           ),
         ),
-        Container(
-          margin: EdgeInsets.only(top: Adapt.px(246)),
-          width: double.infinity,
-          height: Adapt.px(10),
-          color: AppColors.line,
-        )
+        // Container(
+        //   margin: EdgeInsets.only(top: Adapt.px(246)),
+        //   width: double.infinity,
+        //   height: Adapt.px(10),
+        //   color: AppColors.line,
+        // )
       ],
     );
   }

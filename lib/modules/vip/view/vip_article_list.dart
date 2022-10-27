@@ -51,7 +51,7 @@ class _VipArticleViewState extends State<VipArticleView> {
                       width: Adapt.screenW() - Adapt.px(115),
                       margin: EdgeInsets.only(top: Adapt.px(5),left: Adapt.px(15)),
                       height: Adapt.px(20),
-                      child: Text(model.cTime ?? "",style: const TextStyle(fontSize: TextSize.main,color: AppColors.gredText),),
+                      child: Text(model.cTime ??="",style: const TextStyle(fontSize: TextSize.main,color: AppColors.gredText),),
                     ),
                   ],
                 ),
@@ -64,7 +64,7 @@ class _VipArticleViewState extends State<VipArticleView> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6)
                       ),
-                      child: model.coverPic!.isNotEmpty ? CacheImage(imageUrl: model.coverPic ?? "",width: Adapt.px(90),height: Adapt.px(70),) : Container(),
+                      child: model.coverPic!.isNotEmpty ? CacheImage(imageUrl: model.coverPic ??="",width: Adapt.px(90),height: Adapt.px(70),) : Container(),
                     )
                   ],
                 ) ,

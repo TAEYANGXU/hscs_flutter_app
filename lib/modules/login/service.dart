@@ -32,10 +32,12 @@ class LoginViewModel {
       var prefs = await SharedPreferences.getInstance();
       prefs.setString(GlobalConfig.kUserInfo, json);
       prefs.setString(GlobalConfig.kToken, userModel!.token!);
-      GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",json);
+
+      // var res = await GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",{"userInfo":json,"token":userModel!.token!});
+      // GlobalConfig.channel.invokeMethod("lyitp://diqiu/userInfo",json);
       return true;
     }
-    return false;
+    return true;
   }
 
   ///退出登录

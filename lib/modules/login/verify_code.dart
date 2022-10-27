@@ -50,10 +50,13 @@ class _LoginVeriftyCodePageState extends State<LoginVeriftyCodePage> {
   Future doLogin(String code) async {
     EasyLoading.show(status: "正在登录");
     bool suc = await loginViewModel.login(widget.mobile, code,context);
+    print("login 2222");
     setState(() {
+      print("login 3333");
       EasyLoading.dismiss();
+      Navigator.of(context).popUntil((route) => route.isFirst);
       if(suc) {
-        Navigator.of(context).popUntil((route) => route.isFirst);
+
       }else{
         Fluttertoast.showToast(msg: "登录失败");
         print("登录失败");
