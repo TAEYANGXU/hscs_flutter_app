@@ -38,7 +38,7 @@ class _TeacherHeaderViewState extends State<TeacherHeaderView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: Adapt.px(95),
+                        height: Adapt.px(105),
                       ),
                       Text(
                         widget.teacherData!.realName ?? "",
@@ -98,12 +98,15 @@ class _TeacherHeaderViewState extends State<TeacherHeaderView> {
             ],
           ),
         ),
-        // Container(
-        //   margin: EdgeInsets.only(top: Adapt.px(246)),
-        //   width: double.infinity,
-        //   height: Adapt.px(10),
-        //   color: AppColors.line,
-        // )
+        Positioned(
+            left: 0,
+            bottom: 0,
+            child: Container(
+              width: Adapt.screenW(),
+              height: Adapt.px(10),
+              color: AppColors.line,
+            )
+        )
       ],
     );
   }

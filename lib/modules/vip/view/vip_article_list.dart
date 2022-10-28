@@ -24,6 +24,7 @@ class _VipArticleViewState extends State<VipArticleView> {
       child: Stack(
         children: [
           Container(
+            color: Colors.white,
             height: Adapt.px(110),
             width: double.infinity,
             child: Row(

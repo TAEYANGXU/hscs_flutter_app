@@ -78,15 +78,18 @@ class VipArticleHeaderView extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: Adapt.px(265)),
-            width: double.infinity,
-            height: Adapt.px(20),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
+          Positioned(
+            left: 0,
+            bottom: 0,
+            child: Container(
+              width: Adapt.screenW(),
+              height: Adapt.px(20),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
               ),
             ),
           )
