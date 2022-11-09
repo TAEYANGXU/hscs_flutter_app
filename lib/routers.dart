@@ -6,6 +6,7 @@ import 'package:hscs_flutter_app/modules/login/router.dart';
 import 'package:hscs_flutter_app/modules/mine/router.dart';
 import 'package:hscs_flutter_app/modules/web/router.dart';
 import 'package:hscs_flutter_app/modules/vip/router.dart';
+import 'package:hscs_flutter_app/modules/live/router.dart';
 
 abstract class IRouter {
   void initRouter(FluroRouter router);
@@ -28,6 +29,7 @@ class Routers {
     _routers.add(MineRouter());
     _routers.add(VipRouter());
     _routers.add(WebViewRouter());
+    _routers.add(LiveRouter());
     _routers.forEach((r) => r.initRouter(route));
   }
 

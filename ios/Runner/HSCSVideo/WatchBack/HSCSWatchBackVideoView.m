@@ -42,6 +42,27 @@
 #import <XyWidget/UIFont+PingFangSC.h>
 #import "HSCSUserInfoManager.h"
 
+UIKIT_STATIC_INLINE void ScreenRotateToPortrait(UIInterfaceOrientation orientation) {
+    if (@available(iOS 16.0, *)) {
+        UIWindowScene *windowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] allObjects].firstObject;
+        UIWindowSceneGeometryPreferencesIOS *perference = [[UIWindowSceneGeometryPreferencesIOS alloc] init];
+        perference.interfaceOrientations = 1 << orientation;
+        [windowScene requestGeometryUpdateWithPreferences:perference errorHandler:^(NSError * _Nonnull error) {
+            NSLog(@"error--%@", error);
+        }];
+    } else {
+        if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+            SEL selector = NSSelectorFromString(@"setOrientation:");
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+            [invocation setSelector:selector];
+            [invocation setTarget:[UIDevice currentDevice]];
+            NSInteger val = orientation;
+            [invocation setArgument:&val atIndex:2];
+            [invocation invoke];
+        }
+    }
+}
+
 //控制面板隐藏时间
 static const NSTimeInterval TimeInterval = 6.0;
 

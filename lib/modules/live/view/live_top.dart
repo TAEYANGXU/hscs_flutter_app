@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import '../model/index.dart';
+import 'package:hscs_flutter_app/routers.dart';
+import '../router.dart';
 
 class LiveTopView extends StatefulWidget{
   LiveTopView({Key? key,this.room}) : super(key: key);
@@ -37,6 +39,8 @@ class _LiveTopViewState extends State<LiveTopView>{
           GestureDetector(
             onTap: (){
               print("搜索");
+              String roomId = '${widget.room!.roomId!}';
+              Routers.push(context, LiveRouter.search,params: {"roomId":roomId});
             },
             child: Container(
               margin: EdgeInsets.only(right: Adapt.px(0)),

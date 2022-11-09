@@ -9,7 +9,7 @@ class LiveViewModel {
   List<LiveList> chatList = [];
   List<LiveMsg> topList = [];
   List<ResearchList> researchList = [];
-
+  List<SearchList> searchList = [];
   String? wsRoom;
 
   ///直播室信息
@@ -55,5 +55,16 @@ class LiveViewModel {
       researchList = model.data!.list!;
     }
     print("ResearchData array = ${model.data!.list!.length}");
+  }
+
+  /// 直播间搜索
+  Future requestRoomSearchList(Map<String,dynamic> params) async{
+    var model = await DioManagerUtils.get("/v3/chat-room/search",params: params);
+    if(model.data != null) {
+      List list = model.data["list"];
+      searchList = [];
+      searchList = list.map((item) => SearchList.fromJson(item)).toList();
+    }
+    // print("ResearchData array = ${model.data!.list!.length}");
   }
 }
