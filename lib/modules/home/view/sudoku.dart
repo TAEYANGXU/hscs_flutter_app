@@ -7,6 +7,7 @@ import 'package:hscs_flutter_app/global_config.dart';
 import 'package:hscs_flutter_app/routers.dart';
 import '../router.dart';
 import 'package:hscs_flutter_app/modules/vip/router.dart';
+import 'package:hscs_flutter_app/modules/mine/router.dart';
 
 class HomeSudokuView extends StatefulWidget {
   HomeSudokuView({Key? key, this.iconList}) : super(key: key);
@@ -39,6 +40,8 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
             Uri u = Uri.parse(icon.deepLink!);
             String? articleType = u.queryParameters['articleType'];
             Routers.push(context, VipRouter.vipArticle,params: {"articleType":articleType});
+          }else if(icon.deepLink!.contains('integral_center')){
+            Routers.push(context, MineRouter.integral);
           }
         },
         child: Container(
@@ -66,13 +69,15 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
 
   double getHeight() {
     var size = widget.iconList!.length;
-    var col = widget.iconList!.length / 4;
+    int col = (widget.iconList!.length / 4).toInt();
     if (widget.iconList!.length % 4 > 0) {
       col += 1;
     }
+
     print("col = $col");
     print("size = $size");
-    return col * (col == 2 ? Adapt.px(90) : Adapt.px(72));
+    var height = col >= 2 ? Adapt.px(90) : Adapt.px(80);
+    return col * height;
   }
 
   @override

@@ -75,8 +75,8 @@ class VipArticleList {
   String? author;
   bool? canExperience;
   String? h5Url;
-  List<int>? userLevelArr;
-  List<String>? enterLevelDesArr;
+  // List<int>? userLevelArr;
+  // List<String>? enterLevelDesArr;
   bool? canVisit;
   String? noAccessHint;
   bool? isNew;
@@ -94,8 +94,8 @@ class VipArticleList {
         this.author,
         this.canExperience,
         this.h5Url,
-        this.userLevelArr,
-        this.enterLevelDesArr,
+        // this.userLevelArr,
+        // this.enterLevelDesArr,
         this.canVisit,
         this.noAccessHint,
         this.isNew});
@@ -113,8 +113,8 @@ class VipArticleList {
     author = json['author'];
     canExperience = json['canExperience'];
     h5Url = json['h5Url'];
-    userLevelArr = json['userLevelArr'].cast<int>();
-    enterLevelDesArr = json['enterLevelDesArr'].cast<String>();
+    // userLevelArr = json['userLevelArr'];
+    // enterLevelDesArr = json['enterLevelDesArr'];
     canVisit = json['canVisit'];
     noAccessHint = json['noAccessHint'];
     isNew = json['isNew'];
@@ -134,8 +134,8 @@ class VipArticleList {
     data['author'] = this.author;
     data['canExperience'] = this.canExperience;
     data['h5Url'] = this.h5Url;
-    data['userLevelArr'] = this.userLevelArr;
-    data['enterLevelDesArr'] = this.enterLevelDesArr;
+    // data['userLevelArr'] = this.userLevelArr;
+    // data['enterLevelDesArr'] = this.enterLevelDesArr;
     data['canVisit'] = this.canVisit;
     data['noAccessHint'] = this.noAccessHint;
     data['isNew'] = this.isNew;

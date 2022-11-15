@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/modules/vip/view/index.dart';
-import 'package:hscs_flutter_app/utils/index.dart';
-import 'package:hscs_flutter_app/extension/loading_icon.dart';
-import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/modules/home/model/index.dart';
 import 'package:hscs_flutter_app/modules/home/view/sudoku.dart';
 import 'package:hscs_flutter_app/modules/vip/model/index.dart';
-import 'report.dart';
+import 'view/report.dart';
 
 class VipRecommendPage extends StatefulWidget {
 

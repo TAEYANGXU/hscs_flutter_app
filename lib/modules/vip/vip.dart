@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'view/index.dart';
 import 'service.dart';
+import 'vip_course.dart';
+import 'vip_report.dart';
+import 'vip_recommend.dart';
+import 'package:hscs_flutter_app/modules/web/web.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class VipPage extends StatefulWidget {
   @override
@@ -22,7 +27,7 @@ class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin,Au
 
   Future fetchData() async {
     await viewModel.getVipTopTableList();
-    await viewModel.getVipIconList();
+    await viewModel.getVipIconList({"tableId":1});
     await viewModel.getReportList();
     await viewModel.getAudioActList({"page":1,"pageSize":1});
     await viewModel.getLiveActList();
@@ -81,9 +86,13 @@ class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin,Au
             liveData: viewModel.liveData,
             columnList: viewModel.columnList,
           ),
-          Container(),
-          Container(),
-          Container(),
+          WebViewPage(url: "http://socwww.jinsvip.com/fund/recomend-list",),
+          // WebView(
+          //   initialUrl: "http://socwww.jinsvip.com/fund/recomend-list",
+          //   javascriptMode: JavascriptMode.unrestricted,
+          // ),
+          VipReportPage(),
+          VipCourcePage(),
         ],
       ),
     );

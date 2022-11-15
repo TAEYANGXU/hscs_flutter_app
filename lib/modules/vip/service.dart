@@ -14,10 +14,12 @@ class VipViewModel{
   ActInfoData? actInfo;
   List<AudioList>? audioList = [];
   List<BackReviewList>? backReviewList = [];
+  List<CategoryData>? categoryList = [];
+  List<VipArticleList>? articleList = [];
 
   ///九宫格
-  Future getVipIconList() async {
-    var model = await DioManagerUtils.get("/v3/vip-center/icon-list",params: {"tableId":1});
+  Future getVipIconList(Map<String,dynamic> params) async {
+    var model = await DioManagerUtils.get("/v3/vip-center/icon-list",params: params);
     List list = model.data;
     var array = list.map((item) => IconList.fromJson(item)).toList();
     if(array.isNotEmpty){
@@ -63,7 +65,7 @@ class VipViewModel{
     List list = model.data;
     var array = list.map((item) => LiveVideoData.fromJson(item)).toList();
     // print('length = ${model.data!.list!.length}');
-    if(array.length > 0){
+    if(array.isNotEmpty){
       print("live list = ${array.length}");
       liveData = array[0];
       await getReviewActList({"roomId":liveData!.roomId});
@@ -75,7 +77,7 @@ class VipViewModel{
     var model = await DioManagerUtils.get("/v3/column/list",params: {"type":1});
     List list = model.data["list"];
     var array = list.map((item) => ListData.fromJson(item)).toList();
-    if(array.length > 0) {
+    if(array.isNotEmpty) {
       columnList = array;
       print("columnList list = ${array.length}");
     }
@@ -99,7 +101,7 @@ class VipViewModel{
     var model = await DioManagerUtils.get("/v3/room/review-list-by-act",params: params);
     List list = model.data["list"];
     var array = list.map((item) => BackReviewList.fromJson(item)).toList();
-    if(array.length > 0) {
+    if(array.isNotEmpty) {
       backReviewList = array;
       print("backReviewList list = ${array.length}");
     }
@@ -113,5 +115,26 @@ class VipViewModel{
     //   columnList = array;
     //   print("columnList list = ${array.length}");
     // }
+  }
+
+  ///  所有课程
+  Future getVideoCourseList(Map<String,dynamic> params) async {
+    var model = await DioManagerUtils.get("/v3/video-course/center-list",params: params);
+    List list = model.data;
+    var array = list.map((item) => CategoryData.fromJson(item)).toList();
+    if(array.isNotEmpty) {
+      categoryList = array;
+      print("categoryList list = ${array.length}");
+    }
+  }
+  /// 获取独家报告列表
+  Future getArticleAllList(Map<String,dynamic> params) async {
+    var model = await DioManagerUtils.get("/v3/article/all-sort-list",params: params);
+    List list = model.data;
+    var array = list.map((item) => VipArticleList.fromJson(item)).toList();
+    if(array.isNotEmpty) {
+      articleList = array;
+      print("articleList list = ${array.length}");
+    }
   }
 }

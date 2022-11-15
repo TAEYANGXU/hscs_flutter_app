@@ -85,12 +85,12 @@ class _LiveSearchPageState extends State<LiveSearchPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: Adapt.px(5),),
+                      SizedBox(height: Adapt.px(7),),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(model.nickname ?? "",style: TextStyle(fontSize: TextSize.larger,fontWeight: FontWeight.bold),),
-                          Text(model.createdAt ?? "",style: TextStyle(fontSize: TextSize.small,color: AppColors.gredText),),
+                          Text(model.nickname ?? "",style: const TextStyle(fontSize: TextSize.big,fontWeight: FontWeight.bold),),
+                          Text(model.createdAt ?? "",style: const TextStyle(fontSize: TextSize.small,color: AppColors.gredText),),
                         ],
                       ),
                       SizedBox(height: Adapt.px(5),),

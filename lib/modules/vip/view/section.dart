@@ -27,8 +27,8 @@ class VipSectionView extends StatelessWidget {
               child: Row(
                 children: [
                   loadLocalImage(icon,width: Adapt.px(15),height: Adapt.px(16)),
-                  SizedBox(width: Adapt.px(3),),
-                  Text(title,style: const TextStyle(fontSize: TextSize.larger,fontWeight: FontWeight.w600),)
+                  SizedBox(width: Adapt.px(5),),
+                  Text(title,style: const TextStyle(fontSize: TextSize.larger,fontWeight: FontWeight.w500),)
                 ],
               ),
             ),
