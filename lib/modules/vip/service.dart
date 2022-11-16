@@ -55,7 +55,7 @@ class VipViewModel{
     print('length = ${model.data!.list!.length}');
     if(model.data!.list!.isNotEmpty){
       audio = model.data!.list![0];
-      audioList = model.data!.list;
+      audioList?.addAll(model.data!.list!);
     }
   }
 
@@ -102,7 +102,7 @@ class VipViewModel{
     List list = model.data["list"];
     var array = list.map((item) => BackReviewList.fromJson(item)).toList();
     if(array.isNotEmpty) {
-      backReviewList = array;
+      backReviewList?.addAll(array);
       print("backReviewList list = ${array.length}");
     }
   }
@@ -133,7 +133,7 @@ class VipViewModel{
     List list = model.data;
     var array = list.map((item) => VipArticleList.fromJson(item)).toList();
     if(array.isNotEmpty) {
-      articleList = array;
+      articleList?.addAll(array);
       print("articleList list = ${array.length}");
     }
   }

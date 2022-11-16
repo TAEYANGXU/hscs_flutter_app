@@ -47,7 +47,7 @@ class HomeViewModel
     List list = data["list"];
     var array = list.map((item) => ListData.fromJson(item)).toList();
     if(array.isNotEmpty){
-      headLineList = array;
+      headLineList?.addAll(array);
       print("getHeadlineList = ${array.length}");
     }
   }
@@ -67,7 +67,7 @@ class HomeViewModel
     List list = data["list"];
     var array = list.map((item) => VideoList.fromJson(item)).toList();
     if(array.isNotEmpty){
-      videoList = array;
+      videoList.addAll(array);
       print("length = ${array.length}");
     }
   }

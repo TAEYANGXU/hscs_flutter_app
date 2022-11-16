@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import 'model/index.dart';
 import 'view/index.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'service.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
 
   final viewModel = HomeViewModel();
-  final EasyRefreshController _controller = EasyRefreshController();
+  final RefreshController _refreshController = RefreshController(initialRefresh: false);
 
   @override
   void initState() {
@@ -29,7 +30,6 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
    Future getHomeData() async {
     await viewModel.getHomeData();
     setState(() { });
-    _controller.resetLoadState();
   }
 
   Future getFundData() async {
@@ -55,15 +55,21 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
       }
   }
 
-  Future  _onRefresh() async {
+  void _onRefresh() async{
     print("_onRefresh");
-    _controller.callRefresh();
     getHomeData();
+    _refreshController.refreshCompleted();
   }
 
-  // Future _onLoad() async{
-  //   print("_onLoad");
-  // }
+  void _onLoading() async{
+    print("_onLoading");
+
+    if(mounted)
+      setState(() {
+
+      });
+    _refreshController.loadComplete();
+  }
 
   @override
   Widget build(BuildContext context){
@@ -72,25 +78,33 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
       return Scaffold();
     }
     return Scaffold(
-      body: EasyRefresh(
-        controller: _controller,
-        onRefresh: _onRefresh,
-        header: ClassicalHeader(
-            refreshText: "下拉刷新",
-            refreshReadyText: "释放刷新",
-            refreshingText: "刷新中...",
-            refreshedText: "刷新完成",
-            refreshFailedText: "刷新失败",
-            noMoreText: "没有更多",
-            showInfo: true,
-            infoText: "更新时间 %T",
+      body: SmartRefresher(
+        enablePullDown: true,
+        enablePullUp: false,
+        header: CustomHeader(
+          builder: (context,mode){
+            Widget body ;
+            if(mode==LoadStatus.idle){
+              body = const Text("下拉刷新");
+            }
+            else if(mode==LoadStatus.loading){
+              body = const CupertinoActivityIndicator();
+            }
+            else{
+              body = Text("下拉刷新 ${DateTime.now().toString().substring(10,16)}");
+            }
+            return  SizedBox(
+              height: 55.0,
+              child: Center(child:body),
+            );
+          },
         ),
-        // onLoad: _onLoad,
-        // enableControlFinishLoad: true,
-        // enableControlFinishRefresh: true,
+        controller: _refreshController,
+        onRefresh: _onRefresh,
+        onLoading: _onLoading,
         child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.all(0),
+          // physics: const BouncingScrollPhysics(),
+          // padding: const EdgeInsets.all(0),
           child: Column(
             children: [
               HomeTopFocusView(infos: viewModel.homeData?.topFocus?.infos),

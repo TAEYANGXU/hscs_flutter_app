@@ -1,8 +1,11 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../extension/loading_icon.dart';
 import '../../style/index.dart';
 import '../../utils/index.dart';
+import 'model/home_headline.dart';
 import 'service.dart';
 import 'view/headline_top.dart';
 import 'package:hscs_flutter_app/global_config.dart';
@@ -20,18 +23,28 @@ class ArticleListPage extends StatefulWidget{
 class _ArticleListPageState extends State<ArticleListPage>{
 
   final viewModel = HomeViewModel();
+  final RefreshController _refreshController = RefreshController(initialRefresh: false);
+  int  page = 1;
+  int  pageSize = 20;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     fetchData();
+    getHeadlineList();
   }
 
   Future fetchData() async {
     await viewModel.getHeadlineTop();
-    await viewModel.getHeadlineList({"page": 1,"pageSize": 20});
     setState(() {});
+  }
+
+  Future getHeadlineList() async {
+    await viewModel.getHeadlineList({"page": page,"pageSize": pageSize});
+    setState(() {
+      page += 1;
+    });
   }
 
   Widget _cellForRow(BuildContext context, int index) {
@@ -99,6 +112,21 @@ class _ArticleListPageState extends State<ArticleListPage>{
     );
   }
 
+  void _onRefresh() async{
+    // monitor network fetch
+    print("_onRefresh");
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async{
+    print("_onLoading");
+    getHeadlineList();
+    await Future.delayed(Duration(milliseconds: 1000));
+    _refreshController.loadComplete();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -122,7 +150,36 @@ class _ArticleListPageState extends State<ArticleListPage>{
         backgroundColor: Colors.white,
         elevation: 0.5,
       ),
-      body: SizedBox(
+      body: SmartRefresher(
+        enablePullDown: false,
+        enablePullUp: true,
+        footer: CustomFooter(
+          builder: (context,mode){
+            Widget body ;
+            if(mode==LoadStatus.idle){
+              body =  const Text("上拉加载");
+            }
+            else if(mode==LoadStatus.loading){
+              body = const CupertinoActivityIndicator();
+            }
+            else if(mode == LoadStatus.failed){
+              body = const Text("加载失败！点击重试！");
+            }
+            else if(mode == LoadStatus.canLoading){
+              body = const Text("松手,加载更多!");
+            }
+            else{
+              body = const Text("没有更多数据了!");
+            }
+            return Container(
+              height: 55.0,
+              child: Center(child:body),
+            );
+          },
+        ),
+        controller: _refreshController,
+        onRefresh: _onRefresh,
+        onLoading: _onLoading,
         child: ListView.builder(
           itemBuilder: _cellForRow,
           itemCount: viewModel.headLineTopList!.isNotEmpty ? viewModel.headLineList!.length + 1 : viewModel.headLineList!.length,

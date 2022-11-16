@@ -32,15 +32,15 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
         onTap: () async {
           debugPrint("index = $index");
           debugPrint("deepLink = ${icon.deepLink}");
-          if(icon.deepLink!.contains('http')){
-            await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":icon.deepLink!});
-          }else if(icon.deepLink!.contains('free_video')){
-            Routers.push(context, HomeRouter.videoList,params: {"type":"2"});
-          }else if(icon.deepLink!.contains('vip_pdf_list')){
+          if (icon.deepLink!.contains('http')) {
+            await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview", {"url": icon.deepLink!});
+          } else if (icon.deepLink!.contains('free_video')) {
+            Routers.push(context, HomeRouter.videoList, params: {"type": "2"});
+          } else if (icon.deepLink!.contains('vip_pdf_list')) {
             Uri u = Uri.parse(icon.deepLink!);
             String? articleType = u.queryParameters['articleType'];
-            Routers.push(context, VipRouter.vipArticle,params: {"articleType":articleType});
-          }else if(icon.deepLink!.contains('integral_center')){
+            Routers.push(context, VipRouter.vipArticle, params: {"articleType": articleType});
+          } else if (icon.deepLink!.contains('integral_center')) {
             Routers.push(context, MineRouter.integral);
           }
         },
@@ -59,8 +59,8 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
               Text(
                 icon.name!,
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(color: AppColors.text, fontSize: TextSize.main),
+                style: const TextStyle(
+                    color: AppColors.text, fontSize: TextSize.main),
               ),
             ],
           ),
@@ -69,7 +69,7 @@ class _HomeSudokuViewState extends State<HomeSudokuView> {
 
   double getHeight() {
     var size = widget.iconList!.length;
-    int col = (widget.iconList!.length / 4).toInt();
+    int col = widget.iconList!.length ~/ 4;
     if (widget.iconList!.length % 4 > 0) {
       col += 1;
     }

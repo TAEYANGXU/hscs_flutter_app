@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/modules/vip/service.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../extension/loading_icon.dart';
 import '../../global_config.dart';
 import '../../style/index.dart';
@@ -21,17 +23,27 @@ class VipReportPage extends StatefulWidget
 class _VipReportPageState extends State<VipReportPage> {
 
   var viewModel = VipViewModel();
+  final RefreshController _refreshController = RefreshController(initialRefresh: false);
+  int  page = 1;
+  int  pageSize = 20;
 
   @override
   void initState(){
     super.initState();
     fetchData();
+    getArticleList();
   }
 
   Future fetchData() async {
     await viewModel.getVipIconList({"tableId":3});
-    await viewModel.getArticleAllList({"type":"2","page":1,"pageSize":20});
     setState(() {});
+  }
+
+  Future getArticleList() async {
+    await viewModel.getArticleAllList({"type":"2","page":page,"pageSize":pageSize});
+    setState(() {
+      page += 1;
+    });
   }
 
   Widget _cellForRow(BuildContext context, int index) {
@@ -114,10 +126,54 @@ class _VipReportPageState extends State<VipReportPage> {
     );
   }
 
+  void _onRefresh() async{
+    // monitor network fetch
+    print("_onRefresh");
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async{
+    print("_onLoading");
+    getArticleList();
+    await Future.delayed(Duration(milliseconds: 1000));
+    _refreshController.loadComplete();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return SizedBox(
+    return SmartRefresher(
+      enablePullDown: false,
+      enablePullUp: true,
+      footer: CustomFooter(
+        builder: (context,mode){
+          Widget body ;
+          if(mode==LoadStatus.idle){
+            body =  const Text("上拉加载");
+          }
+          else if(mode==LoadStatus.loading){
+            body = const CupertinoActivityIndicator();
+          }
+          else if(mode == LoadStatus.failed){
+            body = const Text("加载失败！点击重试！");
+          }
+          else if(mode == LoadStatus.canLoading){
+            body = const Text("松手,加载更多!");
+          }
+          else{
+            body = const Text("没有更多数据了!");
+          }
+          return Container(
+            height: 55.0,
+            child: Center(child:body),
+          );
+        },
+      ),
+      controller: _refreshController,
+      onRefresh: _onRefresh,
+      onLoading: _onLoading,
       child: ListView.builder(
         itemBuilder: _cellForRow,
         itemCount: viewModel.articleList!.length + 1,
@@ -125,21 +181,4 @@ class _VipReportPageState extends State<VipReportPage> {
       ),
     );
   }
-  //
-  // @override
-  // Widget build(BuildContext context) {
-  //   // TODO: implement build
-  //   return Container(
-  //     color: Colors.white,
-  //     child: SingleChildScrollView(
-  //       physics: const BouncingScrollPhysics(),
-  //       padding: const EdgeInsets.all(0),
-  //       child: Column(
-  //         children: [
-  //           HomeSudokuView(iconList: viewModel.iconList),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }

@@ -74,7 +74,8 @@ class MineViewModel {
     if (model.code == 200) {
       Map<String,dynamic> data = model.data;
       List list = data["list"];
-      msgList = list.map((e) => MsgList.fromJson(e)).toList();
+      List<MsgList> mlist= list.map((e) => MsgList.fromJson(e)).toList();
+      msgList.addAll(mlist);
     }
   }
   /// 购买列表

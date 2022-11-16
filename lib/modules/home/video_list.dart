@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'model/home_video.dart';
 import 'service.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'package:hscs_flutter_app/global_config.dart';
@@ -20,18 +23,28 @@ class VideoListPage extends StatefulWidget {
 class _VideoListPageState extends State<VideoListPage> {
 
   final HomeViewModel viewModel = HomeViewModel();
+  final RefreshController _refreshController = RefreshController(initialRefresh: false);
+  int  page = 1;
+  int  pageSize = 20;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     fetchData();
+    getVideoListByType();
   }
 
   Future fetchData() async {
-    await viewModel.getVideoListByType({"actType": widget.type,"page":1,"pageSize":20});
     await viewModel.getAD({"type":5});
     setState(() {
+    });
+  }
 
+  Future getVideoListByType() async {
+    await viewModel.getVideoListByType({"actType": widget.type,"page":page,"pageSize":pageSize});
+    setState(() {
+      page +=1;
     });
   }
 
@@ -115,6 +128,21 @@ class _VideoListPageState extends State<VideoListPage> {
     );
   }
 
+  void _onRefresh() async{
+    // monitor network fetch
+    print("_onRefresh");
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async{
+    print("_onLoading");
+    getVideoListByType();
+    await Future.delayed(Duration(milliseconds: 1000));
+    _refreshController.loadComplete();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -138,7 +166,36 @@ class _VideoListPageState extends State<VideoListPage> {
         backgroundColor: Colors.white,
         elevation: 0.5,
       ),
-      body: SizedBox(
+      body: SmartRefresher(
+        enablePullDown: false,
+        enablePullUp: true,
+        footer: CustomFooter(
+          builder: (context,mode){
+            Widget body ;
+            if(mode==LoadStatus.idle){
+              body =  const Text("上拉加载");
+            }
+            else if(mode==LoadStatus.loading){
+              body = const CupertinoActivityIndicator();
+            }
+            else if(mode == LoadStatus.failed){
+              body = const Text("加载失败！点击重试！");
+            }
+            else if(mode == LoadStatus.canLoading){
+              body = const Text("松手,加载更多!");
+            }
+            else{
+              body = const Text("没有更多数据了!");
+            }
+            return Container(
+              height: 55.0,
+              child: Center(child:body),
+            );
+          },
+        ),
+        controller: _refreshController,
+        onRefresh: _onRefresh,
+        onLoading: _onLoading,
         child: ListView.builder(
           itemBuilder: _cellForRow,
           itemCount: viewModel.videoList.length + (viewModel.adData != null ? 1 : 0),
