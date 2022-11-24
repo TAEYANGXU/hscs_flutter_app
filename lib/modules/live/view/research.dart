@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hscs_flutter_app/modules/web/router.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/utils/index.dart';
 import '../model/index.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
 import 'package:date_format/date_format.dart';
-import 'package:hscs_flutter_app/routers.dart';
+import 'package:hscs_flutter_app/global_config.dart';
 
 class ResearchPage extends StatefulWidget {
   ResearchPage({Key? key, this.list}) : super(key: key);
@@ -20,9 +19,8 @@ class _ResearchPageState extends State<ResearchPage> {
     var model = widget.list![index];
 
     return GestureDetector(
-      onTap: () {
-        Routers.push(context, WebViewRouter.webView,
-            params: {"url": model.detailLink});
+      onTap: () async {
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":model.detailLink});
       },
       child: Container(
         width: double.infinity,

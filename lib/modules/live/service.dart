@@ -11,6 +11,7 @@ class LiveViewModel {
   List<ResearchList> researchList = [];
   List<SearchList> searchList = [];
   String? wsRoom;
+  List<LiveList> searchDetailList = [];
 
   ///直播室信息
   Future requestChatRoomInfo() async{
@@ -62,9 +63,17 @@ class LiveViewModel {
     var model = await DioManagerUtils.get("/v3/chat-room/search",params: params);
     if(model.data != null) {
       List list = model.data["list"];
-      searchList = [];
+      // searchList = [];
       searchList = list.map((item) => SearchList.fromJson(item)).toList();
     }
     // print("ResearchData array = ${model.data!.list!.length}");
+  }
+
+  /// 搜索老师发言详情
+  Future requestChatRoomSearchDetail(Map<String,dynamic>? params) async{
+    var model = await DioManagerUtils.post("/v3/chat-room/search-result-detail",params: params);
+    // wsRoom = model.data["wsRoom"];
+    Map<String,dynamic> item = model.data;
+    searchDetailList = [LiveList.fromJson(item)];
   }
 }

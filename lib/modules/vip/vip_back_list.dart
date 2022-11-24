@@ -27,6 +27,7 @@ class _VipBackListPageState extends State<VipBackListPage> {
     fetchData();
   }
 
+
   Future fetchData() async {
     await viewModel.getReviewListByAct({"roomId":widget.roomId,"actId":widget.actId,"page":page ,"pageSize": pageSize});
     setState(() {
@@ -99,7 +100,7 @@ class _VipBackListPageState extends State<VipBackListPage> {
   void _onRefresh() async{
     // monitor network fetch
     print("_onRefresh");
-    await Future.delayed(Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 1000));
     // if failed,use refreshFailed()
     _refreshController.refreshCompleted();
   }
@@ -107,7 +108,7 @@ class _VipBackListPageState extends State<VipBackListPage> {
   void _onLoading() async{
     print("_onLoading");
     fetchData();
-    await Future.delayed(Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 1000));
     _refreshController.loadComplete();
   }
 

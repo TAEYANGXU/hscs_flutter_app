@@ -10,6 +10,7 @@ class VipViewModel{
   AudioList? audio;
   LiveVideoData? liveData;
   List<ListData>? columnList = [];
+  List<ListData>? moreColumnList = [];
   VipArticleData? vipArticleData;
   ActInfoData? actInfo;
   List<AudioList>? audioList = [];
@@ -73,12 +74,22 @@ class VipViewModel{
   }
 
   /// 理财头条
-  Future getColumnList() async {
-    var model = await DioManagerUtils.get("/v3/column/list",params: {"type":1});
+  Future getColumnList(Map<String,dynamic> param) async {
+    var model = await DioManagerUtils.get("/v3/column/list",params: param);
     List list = model.data["list"];
     var array = list.map((item) => ListData.fromJson(item)).toList();
     if(array.isNotEmpty) {
       columnList = array;
+      print("columnList list = ${array.length}");
+    }
+  }
+
+  Future getColumnList2(Map<String,dynamic> param) async {
+    var model = await DioManagerUtils.get("/v3/column/list",params: param);
+    List list = model.data["list"];
+    var array = list.map((item) => ListData.fromJson(item)).toList();
+    if(array.isNotEmpty) {
+      moreColumnList?.addAll(array);
       print("columnList list = ${array.length}");
     }
   }

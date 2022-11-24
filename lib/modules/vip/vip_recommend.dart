@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hscs_flutter_app/modules/vip/router.dart';
 import 'package:hscs_flutter_app/modules/vip/view/index.dart';
 import 'package:hscs_flutter_app/modules/home/model/index.dart';
 import 'package:hscs_flutter_app/modules/home/view/sudoku.dart';
 import 'package:hscs_flutter_app/modules/vip/model/index.dart';
-import 'view/report.dart';
+import 'package:hscs_flutter_app/utils/index.dart';
+import 'package:hscs_flutter_app/style/index.dart';
+import 'package:hscs_flutter_app/routers.dart';
 
 class VipRecommendPage extends StatefulWidget {
 
@@ -36,7 +39,28 @@ class _VipRecommendPageState extends State<VipRecommendPage> {
             VipReportView(reportList: widget.reportList ?? []),
             VipAudioView(audio: widget.audio,),
             VipLiveView(liveData: widget.liveData,),
-            VipColumnView(columnList: widget.columnList,),
+            VipColumnView(columnList: widget.columnList,callback: (String str){
+              print("${str}");
+            },),
+            GestureDetector(
+              onTap: (){
+                Routers.push(context, VipRouter.vipArticleList);
+              },
+              child: Container(
+                color: Colors.white,
+                height: Adapt.px(50),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("查看全部",style: TextStyle(color: AppColors.orangeText,fontSize: TextSize.main),),
+                    SizedBox(width: Adapt.px(6),),
+                    loadLocalImage("home_more_arrow",
+                        width: Adapt.px(9), height: Adapt.px(14)),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),

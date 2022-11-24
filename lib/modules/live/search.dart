@@ -5,6 +5,8 @@ import 'package:hscs_flutter_app/style/index.dart';
 import 'service.dart';
 import 'view/search_bar.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
+import 'router.dart';
+import 'package:hscs_flutter_app/routers.dart';
 
 class LiveSearchPage extends StatefulWidget {
   LiveSearchPage({Key? key,this.roomId}) : super(key: key);
@@ -48,71 +50,77 @@ class _LiveSearchPageState extends State<LiveSearchPage> {
       return Container();
     }
     var model = viewModel.searchList[index];
-    return  Container(
-      height: Adapt.px(60),
-      width: double.infinity,
-      child: Stack(
-        children: [
-          Positioned(
-            top: Adapt.px(0),
-            left: Adapt.px(15),
-            child: Container(
-              width: Adapt.screenW() - Adapt.px(15),
-              height: Adapt.px(1),
-              color: AppColors.line,
+    return  GestureDetector(
+      onTap: (){
+        Routers.push(context, LiveRouter.searchDetail,params: {"feedId":'${model.feedId}',"nickname":model.nickname});
+      },
+      child: Container(
+        color: Colors.white,
+        height: Adapt.px(60),
+        width: double.infinity,
+        child: Stack(
+          children: [
+            Positioned(
+              top: Adapt.px(0),
+              left: Adapt.px(15),
+              child: Container(
+                width: Adapt.screenW() - Adapt.px(15),
+                height: Adapt.px(1),
+                color: AppColors.line,
+              ),
             ),
-          ),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: Adapt.px(15)),
-                  width: Adapt.px(40),
-                  height: Adapt.px(40),
-                  decoration: BoxDecoration(
-                    color: Colors.yellow,
-                    borderRadius: BorderRadius.circular(Adapt.px(20))
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: Adapt.px(15)),
+                    width: Adapt.px(40),
+                    height: Adapt.px(40),
+                    decoration: BoxDecoration(
+                        color: Colors.yellow,
+                        borderRadius: BorderRadius.circular(Adapt.px(20))
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: CacheImage(imageUrl: model.avatar,),
                   ),
-                  clipBehavior: Clip.hardEdge,
-                  child: CacheImage(imageUrl: model.avatar,),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: Adapt.px(10)),
-                  width: Adapt.screenW() - Adapt.px(90),
-                  height: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: Adapt.px(7),),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(model.nickname ?? "",style: const TextStyle(fontSize: TextSize.big,fontWeight: FontWeight.bold),),
-                          Text(model.createdAt ?? "",style: const TextStyle(fontSize: TextSize.small,color: AppColors.gredText),),
-                        ],
-                      ),
-                      SizedBox(height: Adapt.px(5),),
-                      Container(
-                        child: Text(model.content ?? "",style: const TextStyle(fontSize: TextSize.main,overflow: TextOverflow.ellipsis),maxLines: 1),
-                      )
-                    ],
-                  ),
-                )
-              ],
+                  Container(
+                    margin: EdgeInsets.only(left: Adapt.px(10)),
+                    width: Adapt.screenW() - Adapt.px(90),
+                    height: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: Adapt.px(7),),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(model.nickname ?? "",style: const TextStyle(fontSize: TextSize.big,fontWeight: FontWeight.bold),),
+                            Text(model.createdAt ?? "",style: const TextStyle(fontSize: TextSize.small,color: AppColors.gredText),),
+                          ],
+                        ),
+                        SizedBox(height: Adapt.px(5),),
+                        Container(
+                          child: Text(model.content ?? "",style: const TextStyle(fontSize: TextSize.main,overflow: TextOverflow.ellipsis),maxLines: 1),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          Positioned(
-            bottom: Adapt.px(0),
-            left: Adapt.px(15),
-            child: Container(
-              width: Adapt.screenW() - Adapt.px(15),
-              height: Adapt.px(1),
-              color: AppColors.line,
+            Positioned(
+              bottom: Adapt.px(0),
+              left: Adapt.px(15),
+              child: Container(
+                width: Adapt.screenW() - Adapt.px(15),
+                height: Adapt.px(1),
+                color: AppColors.line,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

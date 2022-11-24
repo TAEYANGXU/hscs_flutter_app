@@ -66,7 +66,7 @@ class _VipLiveViewState extends State<VipLiveView> {
                         height: Adapt.px(30),
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               bottomRight: Radius.circular(8)
                           ),
                           color: HexColor("#565861"),

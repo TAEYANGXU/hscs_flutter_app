@@ -3,21 +3,27 @@ import 'package:hscs_flutter_app/utils/index.dart';
 import 'package:hscs_flutter_app/style/index.dart';
 import 'package:hscs_flutter_app/modules/home/model/home_headline.dart';
 import 'package:hscs_flutter_app/extension/loading_icon.dart';
+import '../../../global_config.dart';
+import '../router.dart';
 import 'section.dart';
 
-class VipColumnView extends StatefulWidget {
-  VipColumnView({Key? key, this.columnList}) : super(key: key);
-  List<ListData>? columnList;
+typedef Callback = void Function(String);
 
+class VipColumnView extends StatefulWidget {
+  VipColumnView({Key? key, this.columnList,this.callback}) : super(key: key);
+  List<ListData>? columnList;
+  Callback? callback;
   _VipColumnViewState createState() => _VipColumnViewState();
 }
 
 class _VipColumnViewState extends State<VipColumnView> {
   Widget item(ListData data,bool showLine) {
     return GestureDetector(
-      onTap: (){
+      onTap: () async {
+        await GlobalConfig.channel.invokeMethod("lyitp://diqiu/webview",{"url":data.detailLink});
         var title = data.title!;
         debugPrint("title = $title");
+        widget.callback!("执行");
       },
       child: Stack(
         children: [
@@ -108,7 +114,7 @@ class _VipColumnViewState extends State<VipColumnView> {
             color: AppColors.space,
           ),
           SizedBox(height: Adapt.px(10),),
-          VipSectionView(title: "理财头条",icon: "vip/vip_section_3",),
+          VipSectionView(title: "理财头条",icon: "vip/vip_section_3",router: VipRouter.vipArticleList,),
           listView(widget.columnList)
         ],
       ),

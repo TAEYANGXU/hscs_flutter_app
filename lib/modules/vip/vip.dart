@@ -31,7 +31,7 @@ class VipPageState extends State<VipPage> with SingleTickerProviderStateMixin,Au
     await viewModel.getReportList();
     await viewModel.getAudioActList({"page":1,"pageSize":1});
     await viewModel.getLiveActList();
-    await viewModel.getColumnList();
+    await viewModel.getColumnList({"type":1});
     setState(() {});
   }
 

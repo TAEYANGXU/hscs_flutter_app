@@ -41,11 +41,12 @@ class _LiveListPageState extends State<LiveListPage> {
       );
     }
     var model = widget.liveList![index];
-    if(int.parse(model.liveMsg!.type!) == 0){
-      // print("liveMsg-summary ${model.liveMsg?.richContent}");
-      // print("liveMsg-pics ${model.liveMsg?.pics!.length}");
-      return LiveListCell(model: model,);
-    }
+    // if(int.parse(model.liveMsg!.type!) == 0){
+    //   // print("liveMsg-summary ${model.liveMsg?.richContent}");
+    //   // print("liveMsg-pics ${model.liveMsg?.pics!.length}");
+    //   return LiveListCell(model: model,);
+    // }
+    return LiveListCell(model: model,);
     return Container();
   }
 
